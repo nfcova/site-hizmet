@@ -76,21 +76,28 @@ textarea{height:90px;resize:none}
 .empty{text-align:center;padding:70px 15px;color:#888;font-size:13px}
 .empty b{font-size:40px;display:block;margin-bottom:12px}
 .account-box{background:#fff;border-radius:20px;padding:20px}
-.account-box h3{font-size:17px}.account-box p{color:#777;font-size:12px;margin-top:7px;line-height:1.6}
+.account-box h3{font-size:17px}
+.account-box p{color:#777;font-size:12px;margin-top:7px;line-height:1.6}
 .notice{background:#fff;border-radius:15px;padding:14px;font-size:11px;color:#777;margin-top:12px}
 </style>
 </head>
 
 <body>
 
-<!-- ANA SAYFA -->
 <div id="home" class="page active">
+
 <header class="header">
 <div class="top">
 <div class="logo">S</div>
-<div class="site"><small>SİTE HİZMET</small><strong>NOVA RESIDENCE</strong></div>
+
+<div class="site">
+<small>SİTE HİZMET</small>
+<strong>NOVA RESIDENCE</strong>
+</div>
+
 <div class="avatar">●</div>
 </div>
+
 <div class="greeting">
 <h1>Merhaba 👋</h1>
 <p>Bugün nasıl yardımcı olalım?</p>
@@ -98,7 +105,11 @@ textarea{height:90px;resize:none}
 </header>
 
 <div class="container">
-<div class="title"><h2>Hizmetler</h2><span>Hepsi sizin için</span></div>
+
+<div class="title">
+<h2>Hizmetler</h2>
+<span>Hepsi sizin için</span>
+</div>
 
 <div class="services">
 
@@ -129,158 +140,321 @@ textarea{height:90px;resize:none}
 </div>
 
 <div class="quick">
+
 <h3>⚡ Hızlı Hizmet</h3>
 <p>En çok kullanılan hizmetler</p>
 
 <div class="quick-row">
-<div><strong>Ev Temizliği</strong><br><span>Randevu oluştur</span></div>
-<button class="quick-btn" onclick="openService('cleaning')">Seç</button>
+<div>
+<strong>Ev Temizliği</strong><br>
+<span>Randevu oluştur</span>
+</div>
+
+<button class="quick-btn" onclick="openService('cleaning')">
+Seç
+</button>
 </div>
 
 <div class="quick-row">
-<div><strong>Araç Yıkama</strong><br><span>Otoparkınızda hizmet</span></div>
-<button class="quick-btn" onclick="openService('car')">Seç</button>
+<div>
+<strong>Araç Yıkama</strong><br>
+<span>Otoparkınızda hizmet</span>
+</div>
+
+<button class="quick-btn" onclick="openService('car')">
+Seç
+</button>
 </div>
 
 <div class="quick-row">
-<div><strong>Teknik Servis</strong><br><span>Usta talep et</span></div>
-<button class="quick-btn" onclick="openService('technical')">Seç</button>
+<div>
+<strong>Teknik Servis</strong><br>
+<span>Usta talep et</span>
 </div>
+
+<button class="quick-btn" onclick="openService('technical')">
+Seç
+</button>
+</div>
+
 </div>
 
 <div class="info">
 <strong>✓ Güvenilir hizmet</strong>
-<p>Site sakinleri için seçilmiş hizmet sağlayıcılarla kolay ve hızlı hizmet talebi.</p>
+<p>
+Site sakinleri için seçilmiş hizmet sağlayıcılarla kolay ve hızlı hizmet talebi.
+</p>
 </div>
+
 </div>
 </div>
 
 
-<!-- SİPARİŞLER -->
 <div id="ordersPage" class="page">
+
 <header class="header">
+
 <div class="top">
+
 <div class="logo">S</div>
-<div class="site"><small>SİTE HİZMET</small><strong>SİPARİŞLERİM</strong></div>
+
+<div class="site">
+<small>SİTE HİZMET</small>
+<strong>SİPARİŞLERİM</strong>
 </div>
+
+</div>
+
 </header>
+
 <div class="container">
-<div class="title"><h2>Siparişlerim</h2></div>
+
+<div class="title">
+<h2>Siparişlerim</h2>
+</div>
+
 <div id="orders"></div>
+
 </div>
+
 </div>
 
 
-<!-- HESABIM -->
 <div id="account" class="page">
+
 <header class="header">
+
 <div class="top">
+
 <div class="logo">S</div>
-<div class="site"><small>SİTE HİZMET</small><strong>HESABIM</strong></div>
+
+<div class="site">
+<small>SİTE HİZMET</small>
+<strong>HESABIM</strong>
 </div>
+
+</div>
+
 </header>
+
 <div class="container">
+
 <div class="account-box">
+
 <h3>👤 Site Sakini</h3>
-<p>Site sakinlerinin kişisel bilgileri ve hizmet geçmişi burada görüntülenecek.</p>
+
+<p>
+Site sakinlerinin kişisel bilgileri ve hizmet geçmişi burada görüntülenecek.
+</p>
+
 </div>
+
 <div class="notice">
 💡 Bir sonraki aşamada burada gerçek kullanıcı hesabı ve giriş sistemi oluşturacağız.
 </div>
+
 </div>
+
 </div>
 
 
-<!-- HİZMET MODALI -->
 <div id="overlay" class="overlay">
+
 <div class="sheet">
 
 <div class="sheet-head">
+
 <h2 id="serviceTitle">Hizmet</h2>
+
 <button class="close" onclick="closeModal()">×</button>
+
 </div>
 
-<!-- 1 -->
+
 <div id="step1" class="step active">
-<div class="step-info">1 / 4 — Hizmet detaylarını seçin</div>
-<div id="options" class="grid"></div>
-<button class="main" onclick="stepTwo()">Devam Et</button>
+
+<div class="step-info">
+1 / 4 — Hizmet detaylarını seçin
 </div>
 
-<!-- 2 -->
+<div id="options" class="grid"></div>
+
+<button class="main" onclick="stepTwo()">
+Devam Et
+</button>
+
+</div>
+
+
 <div id="step2" class="step">
-<div class="step-info">2 / 4 — Tarih ve saat</div>
+
+<div class="step-info">
+2 / 4 — Tarih ve saat
+</div>
 
 <label>Tarih</label>
+
 <input type="date" id="date">
 
 <label>Saat</label>
+
 <div class="times">
-<div class="time" onclick="pickTime(this,'09:00')">09:00</div>
-<div class="time" onclick="pickTime(this,'11:00')">11:00</div>
-<div class="time" onclick="pickTime(this,'13:00')">13:00</div>
-<div class="time" onclick="pickTime(this,'15:00')">15:00</div>
-<div class="time" onclick="pickTime(this,'17:00')">17:00</div>
-<div class="time" onclick="pickTime(this,'19:00')">19:00</div>
+
+<div class="time" onclick="pickTime(this,'09:00')">
+09:00
 </div>
 
-<button class="main" onclick="stepThree()">Devam Et</button>
-<button class="back" onclick="goStep(1)">← Geri</button>
+<div class="time" onclick="pickTime(this,'11:00')">
+11:00
 </div>
 
-<!-- 3 -->
+<div class="time" onclick="pickTime(this,'13:00')">
+13:00
+</div>
+
+<div class="time" onclick="pickTime(this,'15:00')">
+15:00
+</div>
+
+<div class="time" onclick="pickTime(this,'17:00')">
+17:00
+</div>
+
+<div class="time" onclick="pickTime(this,'19:00')">
+19:00
+</div>
+
+</div>
+
+<button class="main" onclick="stepThree()">
+Devam Et
+</button>
+
+<button class="back" onclick="goStep(1)">
+← Geri
+</button>
+
+</div>
+
+
 <div id="step3" class="step">
-<div class="step-info">3 / 4 — Adres ve iletişim</div>
+
+<div class="step-info">
+3 / 4 — Adres ve iletişim
+</div>
 
 <label>Blok</label>
-<input id="block" placeholder="Örn. B Blok">
+
+<input
+id="block"
+placeholder="Örn. B Blok"
+>
 
 <label>Daire No</label>
-<input id="apartment" placeholder="Örn. 24">
+
+<input
+id="apartment"
+placeholder="Örn. 24"
+>
 
 <label>Telefon</label>
-<input id="phone" type="tel" placeholder="05XX XXX XX XX">
+
+<input
+id="phone"
+type="tel"
+placeholder="05XX XXX XX XX"
+>
 
 <label>Ek açıklama</label>
-<textarea id="note" placeholder="Varsa belirtmek istediğiniz bir şey..."></textarea>
 
-<button class="main" onclick="showSummary()">Sipariş Özeti</button>
-<button class="back" onclick="goStep(2)">← Geri</button>
+<textarea
+id="note"
+placeholder="Varsa belirtmek istediğiniz bir şey..."
+></textarea>
+
+<button class="main" onclick="showSummary()">
+Sipariş Özeti
+</button>
+
+<button class="back" onclick="goStep(2)">
+← Geri
+</button>
+
 </div>
 
-<!-- 4 -->
+
 <div id="step4" class="step">
-<div class="step-info">4 / 4 — Sipariş özeti</div>
+
+<div class="step-info">
+4 / 4 — Sipariş özeti
+</div>
+
 <div class="summary" id="summary"></div>
-<button class="main" onclick="createOrder()">✓ Talep Oluştur</button>
-<button class="back" onclick="goStep(3)">← Geri</button>
+
+<button class="main" onclick="createOrder()">
+✓ Talep Oluştur
+</button>
+
+<button class="back" onclick="goStep(3)">
+← Geri
+</button>
+
 </div>
 
 </div>
+
 </div>
 
 
-<!-- ALT MENÜ -->
 <div class="bottom">
 
-<div class="nav active" onclick="showPage('home',this)">
-<b>⌂</b>Ana Sayfa
-</div>
+<div class="nav active"
+onclick="showPage('home',this)">
 
-<div class="nav" onclick="showPage('ordersPage',this);loadOrders()">
-<b>▣</b>Siparişlerim
-</div>
-
-<div class="nav" onclick="showPage('account',this)">
-<b>●</b>Hesabım
-</div>
+<b>⌂</b>
+Ana Sayfa
 
 </div>
 
+<div class="nav"
+onclick="showPage('ordersPage',this);loadOrders()">
+
+<b>▣</b>
+Siparişlerim
+
+</div>
+
+<div class="nav"
+onclick="showPage('account',this)">
+
+<b>●</b>
+Hesabım
+
+</div>
+
+</div>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
+const SUPABASE_URL =
+"https://ahvplyeunubpbtsdzldj.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_qF3PlPnw-g4dXeOiL-OSOw_LzKQ9kuO";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
 const services={
+
 cleaning:{
 title:"Ev Temizliği",
 icon:"🧹",
@@ -293,6 +467,7 @@ fields:[
 ["type","Detaylı Temizlik","Kapsamlı temizlik"]
 ]
 },
+
 technical:{
 title:"Teknik Servis",
 icon:"🔧",
@@ -304,6 +479,7 @@ fields:[
 ["problem","Diğer","Farklı bir teknik sorun"]
 ]
 },
+
 car:{
 title:"Araç Yıkama",
 icon:"🚗",
@@ -315,6 +491,7 @@ fields:[
 ["package","İç + Dış","İç ve dış temizlik"]
 ]
 },
+
 sofa:{
 title:"Koltuk Yıkama",
 icon:"🛋️",
@@ -326,28 +503,42 @@ fields:[
 ["item","Koltuk Takımı","Komple takım"]
 ]
 }
+
 };
+
 
 let currentService="";
 let selected={};
 
+
 function openService(type){
 
 currentService=type;
+
 selected={};
 
 const s=services[type];
 
-document.getElementById("serviceTitle").textContent=s.icon+" "+s.title;
+document.getElementById("serviceTitle").textContent=
+s.icon+" "+s.title;
 
 let html="";
 
-s.fields.forEach((f,i)=>{
+s.fields.forEach(f=>{
+
 html+=`
-<div class="option" onclick="selectField(this,'${f[0]}','${f[1]}')">
+
+<div class="option"
+onclick="selectField(this,'${f[0]}','${f[1]}')">
+
 <strong>${f[1]}</strong>
+
 <small>${f[2]}</small>
-</div>`;
+
+</div>
+
+`;
+
 });
 
 document.getElementById("options").innerHTML=html;
@@ -358,245 +549,514 @@ document.getElementById("overlay").style.display="flex";
 
 }
 
+
 function selectField(el,type,value){
 
-document.querySelectorAll(".option").forEach(x=>{
-if(x.parentElement===el.parentElement)x.classList.remove("selected");
+document
+.querySelectorAll(".option")
+.forEach(x=>{
+
+if(x.parentElement===el.parentElement){
+
+x.classList.remove("selected");
+
+}
+
 });
 
 el.classList.add("selected");
+
 selected[type]=value;
 
 }
 
+
 function stepTwo(){
 
 if(Object.keys(selected).length===0){
+
 alert("Lütfen bir seçenek seçin.");
+
 return;
+
 }
 
 goStep(2);
 
 }
 
+
 function stepThree(){
 
-const date=document.getElementById("date").value;
+const date=
+document.getElementById("date").value;
 
 if(!date){
+
 alert("Lütfen tarih seçin.");
+
 return;
+
 }
 
 if(!selected.time){
+
 alert("Lütfen saat seçin.");
+
 return;
+
 }
 
 goStep(3);
 
 }
 
+
 function pickTime(el,time){
 
-document.querySelectorAll(".time").forEach(x=>x.classList.remove("selected"));
+document
+.querySelectorAll(".time")
+.forEach(x=>x.classList.remove("selected"));
 
 el.classList.add("selected");
+
 selected.time=time;
 
 }
 
+
 function showSummary(){
 
-const block=document.getElementById("block").value.trim();
-const apartment=document.getElementById("apartment").value.trim();
-const phone=document.getElementById("phone").value.trim();
+const block=
+document.getElementById("block").value.trim();
+
+const apartment=
+document.getElementById("apartment").value.trim();
+
+const phone=
+document.getElementById("phone").value.trim();
 
 if(!block||!apartment||!phone){
-alert("Lütfen blok, daire ve telefon bilgilerini doldurun.");
+
+alert(
+"Lütfen blok, daire ve telefon bilgilerini doldurun."
+);
+
 return;
+
 }
 
 selected.block=block;
+
 selected.apartment=apartment;
+
 selected.phone=phone;
-selected.note=document.getElementById("note").value.trim();
-selected.date=document.getElementById("date").value;
+
+selected.note=
+document.getElementById("note").value.trim();
+
+selected.date=
+document.getElementById("date").value;
+
 
 let details="";
 
-Object.entries(selected).forEach(([key,value])=>{
 
-if(["block","apartment","phone","note","date","time"].includes(key))return;
+Object.entries(selected).forEach(
+([key,value])=>{
+
+if([
+"block",
+"apartment",
+"phone",
+"note",
+"date",
+"time"
+].includes(key))return;
 
 details+=`
+
 <div class="row">
+
 <span>${label(key)}</span>
+
 <strong>${value}</strong>
-</div>`;
-});
 
-details+=`
-<div class="row">
-<span>Tarih</span>
-<strong>${formatDate(selected.date)}</strong>
 </div>
 
-<div class="row">
-<span>Saat</span>
-<strong>${selected.time}</strong>
-</div>
-
-<div class="row">
-<span>Adres</span>
-<strong>${selected.block} / Daire ${selected.apartment}</strong>
-</div>
-
-<div class="row">
-<span>Telefon</span>
-<strong>${selected.phone}</strong>
-</div>
 `;
 
-if(selected.note){
+});
+
+
 details+=`
+
 <div class="row">
+
+<span>Tarih</span>
+
+<strong>
+${formatDate(selected.date)}
+</strong>
+
+</div>
+
+<div class="row">
+
+<span>Saat</span>
+
+<strong>
+${selected.time}
+</strong>
+
+</div>
+
+<div class="row">
+
+<span>Adres</span>
+
+<strong>
+${selected.block} / Daire ${selected.apartment}
+</strong>
+
+</div>
+
+<div class="row">
+
+<span>Telefon</span>
+
+<strong>
+${selected.phone}
+</strong>
+
+</div>
+
+`;
+
+
+if(selected.note){
+
+details+=`
+
+<div class="row">
+
 <span>Açıklama</span>
-<strong>${selected.note}</strong>
-</div>`;
+
+<strong>
+${selected.note}
+</strong>
+
+</div>
+
+`;
+
 }
 
-document.getElementById("summary").innerHTML=details;
+
+document.getElementById("summary").innerHTML=
+details;
 
 goStep(4);
 
 }
 
+
 function label(key){
 
 const labels={
+
 house:"Ev Tipi",
+
 type:"Temizlik",
+
 problem:"Arıza",
+
 vehicle:"Araç Tipi",
+
 package:"Yıkama",
+
 item:"Ürün"
+
 };
 
 return labels[key]||key;
 
 }
 
-function createOrder(){
 
-let orders=JSON.parse(localStorage.getItem("siteOrders")||"[]");
+/* ========================================
+   SUPABASE'E SİPARİŞ KAYDI
+======================================== */
+
+async function createOrder(){
+
+const button=
+document.querySelector("#step4 .main");
+
+button.disabled=true;
+
+button.textContent="Gönderiliyor...";
+
 
 const order={
-id:Date.now(),
-service:services[currentService].title,
-icon:services[currentService].icon,
-details:{...selected},
+
+service:
+services[currentService].title,
+
+customer_name:null,
+
+phone:
+selected.phone,
+
+block:
+selected.block,
+
+apartment:
+selected.apartment,
+
+service_date:
+selected.date,
+
+service_time:
+selected.time,
+
+details:{
+...selected,
+service_type:currentService
+},
+
+note:
+selected.note || null,
+
 status:"Beklemede"
+
 };
 
-orders.push(order);
 
-localStorage.setItem("siteOrders",JSON.stringify(orders));
+const {data,error}=
+await supabaseClient
+.from("orders")
+.insert([order])
+.select()
+.single();
 
-closeModal();
-loadOrders();
 
-alert("Talebiniz oluşturuldu! ✅");
+if(error){
 
-showPage("ordersPage",document.querySelectorAll(".nav")[1]);
+console.error(error);
 
-}
+button.disabled=false;
 
-function loadOrders(){
+button.textContent="✓ Talep Oluştur";
 
-const orders=JSON.parse(localStorage.getItem("siteOrders")||"[]");
-
-const box=document.getElementById("orders");
-
-if(!orders.length){
-
-box.innerHTML=`
-<div class="empty">
-<b>📦</b>
-Henüz siparişiniz yok.<br>
-Ana sayfadan bir hizmet seçebilirsiniz.
-</div>`;
+alert(
+"Talep oluşturulamadı.\n\n"+
+error.message
+);
 
 return;
 
 }
 
+
+/* LOCAL KAYIT */
+
+let orders=
+JSON.parse(
+localStorage.getItem("siteOrders")||"[]"
+);
+
+
+orders.push({
+
+id:
+data?.id || Date.now(),
+
+service:
+services[currentService].title,
+
+icon:
+services[currentService].icon,
+
+details:{
+...selected
+},
+
+status:
+"Beklemede"
+
+});
+
+
+localStorage.setItem(
+"siteOrders",
+JSON.stringify(orders)
+);
+
+
+button.disabled=false;
+
+button.textContent="✓ Talep Oluştur";
+
+closeModal();
+
+loadOrders();
+
+alert(
+"Talebiniz oluşturuldu! ✅"
+);
+
+showPage(
+"ordersPage",
+document.querySelectorAll(".nav")[1]
+);
+
+}
+
+
+function loadOrders(){
+
+const orders=
+JSON.parse(
+localStorage.getItem("siteOrders")||"[]"
+);
+
+const box=
+document.getElementById("orders");
+
+
+if(!orders.length){
+
+box.innerHTML=`
+
+<div class="empty">
+
+<b>📦</b>
+
+Henüz siparişiniz yok.<br>
+
+Ana sayfadan bir hizmet seçebilirsiniz.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
 box.innerHTML="";
+
 
 [...orders].reverse().forEach(o=>{
 
 let d=o.details;
 
 box.innerHTML+=`
+
 <div class="order">
 
 <div class="order-head">
-<strong>${o.icon} ${o.service}</strong>
-<span class="status">${o.status}</span>
+
+<strong>
+${o.icon} ${o.service}
+</strong>
+
+<span class="status">
+${o.status}
+</span>
+
 </div>
 
 <div class="order-info">
 
-📅 ${formatDate(d.date)} · 🕐 ${d.time}<br>
-🏢 ${d.block} · Daire ${d.apartment}<br>
+📅 ${formatDate(d.date)}
+· 🕐 ${d.time}
+
+<br>
+
+🏢 ${d.block}
+· Daire ${d.apartment}
+
+<br>
+
 📞 ${d.phone}
 
 </div>
 
-</div>`;
+</div>
+
+`;
 
 });
 
 }
 
+
 function formatDate(date){
 
 if(!date)return"-";
 
-return new Date(date+"T00:00:00").toLocaleDateString("tr-TR");
+return new Date(
+date+"T00:00:00"
+).toLocaleDateString("tr-TR");
 
 }
+
 
 function goStep(number){
 
-document.querySelectorAll(".step").forEach(x=>x.classList.remove("active"));
+document
+.querySelectorAll(".step")
+.forEach(x=>
+x.classList.remove("active")
+);
 
-document.getElementById("step"+number).classList.add("active");
+document
+.getElementById("step"+number)
+.classList.add("active");
 
 }
+
 
 function closeModal(){
 
-document.getElementById("overlay").style.display="none";
+document
+.getElementById("overlay")
+.style.display="none";
 
 }
 
+
 function showPage(id,el){
 
-document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+document
+.querySelectorAll(".page")
+.forEach(x=>
+x.classList.remove("active")
+);
 
-document.getElementById(id).classList.add("active");
+document
+.getElementById(id)
+.classList.add("active");
 
-document.querySelectorAll(".nav").forEach(x=>x.classList.remove("active"));
+document
+.querySelectorAll(".nav")
+.forEach(x=>
+x.classList.remove("active")
+);
 
-if(el)el.classList.add("active");
+if(el)
+el.classList.add("active");
 
 window.scrollTo(0,0);
 
 }
 
-document.getElementById("date").min=new Date().toISOString().split("T")[0];
+
+document.getElementById("date").min=
+new Date().toISOString().split("T")[0];
 
 loadOrders();
 
