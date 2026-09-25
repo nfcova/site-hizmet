@@ -833,7 +833,7 @@ status:"Beklemede"
 };
 
 
-const { error } = await supabaseClient
+const { data, error } = await supabaseClient
   .from("orders")
   .insert([order]);
 
