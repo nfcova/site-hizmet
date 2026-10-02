@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -10,6 +11,11 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
+/* =====================================================
+   GENEL
+===================================================== */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -26,10 +32,18 @@
     --border:#e9e9ef;
 }
 
-html,body{
+html,
+body{
     width:100%;
-    height:100%;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    min-height:100%;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
     background:#f2f2f5;
     color:var(--dark);
 }
@@ -38,9 +52,10 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
+
+/* =====================================================
    ONBOARDING
-========================= */
+===================================================== */
 
 #onboarding{
     position:fixed;
@@ -63,17 +78,25 @@ body{
     padding:48px 24px 24px;
 }
 
+
+/* =====================================================
+   LOGO
+===================================================== */
+
 .logo-area{
     text-align:center;
     position:relative;
     z-index:3;
 }
 
+/* GERÇEK PNG LOGO */
+
 .logo-symbol{
     width:108px;
     height:108px;
     margin:0 auto 10px;
     display:block;
+    object-fit:contain;
 }
 
 .brand-name{
@@ -84,10 +107,6 @@ body{
     color:#11121a;
 }
 
-.brand-name .a{
-    letter-spacing:-3px;
-}
-
 .tagline{
     margin-top:12px;
     font-size:12px;
@@ -95,6 +114,11 @@ body{
     font-weight:500;
     color:#555765;
 }
+
+
+/* =====================================================
+   INTRO
+===================================================== */
 
 .intro-text{
     text-align:center;
@@ -108,9 +132,10 @@ body{
     z-index:3;
 }
 
-/* =========================
-   SKETCH SITE
-========================= */
+
+/* =====================================================
+   KARAKALEM SITE ÇİZİMİ
+===================================================== */
 
 .sketch-area{
     position:absolute;
@@ -129,8 +154,6 @@ body{
     height:100%;
     bottom:0;
 }
-
-/* Binalar */
 
 .building{
     fill:#fafafa;
@@ -169,9 +192,10 @@ body{
     stroke-width:1.5;
 }
 
-/* =========================
-   BUTTON
-========================= */
+
+/* =====================================================
+   İLERİ BUTONU
+===================================================== */
 
 .next-btn{
     position:absolute;
@@ -179,15 +203,26 @@ body{
     right:24px;
     bottom:112px;
     height:62px;
+
     border:0;
     border-radius:32px;
-    background:linear-gradient(135deg,var(--purple2),var(--purple));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple2),
+            var(--purple)
+        );
+
     color:#fff;
+
     font-size:19px;
     font-weight:700;
     letter-spacing:.2px;
+
     box-shadow:
         0 12px 28px rgba(103,53,232,.24);
+
     z-index:5;
     cursor:pointer;
 }
@@ -198,9 +233,10 @@ body{
     vertical-align:-2px;
 }
 
-/* =========================
-   FEATURES
-========================= */
+
+/* =====================================================
+   ÖZELLİKLER
+===================================================== */
 
 .features{
     position:absolute;
@@ -208,8 +244,13 @@ body{
     right:20px;
     bottom:22px;
     height:70px;
+
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
     z-index:5;
 }
 
@@ -224,11 +265,14 @@ body{
 
 .feature:not(:last-child)::after{
     content:"";
+
     position:absolute;
     right:0;
     top:8px;
+
     width:1px;
     height:48px;
+
     background:#dddde4;
 }
 
@@ -246,9 +290,10 @@ body{
     font-weight:500;
 }
 
-/* =========================
-   MAIN APP
-========================= */
+
+/* =====================================================
+   ANA UYGULAMA
+===================================================== */
 
 #app{
     display:none;
@@ -256,6 +301,11 @@ body{
     background:#f7f7fa;
     padding-bottom:80px;
 }
+
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .app-header{
     background:#fff;
@@ -275,9 +325,14 @@ body{
     gap:11px;
 }
 
+
+/* GERÇEK PNG KÜÇÜK LOGO */
+
 .mini-logo{
     width:42px;
     height:42px;
+    object-fit:contain;
+    display:block;
 }
 
 .header-text small{
@@ -296,14 +351,20 @@ body{
     width:42px;
     height:42px;
     border-radius:50%;
+
     background:#f5f3ff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:var(--purple);
 }
 
-/* HOME */
+
+/* =====================================================
+   ANA SAYFA
+===================================================== */
 
 .home-content{
     padding:22px 18px;
@@ -324,15 +385,25 @@ body{
     font-size:15px;
 }
 
+
+/* =====================================================
+   ARAMA
+===================================================== */
+
 .search{
     height:50px;
     background:#fff;
+
     border:1px solid #ededf1;
     border-radius:16px;
+
     display:flex;
     align-items:center;
+
     padding:0 16px;
+
     color:#92939d;
+
     margin-bottom:20px;
 }
 
@@ -341,7 +412,10 @@ body{
     font-size:14px;
 }
 
-/* SERVICE CARDS */
+
+/* =====================================================
+   HİZMETLER
+===================================================== */
 
 .services-title{
     display:flex;
@@ -369,11 +443,15 @@ body{
 
 .service-card{
     background:#fff;
+
     border:1px solid #ededf1;
     border-radius:20px;
+
     padding:17px;
     min-height:160px;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
@@ -384,11 +462,15 @@ body{
 .service-icon{
     width:48px;
     height:48px;
+
     border-radius:15px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:25px;
+
     margin-bottom:12px;
 }
 
@@ -419,29 +501,48 @@ body{
     color:#777986;
 }
 
-/* PROMO */
+
+/* =====================================================
+   PROMO
+===================================================== */
 
 .promo{
     margin-top:16px;
+
     min-height:135px;
+
     border-radius:22px;
+
     padding:22px;
+
     color:#fff;
+
     background:
-        linear-gradient(110deg,#4720ba,#7441ed);
+        linear-gradient(
+            110deg,
+            #4720ba,
+            #7441ed
+        );
+
     position:relative;
     overflow:hidden;
 }
 
 .promo::after{
     content:"";
+
     position:absolute;
+
     width:190px;
     height:190px;
+
     border-radius:50%;
+
     right:-70px;
     top:-70px;
-    background:rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.08);
 }
 
 .promo h3{
@@ -456,30 +557,46 @@ body{
     max-width:230px;
 }
 
-/* BOTTOM NAV */
+
+/* =====================================================
+   ALT MENÜ
+===================================================== */
 
 .bottom-nav{
     position:fixed;
+
     left:0;
     right:0;
     bottom:0;
+
     height:70px;
-    background:rgba(255,255,255,.96);
+
+    background:
+        rgba(255,255,255,.96);
+
     backdrop-filter:blur(16px);
+
     border-top:1px solid #e9e9ef;
+
     display:flex;
+
     z-index:100;
 }
 
 .nav-item{
     flex:1;
+
     border:0;
     background:none;
+
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
     gap:4px;
+
     color:#858691;
     font-size:11px;
 }
@@ -493,16 +610,23 @@ body{
     font-size:22px;
 }
 
-/* =========================
+
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
 .modal{
     position:fixed;
+
     inset:0;
-    background:rgba(15,15,22,.48);
+
+    background:
+        rgba(15,15,22,.48);
+
     z-index:500;
+
     display:none;
+
     align-items:flex-end;
 }
 
@@ -512,27 +636,48 @@ body{
 
 .sheet{
     width:100%;
+
     max-height:92vh;
+
     overflow-y:auto;
+
     background:#fff;
-    border-radius:28px 28px 0 0;
-    padding:22px 20px 30px;
-    animation:up .25s ease;
+
+    border-radius:
+        28px
+        28px
+        0
+        0;
+
+    padding:
+        22px
+        20px
+        30px;
+
+    animation:
+        up .25s ease;
 }
 
 @keyframes up{
+
     from{
-        transform:translateY(100%);
+        transform:
+            translateY(100%);
     }
+
     to{
-        transform:translateY(0);
+        transform:
+            translateY(0);
     }
+
 }
 
 .sheet-head{
     display:flex;
+
     justify-content:space-between;
     align-items:center;
+
     margin-bottom:22px;
 }
 
@@ -543,9 +688,13 @@ body{
 .close{
     width:38px;
     height:38px;
+
     border:0;
+
     border-radius:50%;
+
     background:#f3f3f7;
+
     font-size:20px;
 }
 
@@ -555,21 +704,35 @@ body{
 
 .form-group label{
     display:block;
+
     font-size:13px;
+
     font-weight:650;
+
     margin-bottom:7px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
+
     width:100%;
-    border:1px solid #dedee6;
+
+    border:
+        1px solid #dedee6;
+
     border-radius:13px;
+
     height:48px;
-    padding:0 13px;
+
+    padding:
+        0
+        13px;
+
     font-size:15px;
+
     outline:none;
+
     background:#fff;
 }
 
@@ -581,20 +744,31 @@ body{
 
 .option-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
     gap:10px;
 }
 
 .option{
-    border:1.5px solid #e2e2e9;
+    border:
+        1.5px solid #e2e2e9;
+
     border-radius:14px;
+
     padding:14px;
+
     cursor:pointer;
 }
 
 .option.selected{
-    border-color:var(--purple);
-    background:#f5f2ff;
+    border-color:
+        var(--purple);
+
+    background:
+        #f5f2ff;
 }
 
 .option strong{
@@ -608,31 +782,55 @@ body{
 
 .primary{
     width:100%;
+
     height:55px;
+
     border:0;
+
     border-radius:28px;
-    background:linear-gradient(135deg,var(--purple2),var(--purple));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple2),
+            var(--purple)
+        );
+
     color:#fff;
+
     font-size:16px;
     font-weight:700;
+
     margin-top:8px;
 }
 
-/* =========================
+
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
 .toast{
     position:fixed;
+
     left:18px;
     right:18px;
+
     bottom:88px;
+
     background:#171820;
+
     color:#fff;
-    padding:15px 18px;
+
+    padding:
+        15px
+        18px;
+
     border-radius:14px;
+
     font-size:14px;
+
     z-index:1000;
+
     display:none;
 }
 
@@ -640,9 +838,10 @@ body{
     display:block;
 }
 
-/* =========================
-   MOBILE
-========================= */
+
+/* =====================================================
+   KÜÇÜK TELEFONLAR
+===================================================== */
 
 @media(max-height:720px){
 
@@ -682,11 +881,44 @@ body{
     .features{
         bottom:14px;
     }
+
 }
+
+
+/* =====================================================
+   ÇOK KÜÇÜK EKRANLAR
+===================================================== */
+
+@media(max-width:360px){
+
+    .brand-name{
+        font-size:31px;
+    }
+
+    .tagline{
+        font-size:8px;
+    }
+
+    .intro-text{
+        font-size:16px;
+    }
+
+    .service-card{
+        padding:14px;
+    }
+
+    .service-card h3{
+        font-size:15px;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      ONBOARDING
@@ -696,52 +928,15 @@ body{
 
     <div class="onboarding-inner">
 
+
+        <!-- LOGO -->
+
         <div class="logo-area">
 
-            <!-- BAKSANA LOGO -->
-            <svg class="logo-symbol"
-                 viewBox="0 0 120 120"
-                 xmlns="http://www.w3.org/2000/svg">
-
-                <defs>
-                    <linearGradient id="logoGradient"
-                                    x1="0"
-                                    y1="0"
-                                    x2="1"
-                                    y2="1">
-                        <stop offset="0%" stop-color="#8055F5"/>
-                        <stop offset="100%" stop-color="#5630D9"/>
-                    </linearGradient>
-                </defs>
-
-                <path
-                    d="M34 14
-                       C27 14 23 19 23 26
-                       L23 76
-                       C23 86 27 94 35 98
-                       L48 88
-                       L48 39
-                       C48 31 44 26 39 23
-                       Z"
-                    fill="url(#logoGradient)"/>
-
-                <circle
-                    cx="72"
-                    cy="39"
-                    r="13"
-                    fill="url(#logoGradient)"/>
-
-                <path
-                    d="M46 82
-                       C56 90 68 91 79 85
-                       C89 79 95 69 97 57
-                       C88 67 78 73 67 73
-                       C58 73 51 69 45 64
-                       L39 76
-                       Z"
-                    fill="url(#logoGradient)"/>
-
-            </svg>
+            <img
+                class="logo-symbol"
+                src="baksana-logo-cropped.png"
+                alt="BAKSANA">
 
             <div class="brand-name">
                 BAKSANA
@@ -753,179 +948,541 @@ body{
 
         </div>
 
+
+        <!-- AÇIKLAMA -->
+
         <div class="intro-text">
+
             Sitenizde ihtiyacınız olan<br>
+
             hizmetlere birkaç dokunuşla<br>
+
             ulaşın.
+
         </div>
 
-        <!-- KARAKALEM SITE ÇİZİMİ -->
+
+        <!-- KARAKALEM SİTE -->
+
         <div class="sketch-area">
 
-            <svg class="sketch"
-                 viewBox="0 0 500 360"
-                 preserveAspectRatio="xMidYMax meet"
-                 xmlns="http://www.w3.org/2000/svg">
+            <svg
+                class="sketch"
+                viewBox="0 0 500 360"
+                preserveAspectRatio="xMidYMax meet"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
 
                 <!-- SOL BİNA -->
+
                 <polygon
                     class="building"
-                    points="0,135 95,95 145,125 145,300 0,300"/>
+                    points="
+                        0,135
+                        95,95
+                        145,125
+                        145,300
+                        0,300
+                    "
+                />
 
-                <!-- SOL BALKONLAR -->
-                <path class="window" d="M20 145 L45 135 L45 165 L20 175 Z"/>
-                <path class="window" d="M58 130 L83 120 L83 150 L58 160"/>
-                <path class="window" d="M95 145 L120 136 L120 166 L95 176"/>
 
-                <path class="window" d="M20 190 L45 180 L45 215 L20 225"/>
-                <path class="window" d="M58 175 L83 165 L83 200 L58 210"/>
-                <path class="window" d="M95 190 L120 180 L120 215 L95 225"/>
+                <!-- SOL PENCERELER -->
+
+                <path
+                    class="window"
+                    d="
+                        M20 145
+                        L45 135
+                        L45 165
+                        L20 175
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M58 130
+                        L83 120
+                        L83 150
+                        L58 160
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M95 145
+                        L120 136
+                        L120 166
+                        L95 176
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M20 190
+                        L45 180
+                        L45 215
+                        L20 225
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M58 175
+                        L83 165
+                        L83 200
+                        L58 210
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M95 190
+                        L120 180
+                        L120 215
+                        L95 225
+                        Z
+                    "
+                />
+
 
                 <!-- SAĞ BİNA -->
+
                 <polygon
                     class="building-dark"
-                    points="355,120 410,88 500,125 500,300 355,300"/>
+                    points="
+                        355,120
+                        410,88
+                        500,125
+                        500,300
+                        355,300
+                    "
+                />
 
-                <path class="window" d="M375 132 L400 118 L400 151 L375 165"/>
-                <path class="window" d="M420 110 L447 122 L447 154 L420 143"/>
-                <path class="window" d="M465 130 L490 140 L490 172 L465 161"/>
 
-                <path class="window" d="M375 180 L400 166 L400 202 L375 216"/>
-                <path class="window" d="M420 160 L447 172 L447 207 L420 196"/>
-                <path class="window" d="M465 182 L490 192 L490 226 L465 216"/>
+                <!-- SAĞ PENCERELER -->
 
-                <path class="window" d="M375 230 L400 216 L400 253 L375 267"/>
-                <path class="window" d="M420 210 L447 222 L447 258 L420 247"/>
+                <path
+                    class="window"
+                    d="
+                        M375 132
+                        L400 118
+                        L400 151
+                        L375 165
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M420 110
+                        L447 122
+                        L447 154
+                        L420 143
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M465 130
+                        L490 140
+                        L490 172
+                        L465 161
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M375 180
+                        L400 166
+                        L400 202
+                        L375 216
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M420 160
+                        L447 172
+                        L447 207
+                        L420 196
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M465 182
+                        L490 192
+                        L490 226
+                        L465 216
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M375 230
+                        L400 216
+                        L400 253
+                        L375 267
+                        Z
+                    "
+                />
+
+                <path
+                    class="window"
+                    d="
+                        M420 210
+                        L447 222
+                        L447 258
+                        L420 247
+                        Z
+                    "
+                />
+
 
                 <!-- UZAK BİNALAR -->
-                <polygon
-                    class="building"
-                    points="115,180 160,155 195,172 195,285 115,285"/>
 
                 <polygon
                     class="building"
-                    points="305,180 340,158 375,176 375,285 305,285"/>
+                    points="
+                        115,180
+                        160,155
+                        195,172
+                        195,285
+                        115,285
+                    "
+                />
 
-                <!-- YOL -->
+                <polygon
+                    class="building"
+                    points="
+                        305,180
+                        340,158
+                        375,176
+                        375,285
+                        305,285
+                    "
+                />
+
+
+                <!-- YOLLAR -->
+
                 <path
                     class="path"
-                    d="M250 190
-                       C245 230 220 270 170 350"/>
+                    d="
+                        M250 190
+                        C245 230
+                        220 270
+                        170 350
+                    "
+                />
 
                 <path
                     class="path"
-                    d="M250 190
-                       C255 230 280 270 330 350"/>
+                    d="
+                        M250 190
+                        C255 230
+                        280 270
+                        330 350
+                    "
+                />
 
-                <!-- MERKEZ YOL -->
                 <path
                     class="path"
-                    d="M250 190 L250 360"/>
+                    d="
+                        M250 190
+                        L250 360
+                    "
+                />
 
-                <!-- GİRİŞ KAPISI -->
+
+                <!-- GİRİŞ -->
+
                 <path
                     class="gate"
-                    d="M190 205
-                       L250 175
-                       L310 205
-                       M210 200
-                       L210 230
-                       M290 200
-                       L290 230"/>
+                    d="
+                        M190 205
+                        L250 175
+                        L310 205
 
-                <!-- AĞAÇLAR -->
-                <path class="tree"
-                      d="M78 285 L78 225
-                         M55 235
-                         C55 210 78 205 90 225
-                         C105 198 130 220 122 242
-                         C138 248 130 275 106 270
-                         C96 289 67 286 78 285"/>
+                        M210 200
+                        L210 230
 
-                <path class="tree"
-                      d="M430 290 L430 225
-                         M407 238
-                         C400 215 422 203 438 222
-                         C450 198 477 215 470 240
-                         C490 250 476 274 455 269
-                         C448 290 420 286 430 290"/>
+                        M290 200
+                        L290 230
+                    "
+                />
 
-                <path class="tree"
-                      d="M150 310 L150 270
-                         M130 276
-                         C125 256 145 246 158 263
-                         C170 245 190 260 184 280
-                         C198 288 180 305 164 298
-                         C160 313 143 313 150 310"/>
 
-                <path class="tree"
-                      d="M350 310 L350 270
-                         M330 276
-                         C325 256 345 246 358 263
-                         C370 245 390 260 384 280
-                         C398 288 380 305 364 298
-                         C360 313 343 313 350 310"/>
+                <!-- SOL AĞAÇ -->
 
-                <!-- ZEMİN ÇİZGİLERİ -->
-                <path class="path" d="M0 320 L500 320"/>
-                <path class="path" d="M30 340 L470 340"/>
+                <path
+                    class="tree"
+                    d="
+                        M78 285
+                        L78 225
+
+                        M55 235
+                        C55 210 78 205 90 225
+                        C105 198 130 220 122 242
+                        C138 248 130 275 106 270
+                        C96 289 67 286 78 285
+                    "
+                />
+
+
+                <!-- SAĞ AĞAÇ -->
+
+                <path
+                    class="tree"
+                    d="
+                        M430 290
+                        L430 225
+
+                        M407 238
+                        C400 215 422 203 438 222
+                        C450 198 477 215 470 240
+                        C490 250 476 274 455 269
+                        C448 290 420 286 430 290
+                    "
+                />
+
+
+                <!-- SOL KÜÇÜK AĞAÇ -->
+
+                <path
+                    class="tree"
+                    d="
+                        M150 310
+                        L150 270
+
+                        M130 276
+                        C125 256 145 246 158 263
+                        C170 245 190 260 184 280
+                        C198 288 180 305 164 298
+                        C160 313 143 313 150 310
+                    "
+                />
+
+
+                <!-- SAĞ KÜÇÜK AĞAÇ -->
+
+                <path
+                    class="tree"
+                    d="
+                        M350 310
+                        L350 270
+
+                        M330 276
+                        C325 256 345 246 358 263
+                        C370 245 390 260 384 280
+                        C398 288 380 305 364 298
+                        C360 313 343 313 350 310
+                    "
+                />
+
+
+                <!-- ZEMİN -->
+
+                <path
+                    class="path"
+                    d="M0 320 L500 320"
+                />
+
+                <path
+                    class="path"
+                    d="M30 340 L470 340"
+                />
 
             </svg>
 
         </div>
 
-        <button class="next-btn" onclick="startApp()">
-            İLERİ <span>→</span>
+
+        <!-- İLERİ -->
+
+        <button
+            class="next-btn"
+            onclick="startApp()"
+        >
+
+            İLERİ
+            <span>→</span>
+
         </button>
+
+
+        <!-- ÖZELLİKLER -->
 
         <div class="features">
 
+
+            <!-- 1 -->
+
             <div class="feature">
-                <svg class="feature-icon"
-                     viewBox="0 0 32 32"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="2">
-                    <path d="M16 3 L27 7 V14 C27 22 22 27 16 29 C10 27 5 22 5 14 V7 Z"/>
-                    <path d="M11 16 L14 19 L21 12"/>
+
+                <svg
+                    class="feature-icon"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+
+                    <path
+                        d="
+                            M16 3
+                            L27 7
+                            V14
+                            C27 22 22 27 16 29
+                            C10 27 5 22 5 14
+                            V7
+                            Z
+                        "
+                    />
+
+                    <path
+                        d="
+                            M11 16
+                            L14 19
+                            L21 12
+                        "
+                    />
+
                 </svg>
 
+
                 <div class="feature-title">
-                    Güvenilir<br>hizmet
+
+                    Güvenilir<br>
+                    hizmet
+
                 </div>
+
             </div>
 
+
+            <!-- 2 -->
+
             <div class="feature">
-                <svg class="feature-icon"
-                     viewBox="0 0 32 32"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="2">
-                    <path d="M18 2 L7 18 H15 L13 30 L25 13 H17 Z"/>
+
+                <svg
+                    class="feature-icon"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+
+                    <path
+                        d="
+                            M18 2
+                            L7 18
+                            H15
+                            L13 30
+                            L25 13
+                            H17
+                            Z
+                        "
+                    />
+
                 </svg>
 
+
                 <div class="feature-title">
-                    Kolay<br>sipariş
+
+                    Kolay<br>
+                    sipariş
+
                 </div>
+
             </div>
 
+
+            <!-- 3 -->
+
             <div class="feature">
-                <svg class="feature-icon"
-                     viewBox="0 0 32 32"
-                     fill="none"
-                     stroke="currentColor"
-                     stroke-width="2">
-                    <circle cx="16" cy="9" r="4"/>
-                    <circle cx="7" cy="13" r="3"/>
-                    <circle cx="25" cy="13" r="3"/>
-                    <path d="M9 27 C9 20 12 17 16 17 C20 17 23 20 23 27"/>
-                    <path d="M2 27 C2 22 4 19 7 19"/>
-                    <path d="M30 27 C30 22 28 19 25 19"/>
+
+                <svg
+                    class="feature-icon"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+
+                    <circle
+                        cx="16"
+                        cy="9"
+                        r="4"
+                    />
+
+                    <circle
+                        cx="7"
+                        cy="13"
+                        r="3"
+                    />
+
+                    <circle
+                        cx="25"
+                        cy="13"
+                        r="3"
+                    />
+
+                    <path
+                        d="
+                            M9 27
+                            C9 20 12 17 16 17
+                            C20 17 23 20 23 27
+                        "
+                    />
+
+                    <path
+                        d="
+                            M2 27
+                            C2 22 4 19 7 19
+                        "
+                    />
+
+                    <path
+                        d="
+                            M30 27
+                            C30 22 28 19 25 19
+                        "
+                    />
+
                 </svg>
 
+
                 <div class="feature-title">
-                    Site sakinlerine<br>özel
+
+                    Site sakinlerine<br>
+                    özel
+
                 </div>
+
             </div>
 
         </div>
@@ -941,83 +1498,126 @@ body{
 
 <section id="app">
 
+
+    <!-- HEADER -->
+
     <header class="app-header">
 
         <div class="header-top">
 
+
             <div class="header-brand">
 
-                <svg class="mini-logo"
-                     viewBox="0 0 120 120">
 
-                    <defs>
-                        <linearGradient id="miniGradient"
-                                        x1="0"
-                                        y1="0"
-                                        x2="1"
-                                        y2="1">
-                            <stop offset="0%" stop-color="#8055F5"/>
-                            <stop offset="100%" stop-color="#5630D9"/>
-                        </linearGradient>
-                    </defs>
+                <!-- GERÇEK PNG -->
 
-                    <path
-                        d="M34 14 C27 14 23 19 23 26 L23 76 C23 86 27 94 35 98 L48 88 L48 39 C48 31 44 26 39 23 Z"
-                        fill="url(#miniGradient)"/>
+                <img
+                    class="mini-logo"
+                    src="baksana-logo-cropped.png"
+                    alt="BAKSANA"
+                >
 
-                    <circle cx="72" cy="39" r="13"
-                            fill="url(#miniGradient)"/>
-
-                    <path
-                        d="M46 82 C56 90 68 91 79 85 C89 79 95 69 97 57 C88 67 78 73 67 73 C58 73 51 69 45 64 L39 76 Z"
-                        fill="url(#miniGradient)"/>
-                </svg>
 
                 <div class="header-text">
-                    <small>BAKSANA</small>
-                    <strong>NOVA RESIDENCE</strong>
+
+                    <small>
+                        BAKSANA
+                    </small>
+
+                    <strong>
+                        NOVA RESIDENCE
+                    </strong>
+
                 </div>
 
             </div>
 
+
             <div class="notification">
                 🔔
             </div>
+
 
         </div>
 
     </header>
 
 
+    <!-- ANA İÇERİK -->
+
     <main class="home-content">
 
+
         <div class="hello">
-            <h1>Merhaba 👋</h1>
-            <p>Bugün sizin için ne yapabiliriz?</p>
+
+            <h1>
+                Merhaba 👋
+            </h1>
+
+            <p>
+                Bugün sizin için ne yapabiliriz?
+            </p>
+
         </div>
+
+
+        <!-- ARAMA -->
 
         <div class="search">
+
             🔍
-            <span>Hizmet ara...</span>
+
+            <span>
+                Hizmet ara...
+            </span>
+
         </div>
 
+
+        <!-- HİZMET BAŞLIK -->
+
         <div class="services-title">
-            <h2>Hizmetler</h2>
-            <button onclick="showToast('Tüm hizmetler yakında burada.')">
+
+            <h2>
+                Hizmetler
+            </h2>
+
+            <button
+                onclick="
+                    showToast(
+                        'Tüm hizmetler yakında burada.'
+                    )
+                "
+            >
                 Tümü →
             </button>
+
         </div>
+
+
+        <!-- HİZMETLER -->
 
         <div class="services-grid">
 
-            <div class="service-card"
-                 onclick="openService('Ev Temizliği')">
+
+            <!-- TEMİZLİK -->
+
+            <div
+                class="service-card"
+                onclick="
+                    openService(
+                        'Ev Temizliği'
+                    )
+                "
+            >
 
                 <div class="service-icon cleaning">
                     🧹
                 </div>
 
-                <h3>Ev Temizliği</h3>
+                <h3>
+                    Ev Temizliği
+                </h3>
 
                 <p>
                     Profesyonel ekiplerle
@@ -1027,14 +1627,24 @@ body{
             </div>
 
 
-            <div class="service-card"
-                 onclick="openService('Teknik Servis')">
+            <!-- TEKNİK -->
+
+            <div
+                class="service-card"
+                onclick="
+                    openService(
+                        'Teknik Servis'
+                    )
+                "
+            >
 
                 <div class="service-icon technical">
                     🔧
                 </div>
 
-                <h3>Teknik Servis</h3>
+                <h3>
+                    Teknik Servis
+                </h3>
 
                 <p>
                     Elektrik, tesisat ve
@@ -1044,14 +1654,24 @@ body{
             </div>
 
 
-            <div class="service-card"
-                 onclick="openService('Araç Yıkama')">
+            <!-- ARAÇ -->
+
+            <div
+                class="service-card"
+                onclick="
+                    openService(
+                        'Araç Yıkama'
+                    )
+                "
+            >
 
                 <div class="service-icon car">
                     🚗
                 </div>
 
-                <h3>Araç Yıkama</h3>
+                <h3>
+                    Araç Yıkama
+                </h3>
 
                 <p>
                     Aracınızı otoparkınızda
@@ -1061,14 +1681,24 @@ body{
             </div>
 
 
-            <div class="service-card"
-                 onclick="openService('Koltuk Yıkama')">
+            <!-- KOLTUK -->
+
+            <div
+                class="service-card"
+                onclick="
+                    openService(
+                        'Koltuk Yıkama'
+                    )
+                "
+            >
 
                 <div class="service-icon sofa">
                     🛋️
                 </div>
 
-                <h3>Koltuk Yıkama</h3>
+                <h3>
+                    Koltuk Yıkama
+                </h3>
 
                 <p>
                     Koltuk ve yataklarınız
@@ -1077,39 +1707,76 @@ body{
 
             </div>
 
+
         </div>
 
 
+        <!-- PROMO -->
+
         <div class="promo">
-            <h3>Daha konforlu bir site yaşamı.</h3>
+
+            <h3>
+                Daha konforlu
+                bir site yaşamı.
+            </h3>
+
             <p>
                 İhtiyacınız olan hizmetlere
                 birkaç dokunuşla ulaşın.
             </p>
+
         </div>
+
 
     </main>
 
 
+    <!-- ALT MENÜ -->
+
     <nav class="bottom-nav">
 
-        <button class="nav-item active"
-                onclick="showHome()">
-            <span class="nav-icon">⌂</span>
+
+        <button
+            class="nav-item active"
+            onclick="showHome()"
+        >
+
+            <span class="nav-icon">
+                ⌂
+            </span>
+
             Ana Sayfa
+
         </button>
 
-        <button class="nav-item"
-                onclick="showOrders()">
-            <span class="nav-icon">▤</span>
+
+        <button
+            class="nav-item"
+            onclick="showOrders()"
+        >
+
+            <span class="nav-icon">
+                ▤
+            </span>
+
             Siparişlerim
+
         </button>
 
-        <button class="nav-item"
-                onclick="showAccount()">
-            <span class="nav-icon">♙</span>
+
+        <button
+            class="nav-item"
+            onclick="showAccount()"
+        >
+
+            <span class="nav-icon">
+                ♙
+            </span>
+
             Hesabım
+
         </button>
+
 
     </nav>
 
@@ -1117,12 +1784,16 @@ body{
 
 
 <!-- =====================================================
-     SERVICE MODAL
+     HİZMET MODALI
 ===================================================== -->
 
-<div class="modal" id="serviceModal">
+<div
+    class="modal"
+    id="serviceModal"
+>
 
     <div class="sheet">
+
 
         <div class="sheet-head">
 
@@ -1130,112 +1801,183 @@ body{
                 Hizmet
             </h2>
 
-            <button class="close"
-                    onclick="closeService()">
+            <button
+                class="close"
+                onclick="closeService()"
+            >
                 ×
             </button>
 
         </div>
 
 
+        <!-- SEÇENEK -->
+
         <div class="form-group">
 
-            <label>Hizmet seçeneği</label>
+            <label>
+                Hizmet seçeneği
+            </label>
 
-            <div class="option-grid"
-                 id="options">
-
+            <div
+                class="option-grid"
+                id="options"
+            >
             </div>
 
         </div>
 
 
+        <!-- TARİH -->
+
         <div class="form-group">
 
-            <label>Tarih</label>
+            <label>
+                Tarih
+            </label>
 
             <input
                 type="date"
-                id="serviceDate">
+                id="serviceDate"
+            >
 
         </div>
 
 
+        <!-- SAAT -->
+
         <div class="form-group">
 
-            <label>Saat</label>
+            <label>
+                Saat
+            </label>
 
-            <select id="serviceTime">
+            <select
+                id="serviceTime"
+            >
 
-                <option value="">Saat seçin</option>
-                <option>09:00</option>
-                <option>11:00</option>
-                <option>13:00</option>
-                <option>15:00</option>
-                <option>17:00</option>
-                <option>19:00</option>
+                <option value="">
+                    Saat seçin
+                </option>
+
+                <option>
+                    09:00
+                </option>
+
+                <option>
+                    11:00
+                </option>
+
+                <option>
+                    13:00
+                </option>
+
+                <option>
+                    15:00
+                </option>
+
+                <option>
+                    17:00
+                </option>
+
+                <option>
+                    19:00
+                </option>
 
             </select>
 
         </div>
 
 
+        <!-- BLOK -->
+
         <div class="form-group">
 
-            <label>Blok</label>
+            <label>
+                Blok
+            </label>
 
             <input
                 id="block"
-                placeholder="Örn. B Blok">
+                placeholder="Örn. B Blok"
+            >
 
         </div>
 
 
+        <!-- DAİRE -->
+
         <div class="form-group">
 
-            <label>Daire</label>
+            <label>
+                Daire
+            </label>
 
             <input
                 id="apartment"
-                placeholder="Örn. 24">
+                placeholder="Örn. 24"
+            >
 
         </div>
 
 
+        <!-- TELEFON -->
+
         <div class="form-group">
 
-            <label>Telefon</label>
+            <label>
+                Telefon
+            </label>
 
             <input
                 id="phone"
                 type="tel"
-                placeholder="05XX XXX XX XX">
+                placeholder="05XX XXX XX XX"
+            >
 
         </div>
 
+
+        <!-- NOT -->
 
         <div class="form-group">
 
-            <label>Not</label>
+            <label>
+                Not
+            </label>
 
             <textarea
                 id="note"
-                placeholder="Eklemek istediğiniz bir şey var mı?"></textarea>
+                placeholder="Eklemek istediğiniz bir şey var mı?"
+            ></textarea>
 
         </div>
 
 
-        <button class="primary"
-                onclick="createOrder()">
+        <!-- SİPARİŞ -->
+
+        <button
+            class="primary"
+            onclick="createOrder()"
+        >
+
             Talep Oluştur →
+
         </button>
+
 
     </div>
 
 </div>
 
 
-<div class="toast" id="toast"></div>
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+</div>
 
 
 <script>
@@ -1261,8 +2003,11 @@ window.supabase.createClient(
    SITE
 ===================================================== */
 
-const SITE_ID = "nova";
-const SITE_NAME = "NOVA RESIDENCE";
+const SITE_ID =
+"nova";
+
+const SITE_NAME =
+"NOVA RESIDENCE";
 
 
 /* =====================================================
@@ -1276,202 +2021,362 @@ function startApp(){
         "true"
     );
 
+
     document.getElementById(
         "onboarding"
-    ).style.display = "none";
+    ).style.display =
+        "none";
+
 
     document.getElementById(
         "app"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 }
 
 
-/* İlk açılış kontrolü */
+/* =====================================================
+   SAYFA AÇILIŞI
+===================================================== */
 
-window.addEventListener("load",()=>{
+window.addEventListener(
+    "load",
+    ()=>{
 
-    const seen =
-        localStorage.getItem(
-            "baksana_onboarding_seen"
-        );
+        const seen =
+            localStorage.getItem(
+                "baksana_onboarding_seen"
+            );
 
-    if(seen === "true"){
 
-        document.getElementById(
-            "onboarding"
-        ).style.display = "none";
+        if(seen === "true"){
 
-        document.getElementById(
-            "app"
-        ).style.display = "block";
+            document.getElementById(
+                "onboarding"
+            ).style.display =
+                "none";
+
+
+            document.getElementById(
+                "app"
+            ).style.display =
+                "block";
+
+        }
+
+
+        setMinDate();
 
     }
-
-    setMinDate();
-
-});
+);
 
 
 /* =====================================================
-   SERVICE
+   HİZMET DEĞİŞKENLERİ
 ===================================================== */
 
-let currentService = "";
-let selectedOption = "";
+let currentService =
+    "";
 
+let selectedOption =
+    "";
+
+
+/* =====================================================
+   HİZMET SEÇENEKLERİ
+===================================================== */
 
 const serviceOptions = {
 
+
     "Ev Temizliği":[
-        ["1+1 Ev","Standart temizlik"],
-        ["2+1 Ev","Standart temizlik"],
-        ["3+1 Ev","Standart temizlik"],
-        ["4+1 Ev","Standart temizlik"]
+
+        [
+            "1+1 Ev",
+            "Standart temizlik"
+        ],
+
+        [
+            "2+1 Ev",
+            "Standart temizlik"
+        ],
+
+        [
+            "3+1 Ev",
+            "Standart temizlik"
+        ],
+
+        [
+            "4+1 Ev",
+            "Standart temizlik"
+        ]
+
     ],
+
 
     "Teknik Servis":[
-        ["Elektrik","Elektrik işleri"],
-        ["Tesisat","Su ve tesisat"],
-        ["Montaj","Montaj desteği"],
-        ["Diğer","Diğer teknik işler"]
+
+        [
+            "Elektrik",
+            "Elektrik işleri"
+        ],
+
+        [
+            "Tesisat",
+            "Su ve tesisat"
+        ],
+
+        [
+            "Montaj",
+            "Montaj desteği"
+        ],
+
+        [
+            "Diğer",
+            "Diğer teknik işler"
+        ]
+
     ],
+
 
     "Araç Yıkama":[
-        ["Otomobil","Dış yıkama"],
-        ["SUV","Dış yıkama"],
-        ["Ticari","Dış yıkama"],
-        ["İç + Dış","Detaylı temizlik"]
+
+        [
+            "Otomobil",
+            "Dış yıkama"
+        ],
+
+        [
+            "SUV",
+            "Dış yıkama"
+        ],
+
+        [
+            "Ticari",
+            "Dış yıkama"
+        ],
+
+        [
+            "İç + Dış",
+            "Detaylı temizlik"
+        ]
+
     ],
 
+
     "Koltuk Yıkama":[
-        ["Koltuk","Koltuk temizliği"],
-        ["Kanepe","Kanepe temizliği"],
-        ["Sandalye","Sandalye temizliği"],
-        ["Yatak","Yatak temizliği"]
+
+        [
+            "Koltuk",
+            "Koltuk temizliği"
+        ],
+
+        [
+            "Kanepe",
+            "Kanepe temizliği"
+        ],
+
+        [
+            "Sandalye",
+            "Sandalye temizliği"
+        ],
+
+        [
+            "Yatak",
+            "Yatak temizliği"
+        ]
+
     ]
 
 };
 
 
-function openService(service){
+/* =====================================================
+   HİZMET AÇ
+===================================================== */
 
-    currentService = service;
-    selectedOption = "";
+function openService(
+    service
+){
+
+    currentService =
+        service;
+
+    selectedOption =
+        "";
+
 
     document.getElementById(
         "serviceTitle"
-    ).innerText = service;
+    ).innerText =
+        service;
+
 
     const options =
         document.getElementById(
             "options"
         );
 
-    options.innerHTML = "";
 
-    serviceOptions[service].forEach(
+    options.innerHTML =
+        "";
+
+
+    serviceOptions[
+        service
+    ].forEach(
         item=>{
 
-            const div =
-                document.createElement("div");
 
-            div.className = "option";
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+                "option";
+
 
             div.innerHTML = `
-                <strong>${item[0]}</strong>
-                <small>${item[1]}</small>
+                <strong>
+                    ${item[0]}
+                </strong>
+
+                <small>
+                    ${item[1]}
+                </small>
             `;
 
-            div.onclick = ()=>{
 
-                document
-                    .querySelectorAll(".option")
-                    .forEach(x =>
-                        x.classList.remove("selected")
+            div.onclick =
+                ()=>{
+
+
+                    document
+                        .querySelectorAll(
+                            ".option"
+                        )
+                        .forEach(
+                            x =>
+                                x.classList.remove(
+                                    "selected"
+                                )
+                        );
+
+
+                    div.classList.add(
+                        "selected"
                     );
 
-                div.classList.add("selected");
 
-                selectedOption = item[0];
+                    selectedOption =
+                        item[0];
 
-            };
+                };
 
-            options.appendChild(div);
+
+            options.appendChild(
+                div
+            );
 
         }
     );
 
-    document
-        .getElementById("serviceModal")
-        .classList.add("show");
-
-}
-
-
-function closeService(){
 
     document
-        .getElementById("serviceModal")
-        .classList.remove("show");
+        .getElementById(
+            "serviceModal"
+        )
+        .classList.add(
+            "show"
+        );
 
 }
 
 
 /* =====================================================
-   DATE
+   MODAL KAPAT
+===================================================== */
+
+function closeService(){
+
+    document
+        .getElementById(
+            "serviceModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+}
+
+
+/* =====================================================
+   TARİH
 ===================================================== */
 
 function setMinDate(){
 
     const today =
         new Date()
-        .toISOString()
-        .split("T")[0];
+            .toISOString()
+            .split("T")[0];
+
 
     document.getElementById(
         "serviceDate"
-    ).min = today;
+    ).min =
+        today;
 
 }
 
 
 /* =====================================================
-   CREATE ORDER
+   SİPARİŞ OLUŞTUR
 ===================================================== */
 
 async function createOrder(){
+
 
     const date =
         document.getElementById(
             "serviceDate"
         ).value;
 
+
     const time =
         document.getElementById(
             "serviceTime"
         ).value;
+
 
     const block =
         document.getElementById(
             "block"
         ).value.trim();
 
+
     const apartment =
         document.getElementById(
             "apartment"
         ).value.trim();
+
 
     const phone =
         document.getElementById(
             "phone"
         ).value.trim();
 
+
     const note =
         document.getElementById(
             "note"
         ).value.trim();
 
+
+    /* SEÇENEK KONTROL */
 
     if(!selectedOption){
 
@@ -1483,6 +2388,8 @@ async function createOrder(){
 
     }
 
+
+    /* ZORUNLU ALANLAR */
 
     if(
         !date ||
@@ -1501,13 +2408,20 @@ async function createOrder(){
     }
 
 
+    /* SİPARİŞ KODU */
+
     const orderCode =
         "BK-" +
         Math.random()
             .toString(36)
-            .substring(2,7)
+            .substring(
+                2,
+                7
+            )
             .toUpperCase();
 
+
+    /* SİPARİŞ */
 
     const order = {
 
@@ -1539,6 +2453,7 @@ async function createOrder(){
             "Beklemede",
 
         details:{
+
             site_id:
                 SITE_ID,
 
@@ -1550,34 +2465,42 @@ async function createOrder(){
 
             order_code:
                 orderCode
+
         }
 
     };
 
 
+    /* SUPABASE */
+
     const {
-        data,
         error
     } =
         await supabaseClient
             .from("orders")
-            .insert([order]);
+            .insert([
+                order
+            ]);
 
 
     if(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         showToast(
             "Sipariş oluşturulurken bir hata oluştu."
         );
+
 
         return;
 
     }
 
 
-    /* Local backup */
+    /* LOCAL YEDEK */
 
     const localOrders =
         JSON.parse(
@@ -1586,18 +2509,31 @@ async function createOrder(){
             ) || "[]"
         );
 
+
     localOrders.unshift({
+
         ...order,
-        order_code:orderCode
+
+        order_code:
+            orderCode
+
     });
+
 
     localStorage.setItem(
         "baksana_orders",
-        JSON.stringify(localOrders)
+        JSON.stringify(
+            localOrders
+        )
     );
 
 
+    /* KAPAT */
+
     closeService();
+
+
+    /* BİLDİRİM */
 
     showToast(
         "Talebiniz oluşturuldu • " +
@@ -1605,42 +2541,60 @@ async function createOrder(){
     );
 
 
-    /* Alanları temizle */
+    /* FORM TEMİZLE */
 
     document.getElementById(
         "serviceDate"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "serviceTime"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "block"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "apartment"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "phone"
-    ).value = "";
+    ).value =
+        "";
+
 
     document.getElementById(
         "note"
-    ).value = "";
+    ).value =
+        "";
+
+
+    selectedOption =
+        "";
 
 }
 
 
 /* =====================================================
-   NAVIGATION
+   ANA SAYFA
 ===================================================== */
 
 function showHome(){
 
-    setActiveNav(0);
+    setActiveNav(
+        0
+    );
+
 
     showToast(
         "Ana sayfa"
@@ -1649,9 +2603,16 @@ function showHome(){
 }
 
 
+/* =====================================================
+   SİPARİŞLER
+===================================================== */
+
 function showOrders(){
 
-    setActiveNav(1);
+    setActiveNav(
+        1
+    );
+
 
     const orders =
         JSON.parse(
@@ -1659,6 +2620,7 @@ function showOrders(){
                 "baksana_orders"
             ) || "[]"
         );
+
 
     if(!orders.length){
 
@@ -1670,6 +2632,7 @@ function showOrders(){
 
     }
 
+
     showToast(
         orders.length +
         " siparişiniz bulunuyor."
@@ -1678,9 +2641,16 @@ function showOrders(){
 }
 
 
+/* =====================================================
+   HESABIM
+===================================================== */
+
 function showAccount(){
 
-    setActiveNav(2);
+    setActiveNav(
+        2
+    );
+
 
     showToast(
         "Hesabım"
@@ -1689,16 +2659,29 @@ function showAccount(){
 }
 
 
-function setActiveNav(index){
+/* =====================================================
+   ALT MENÜ
+===================================================== */
+
+function setActiveNav(
+    index
+){
 
     document
-        .querySelectorAll(".nav-item")
+        .querySelectorAll(
+            ".nav-item"
+        )
         .forEach(
-            (item,i)=>{
+            (
+                item,
+                i
+            )=>{
+
                 item.classList.toggle(
                     "active",
                     i === index
                 );
+
             }
         );
 
@@ -1711,26 +2694,42 @@ function setActiveNav(index){
 
 let toastTimer;
 
-function showToast(message){
+
+function showToast(
+    message
+){
 
     const toast =
         document.getElementById(
             "toast"
         );
 
+
     toast.innerText =
         message;
 
-    toast.classList.add("show");
 
-    clearTimeout(toastTimer);
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
 
     toastTimer =
-        setTimeout(()=>{
-            toast.classList.remove(
-                "show"
-            );
-        },3000);
+        setTimeout(
+            ()=>{
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
 
 }
 
