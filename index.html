@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>BAKSANA</title>
 
@@ -43,7 +47,6 @@ body{
         Roboto,
         Arial,
         sans-serif;
-
     background:#f2f2f5;
     color:var(--dark);
 }
@@ -89,8 +92,6 @@ body{
     z-index:3;
 }
 
-/* GERÇEK PNG LOGO */
-
 .logo-symbol{
     width:108px;
     height:108px;
@@ -134,7 +135,7 @@ body{
 
 
 /* =====================================================
-   KARAKALEM SITE ÇİZİMİ
+   KARAKALEM
 ===================================================== */
 
 .sketch-area{
@@ -194,7 +195,7 @@ body{
 
 
 /* =====================================================
-   İLERİ BUTONU
+   İLERİ
 ===================================================== */
 
 .next-btn{
@@ -203,28 +204,20 @@ body{
     right:24px;
     bottom:112px;
     height:62px;
-
     border:0;
     border-radius:32px;
-
     background:
         linear-gradient(
             135deg,
             var(--purple2),
             var(--purple)
         );
-
     color:#fff;
-
     font-size:19px;
     font-weight:700;
-    letter-spacing:.2px;
-
     box-shadow:
         0 12px 28px rgba(103,53,232,.24);
-
     z-index:5;
-    cursor:pointer;
 }
 
 .next-btn span{
@@ -244,13 +237,8 @@ body{
     right:20px;
     bottom:22px;
     height:70px;
-
     display:grid;
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
+    grid-template-columns:1fr 1fr 1fr;
     z-index:5;
 }
 
@@ -258,21 +246,17 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
     text-align:center;
     position:relative;
 }
 
 .feature:not(:last-child)::after{
     content:"";
-
     position:absolute;
     right:0;
     top:8px;
-
     width:1px;
     height:48px;
-
     background:#dddde4;
 }
 
@@ -325,9 +309,6 @@ body{
     gap:11px;
 }
 
-
-/* GERÇEK PNG KÜÇÜK LOGO */
-
 .mini-logo{
     width:42px;
     height:42px;
@@ -351,24 +332,26 @@ body{
     width:42px;
     height:42px;
     border-radius:50%;
-
     background:#f5f3ff;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:var(--purple);
+}
+
+
+/* =====================================================
+   İÇERİK
+===================================================== */
+
+.home-content{
+    padding:22px 18px;
 }
 
 
 /* =====================================================
    ANA SAYFA
 ===================================================== */
-
-.home-content{
-    padding:22px 18px;
-}
 
 .hello{
     margin-bottom:18px;
@@ -393,17 +376,12 @@ body{
 .search{
     height:50px;
     background:#fff;
-
     border:1px solid #ededf1;
     border-radius:16px;
-
     display:flex;
     align-items:center;
-
     padding:0 16px;
-
     color:#92939d;
-
     margin-bottom:20px;
 }
 
@@ -443,15 +421,11 @@ body{
 
 .service-card{
     background:#fff;
-
     border:1px solid #ededf1;
     border-radius:20px;
-
     padding:17px;
     min-height:160px;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -462,15 +436,11 @@ body{
 .service-icon{
     width:48px;
     height:48px;
-
     border-radius:15px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:25px;
-
     margin-bottom:12px;
 }
 
@@ -508,41 +478,29 @@ body{
 
 .promo{
     margin-top:16px;
-
     min-height:135px;
-
     border-radius:22px;
-
     padding:22px;
-
     color:#fff;
-
     background:
         linear-gradient(
             110deg,
             #4720ba,
             #7441ed
         );
-
     position:relative;
     overflow:hidden;
 }
 
 .promo::after{
     content:"";
-
     position:absolute;
-
     width:190px;
     height:190px;
-
     border-radius:50%;
-
     right:-70px;
     top:-70px;
-
-    background:
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,.08);
 }
 
 .promo h3{
@@ -559,44 +517,290 @@ body{
 
 
 /* =====================================================
+   SAYFA BAŞLIĞI
+===================================================== */
+
+.page-header{
+    padding:8px 2px 20px;
+}
+
+.page-header h1{
+    font-size:28px;
+    letter-spacing:-.8px;
+    margin-bottom:6px;
+}
+
+.page-header p{
+    color:#777986;
+    font-size:14px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   SİPARİŞLER
+===================================================== */
+
+.orders-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.order-card{
+    background:#fff;
+    border:1px solid #ededf1;
+    border-radius:20px;
+    padding:17px;
+}
+
+.order-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.order-code{
+    color:var(--purple);
+    font-size:11px;
+    font-weight:750;
+    margin-bottom:5px;
+}
+
+.order-card h3{
+    font-size:17px;
+}
+
+.order-status{
+    padding:7px 10px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.status-waiting{
+    background:#fff3d7;
+    color:#a66b00;
+}
+
+.status-accepted{
+    background:#e8f1ff;
+    color:#2867c7;
+}
+
+.status-progress{
+    background:#eee9ff;
+    color:#6735e8;
+}
+
+.status-completed{
+    background:#e4f7ed;
+    color:#208653;
+}
+
+.status-rejected{
+    background:#ffe8e8;
+    color:#c73737;
+}
+
+.order-info{
+    display:flex;
+    gap:18px;
+    color:#60616d;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.order-location{
+    color:#777986;
+    font-size:13px;
+    padding-top:10px;
+    border-top:1px solid #f0f0f3;
+}
+
+.order-option{
+    display:inline-block;
+    margin-top:10px;
+    background:#f5f2ff;
+    color:var(--purple);
+    padding:7px 10px;
+    border-radius:9px;
+    font-size:12px;
+    font-weight:650;
+}
+
+.empty-orders{
+    background:#fff;
+    border:1px solid #ededf1;
+    border-radius:22px;
+    padding:34px 22px;
+    text-align:center;
+}
+
+.empty-icon{
+    width:70px;
+    height:70px;
+    border-radius:22px;
+    background:#eee9ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    margin:0 auto 18px;
+}
+
+.empty-orders h2{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.empty-orders p{
+    color:#777986;
+    font-size:14px;
+    line-height:1.5;
+    margin-bottom:22px;
+}
+
+
+/* =====================================================
+   HESABIM
+===================================================== */
+
+.profile-card{
+    background:#fff;
+    border:1px solid #ededf1;
+    border-radius:22px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:14px;
+}
+
+.profile-avatar{
+    width:58px;
+    height:58px;
+    border-radius:19px;
+    background:#eee9ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+}
+
+.profile-card h2{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.profile-card p{
+    color:#777986;
+    font-size:13px;
+}
+
+.account-section{
+    background:#fff;
+    border:1px solid #ededf1;
+    border-radius:22px;
+    overflow:hidden;
+}
+
+.account-item{
+    min-height:72px;
+    padding:13px 15px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    border-bottom:1px solid #f0f0f3;
+}
+
+.account-item:last-child{
+    border-bottom:0;
+}
+
+.account-item-icon{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:#f3f0ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+}
+
+.account-item > div:nth-child(2){
+    flex:1;
+}
+
+.account-item strong{
+    display:block;
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+.account-item span{
+    display:block;
+    color:#80818c;
+    font-size:12px;
+}
+
+.account-item button{
+    border:0;
+    background:none;
+    color:var(--purple);
+    font-size:23px;
+}
+
+.account-help{
+    margin-top:14px;
+    padding:18px;
+    background:#f0ecff;
+    border-radius:20px;
+}
+
+.account-help strong{
+    display:block;
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.account-help p{
+    color:#656675;
+    font-size:13px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
    ALT MENÜ
 ===================================================== */
 
 .bottom-nav{
     position:fixed;
-
     left:0;
     right:0;
     bottom:0;
-
     height:70px;
-
-    background:
-        rgba(255,255,255,.96);
-
+    background:rgba(255,255,255,.96);
     backdrop-filter:blur(16px);
-
     border-top:1px solid #e9e9ef;
-
     display:flex;
-
     z-index:100;
 }
 
 .nav-item{
     flex:1;
-
     border:0;
     background:none;
-
     display:flex;
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
-
     gap:4px;
-
     color:#858691;
     font-size:11px;
 }
@@ -617,16 +821,10 @@ body{
 
 .modal{
     position:fixed;
-
     inset:0;
-
-    background:
-        rgba(15,15,22,.48);
-
+    background:rgba(15,15,22,.48);
     z-index:500;
-
     display:none;
-
     align-items:flex-end;
 }
 
@@ -636,48 +834,27 @@ body{
 
 .sheet{
     width:100%;
-
     max-height:92vh;
-
     overflow-y:auto;
-
     background:#fff;
-
-    border-radius:
-        28px
-        28px
-        0
-        0;
-
-    padding:
-        22px
-        20px
-        30px;
-
-    animation:
-        up .25s ease;
+    border-radius:28px 28px 0 0;
+    padding:22px 20px 30px;
+    animation:up .25s ease;
 }
 
 @keyframes up{
-
     from{
-        transform:
-            translateY(100%);
+        transform:translateY(100%);
     }
-
     to{
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
-
 }
 
 .sheet-head{
     display:flex;
-
     justify-content:space-between;
     align-items:center;
-
     margin-bottom:22px;
 }
 
@@ -688,13 +865,9 @@ body{
 .close{
     width:38px;
     height:38px;
-
     border:0;
-
     border-radius:50%;
-
     background:#f3f3f7;
-
     font-size:20px;
 }
 
@@ -704,35 +877,21 @@ body{
 
 .form-group label{
     display:block;
-
     font-size:13px;
-
     font-weight:650;
-
     margin-bottom:7px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-
     width:100%;
-
-    border:
-        1px solid #dedee6;
-
+    border:1px solid #dedee6;
     border-radius:13px;
-
     height:48px;
-
-    padding:
-        0
-        13px;
-
+    padding:0 13px;
     font-size:15px;
-
     outline:none;
-
     background:#fff;
 }
 
@@ -744,31 +903,20 @@ body{
 
 .option-grid{
     display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:10px;
 }
 
 .option{
-    border:
-        1.5px solid #e2e2e9;
-
+    border:1.5px solid #e2e2e9;
     border-radius:14px;
-
     padding:14px;
-
     cursor:pointer;
 }
 
 .option.selected{
-    border-color:
-        var(--purple);
-
-    background:
-        #f5f2ff;
+    border-color:var(--purple);
+    background:#f5f2ff;
 }
 
 .option strong{
@@ -782,25 +930,18 @@ body{
 
 .primary{
     width:100%;
-
     height:55px;
-
     border:0;
-
     border-radius:28px;
-
     background:
         linear-gradient(
             135deg,
             var(--purple2),
             var(--purple)
         );
-
     color:#fff;
-
     font-size:16px;
     font-weight:700;
-
     margin-top:8px;
 }
 
@@ -811,26 +952,15 @@ body{
 
 .toast{
     position:fixed;
-
     left:18px;
     right:18px;
-
     bottom:88px;
-
     background:#171820;
-
     color:#fff;
-
-    padding:
-        15px
-        18px;
-
+    padding:15px 18px;
     border-radius:14px;
-
     font-size:14px;
-
     z-index:1000;
-
     display:none;
 }
 
@@ -840,7 +970,7 @@ body{
 
 
 /* =====================================================
-   KÜÇÜK TELEFONLAR
+   KÜÇÜK TELEFON
 ===================================================== */
 
 @media(max-height:720px){
@@ -881,13 +1011,7 @@ body{
     .features{
         bottom:14px;
     }
-
 }
-
-
-/* =====================================================
-   ÇOK KÜÇÜK EKRANLAR
-===================================================== */
 
 @media(max-width:360px){
 
@@ -910,12 +1034,10 @@ body{
     .service-card h3{
         font-size:15px;
     }
-
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -926,568 +1048,319 @@ body{
 
 <section id="onboarding">
 
-    <div class="onboarding-inner">
+<div class="onboarding-inner">
 
+<div class="logo-area">
 
-        <!-- LOGO -->
+<img
+class="logo-symbol"
+src="baksana-logo-cropped.png"
+alt="BAKSANA">
 
-        <div class="logo-area">
+<div class="brand-name">
+BAKSANA
+</div>
 
-            <img
-                class="logo-symbol"
-                src="baksana-logo-cropped.png"
-                alt="BAKSANA">
+<div class="tagline">
+SİTE HAYATINI KOLAYLAŞTIRIR.
+</div>
 
-            <div class="brand-name">
-                BAKSANA
-            </div>
-
-            <div class="tagline">
-                SİTE HAYATINI KOLAYLAŞTIRIR.
-            </div>
-
-        </div>
-
-
-        <!-- AÇIKLAMA -->
-
-        <div class="intro-text">
-
-            Sitenizde ihtiyacınız olan<br>
-
-            hizmetlere birkaç dokunuşla<br>
-
-            ulaşın.
-
-        </div>
-
-
-        <!-- KARAKALEM SİTE -->
-
-        <div class="sketch-area">
-
-            <svg
-                class="sketch"
-                viewBox="0 0 500 360"
-                preserveAspectRatio="xMidYMax meet"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-
-
-                <!-- SOL BİNA -->
-
-                <polygon
-                    class="building"
-                    points="
-                        0,135
-                        95,95
-                        145,125
-                        145,300
-                        0,300
-                    "
-                />
-
-
-                <!-- SOL PENCERELER -->
-
-                <path
-                    class="window"
-                    d="
-                        M20 145
-                        L45 135
-                        L45 165
-                        L20 175
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M58 130
-                        L83 120
-                        L83 150
-                        L58 160
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M95 145
-                        L120 136
-                        L120 166
-                        L95 176
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M20 190
-                        L45 180
-                        L45 215
-                        L20 225
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M58 175
-                        L83 165
-                        L83 200
-                        L58 210
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M95 190
-                        L120 180
-                        L120 215
-                        L95 225
-                        Z
-                    "
-                />
-
-
-                <!-- SAĞ BİNA -->
-
-                <polygon
-                    class="building-dark"
-                    points="
-                        355,120
-                        410,88
-                        500,125
-                        500,300
-                        355,300
-                    "
-                />
-
-
-                <!-- SAĞ PENCERELER -->
-
-                <path
-                    class="window"
-                    d="
-                        M375 132
-                        L400 118
-                        L400 151
-                        L375 165
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M420 110
-                        L447 122
-                        L447 154
-                        L420 143
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M465 130
-                        L490 140
-                        L490 172
-                        L465 161
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M375 180
-                        L400 166
-                        L400 202
-                        L375 216
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M420 160
-                        L447 172
-                        L447 207
-                        L420 196
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M465 182
-                        L490 192
-                        L490 226
-                        L465 216
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M375 230
-                        L400 216
-                        L400 253
-                        L375 267
-                        Z
-                    "
-                />
-
-                <path
-                    class="window"
-                    d="
-                        M420 210
-                        L447 222
-                        L447 258
-                        L420 247
-                        Z
-                    "
-                />
-
-
-                <!-- UZAK BİNALAR -->
-
-                <polygon
-                    class="building"
-                    points="
-                        115,180
-                        160,155
-                        195,172
-                        195,285
-                        115,285
-                    "
-                />
-
-                <polygon
-                    class="building"
-                    points="
-                        305,180
-                        340,158
-                        375,176
-                        375,285
-                        305,285
-                    "
-                />
-
-
-                <!-- YOLLAR -->
-
-                <path
-                    class="path"
-                    d="
-                        M250 190
-                        C245 230
-                        220 270
-                        170 350
-                    "
-                />
-
-                <path
-                    class="path"
-                    d="
-                        M250 190
-                        C255 230
-                        280 270
-                        330 350
-                    "
-                />
-
-                <path
-                    class="path"
-                    d="
-                        M250 190
-                        L250 360
-                    "
-                />
-
-
-                <!-- GİRİŞ -->
-
-                <path
-                    class="gate"
-                    d="
-                        M190 205
-                        L250 175
-                        L310 205
-
-                        M210 200
-                        L210 230
-
-                        M290 200
-                        L290 230
-                    "
-                />
-
-
-                <!-- SOL AĞAÇ -->
-
-                <path
-                    class="tree"
-                    d="
-                        M78 285
-                        L78 225
-
-                        M55 235
-                        C55 210 78 205 90 225
-                        C105 198 130 220 122 242
-                        C138 248 130 275 106 270
-                        C96 289 67 286 78 285
-                    "
-                />
-
-
-                <!-- SAĞ AĞAÇ -->
-
-                <path
-                    class="tree"
-                    d="
-                        M430 290
-                        L430 225
-
-                        M407 238
-                        C400 215 422 203 438 222
-                        C450 198 477 215 470 240
-                        C490 250 476 274 455 269
-                        C448 290 420 286 430 290
-                    "
-                />
-
-
-                <!-- SOL KÜÇÜK AĞAÇ -->
-
-                <path
-                    class="tree"
-                    d="
-                        M150 310
-                        L150 270
-
-                        M130 276
-                        C125 256 145 246 158 263
-                        C170 245 190 260 184 280
-                        C198 288 180 305 164 298
-                        C160 313 143 313 150 310
-                    "
-                />
-
-
-                <!-- SAĞ KÜÇÜK AĞAÇ -->
-
-                <path
-                    class="tree"
-                    d="
-                        M350 310
-                        L350 270
-
-                        M330 276
-                        C325 256 345 246 358 263
-                        C370 245 390 260 384 280
-                        C398 288 380 305 364 298
-                        C360 313 343 313 350 310
-                    "
-                />
-
-
-                <!-- ZEMİN -->
-
-                <path
-                    class="path"
-                    d="M0 320 L500 320"
-                />
-
-                <path
-                    class="path"
-                    d="M30 340 L470 340"
-                />
-
-            </svg>
-
-        </div>
-
-
-        <!-- İLERİ -->
-
-        <button
-            class="next-btn"
-            onclick="startApp()"
-        >
-
-            İLERİ
-            <span>→</span>
-
-        </button>
-
-
-        <!-- ÖZELLİKLER -->
-
-        <div class="features">
-
-
-            <!-- 1 -->
-
-            <div class="feature">
-
-                <svg
-                    class="feature-icon"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
-
-                    <path
-                        d="
-                            M16 3
-                            L27 7
-                            V14
-                            C27 22 22 27 16 29
-                            C10 27 5 22 5 14
-                            V7
-                            Z
-                        "
-                    />
-
-                    <path
-                        d="
-                            M11 16
-                            L14 19
-                            L21 12
-                        "
-                    />
-
-                </svg>
-
-
-                <div class="feature-title">
-
-                    Güvenilir<br>
-                    hizmet
-
-                </div>
-
-            </div>
-
-
-            <!-- 2 -->
-
-            <div class="feature">
-
-                <svg
-                    class="feature-icon"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
-
-                    <path
-                        d="
-                            M18 2
-                            L7 18
-                            H15
-                            L13 30
-                            L25 13
-                            H17
-                            Z
-                        "
-                    />
-
-                </svg>
-
-
-                <div class="feature-title">
-
-                    Kolay<br>
-                    sipariş
-
-                </div>
-
-            </div>
-
-
-            <!-- 3 -->
-
-            <div class="feature">
-
-                <svg
-                    class="feature-icon"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
-
-                    <circle
-                        cx="16"
-                        cy="9"
-                        r="4"
-                    />
-
-                    <circle
-                        cx="7"
-                        cy="13"
-                        r="3"
-                    />
-
-                    <circle
-                        cx="25"
-                        cy="13"
-                        r="3"
-                    />
-
-                    <path
-                        d="
-                            M9 27
-                            C9 20 12 17 16 17
-                            C20 17 23 20 23 27
-                        "
-                    />
-
-                    <path
-                        d="
-                            M2 27
-                            C2 22 4 19 7 19
-                        "
-                    />
-
-                    <path
-                        d="
-                            M30 27
-                            C30 22 28 19 25 19
-                        "
-                    />
-
-                </svg>
-
-
-                <div class="feature-title">
-
-                    Site sakinlerine<br>
-                    özel
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
+
+
+<div class="intro-text">
+
+Sitenizde ihtiyacınız olan<br>
+hizmetlere birkaç dokunuşla<br>
+ulaşın.
+
+</div>
+
+
+<div class="sketch-area">
+
+<svg
+class="sketch"
+viewBox="0 0 500 360"
+preserveAspectRatio="xMidYMax meet"
+xmlns="http://www.w3.org/2000/svg"
+>
+
+<polygon
+class="building"
+points="0,135 95,95 145,125 145,300 0,300"
+/>
+
+<path
+class="window"
+d="M20 145 L45 135 L45 165 L20 175 Z"
+/>
+
+<path
+class="window"
+d="M58 130 L83 120 L83 150 L58 160 Z"
+/>
+
+<path
+class="window"
+d="M95 145 L120 136 L120 166 L95 176 Z"
+/>
+
+<path
+class="window"
+d="M20 190 L45 180 L45 215 L20 225 Z"
+/>
+
+<path
+class="window"
+d="M58 175 L83 165 L83 200 L58 210 Z"
+/>
+
+<path
+class="window"
+d="M95 190 L120 180 L120 215 L95 225 Z"
+/>
+
+
+<polygon
+class="building-dark"
+points="355,120 410,88 500,125 500,300 355,300"
+/>
+
+<path
+class="window"
+d="M375 132 L400 118 L400 151 L375 165 Z"
+/>
+
+<path
+class="window"
+d="M420 110 L447 122 L447 154 L420 143 Z"
+/>
+
+<path
+class="window"
+d="M465 130 L490 140 L490 172 L465 161 Z"
+/>
+
+<path
+class="window"
+d="M375 180 L400 166 L400 202 L375 216 Z"
+/>
+
+<path
+class="window"
+d="M420 160 L447 172 L447 207 L420 196 Z"
+/>
+
+<path
+class="window"
+d="M465 182 L490 192 L490 226 L465 216 Z"
+/>
+
+<path
+class="window"
+d="M375 230 L400 216 L400 253 L375 267 Z"
+/>
+
+<path
+class="window"
+d="M420 210 L447 222 L447 258 L420 247 Z"
+/>
+
+
+<polygon
+class="building"
+points="115,180 160,155 195,172 195,285 115,285"
+/>
+
+<polygon
+class="building"
+points="305,180 340,158 375,176 375,285 305,285"
+/>
+
+
+<path
+class="path"
+d="M250 190 C245 230 220 270 170 350"
+/>
+
+<path
+class="path"
+d="M250 190 C255 230 280 270 330 350"
+/>
+
+<path
+class="path"
+d="M250 190 L250 360"
+/>
+
+
+<path
+class="gate"
+d="M190 205 L250 175 L310 205
+M210 200 L210 230
+M290 200 L290 230"
+/>
+
+
+<path
+class="tree"
+d="M78 285 L78 225
+M55 235 C55 210 78 205 90 225
+C105 198 130 220 122 242
+C138 248 130 275 106 270
+C96 289 67 286 78 285"
+/>
+
+
+<path
+class="tree"
+d="M430 290 L430 225
+M407 238 C400 215 422 203 438 222
+C450 198 477 215 470 240
+C490 250 476 274 455 269
+C448 290 420 286 430 290"
+/>
+
+
+<path
+class="tree"
+d="M150 310 L150 270
+M130 276 C125 256 145 246 158 263
+C170 245 190 260 184 280
+C198 288 180 305 164 298
+C160 313 143 313 150 310"
+/>
+
+
+<path
+class="tree"
+d="M350 310 L350 270
+M330 276 C325 256 345 246 358 263
+C370 245 390 260 384 280
+C398 288 380 305 364 298
+C360 313 343 313 350 310"
+/>
+
+
+<path
+class="path"
+d="M0 320 L500 320"
+/>
+
+<path
+class="path"
+d="M30 340 L470 340"
+/>
+
+</svg>
+
+</div>
+
+
+<button
+class="next-btn"
+onclick="startApp()"
+>
+İLERİ
+<span>→</span>
+</button>
+
+
+<div class="features">
+
+<div class="feature">
+
+<svg
+class="feature-icon"
+viewBox="0 0 32 32"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path
+d="M16 3 L27 7 V14
+C27 22 22 27 16 29
+C10 27 5 22 5 14 V7 Z"
+/>
+
+<path
+d="M11 16 L14 19 L21 12"
+/>
+
+</svg>
+
+<div class="feature-title">
+Güvenilir<br>
+hizmet
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<svg
+class="feature-icon"
+viewBox="0 0 32 32"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<path
+d="M18 2 L7 18 H15
+L13 30 L25 13 H17 Z"
+/>
+
+</svg>
+
+<div class="feature-title">
+Kolay<br>
+sipariş
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<svg
+class="feature-icon"
+viewBox="0 0 32 32"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
+
+<circle cx="16" cy="9" r="4"/>
+
+<circle cx="7" cy="13" r="3"/>
+
+<circle cx="25" cy="13" r="3"/>
+
+<path
+d="M9 27 C9 20 12 17 16 17
+C20 17 23 20 23 27"
+/>
+
+<path d="M2 27 C2 22 4 19 7 19"/>
+
+<path d="M30 27 C30 22 28 19 25 19"/>
+
+</svg>
+
+<div class="feature-title">
+Site sakinlerine<br>
+özel
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -1499,286 +1372,95 @@ body{
 <section id="app">
 
 
-    <!-- HEADER -->
+<header class="app-header">
 
-    <header class="app-header">
+<div class="header-top">
 
-        <div class="header-top">
+<div class="header-brand">
 
+<img
+class="mini-logo"
+src="baksana-logo-cropped.png"
+alt="BAKSANA">
 
-            <div class="header-brand">
+<div class="header-text">
 
+<small>
+BAKSANA
+</small>
 
-                <!-- GERÇEK PNG -->
+<strong>
+NOVA RESIDENCE
+</strong>
 
-                <img
-                    class="mini-logo"
-                    src="baksana-logo-cropped.png"
-                    alt="BAKSANA"
-                >
+</div>
 
+</div>
 
-                <div class="header-text">
 
-                    <small>
-                        BAKSANA
-                    </small>
+<div class="notification">
+🔔
+</div>
 
-                    <strong>
-                        NOVA RESIDENCE
-                    </strong>
+</div>
 
-                </div>
+</header>
 
-            </div>
 
+<main
+class="home-content"
+id="mainContent"
+>
 
-            <div class="notification">
-                🔔
-            </div>
+<!-- ANA SAYFA BURAYA GELİR -->
 
+</main>
 
-        </div>
 
-    </header>
+<nav class="bottom-nav">
 
+<button
+class="nav-item active"
+onclick="showHome()"
+>
 
-    <!-- ANA İÇERİK -->
+<span class="nav-icon">
+⌂
+</span>
 
-    <main class="home-content">
+Ana Sayfa
 
+</button>
 
-        <div class="hello">
 
-            <h1>
-                Merhaba 👋
-            </h1>
+<button
+class="nav-item"
+onclick="showOrders()"
+>
 
-            <p>
-                Bugün sizin için ne yapabiliriz?
-            </p>
+<span class="nav-icon">
+▤
+</span>
 
-        </div>
+Siparişlerim
 
+</button>
 
-        <!-- ARAMA -->
 
-        <div class="search">
+<button
+class="nav-item"
+onclick="showAccount()"
+>
 
-            🔍
+<span class="nav-icon">
+♙
+</span>
 
-            <span>
-                Hizmet ara...
-            </span>
+Hesabım
 
-        </div>
+</button>
 
-
-        <!-- HİZMET BAŞLIK -->
-
-        <div class="services-title">
-
-            <h2>
-                Hizmetler
-            </h2>
-
-            <button
-                onclick="
-                    showToast(
-                        'Tüm hizmetler yakında burada.'
-                    )
-                "
-            >
-                Tümü →
-            </button>
-
-        </div>
-
-
-        <!-- HİZMETLER -->
-
-        <div class="services-grid">
-
-
-            <!-- TEMİZLİK -->
-
-            <div
-                class="service-card"
-                onclick="
-                    openService(
-                        'Ev Temizliği'
-                    )
-                "
-            >
-
-                <div class="service-icon cleaning">
-                    🧹
-                </div>
-
-                <h3>
-                    Ev Temizliği
-                </h3>
-
-                <p>
-                    Profesyonel ekiplerle
-                    evinizi temizletin.
-                </p>
-
-            </div>
-
-
-            <!-- TEKNİK -->
-
-            <div
-                class="service-card"
-                onclick="
-                    openService(
-                        'Teknik Servis'
-                    )
-                "
-            >
-
-                <div class="service-icon technical">
-                    🔧
-                </div>
-
-                <h3>
-                    Teknik Servis
-                </h3>
-
-                <p>
-                    Elektrik, tesisat ve
-                    montaj desteği.
-                </p>
-
-            </div>
-
-
-            <!-- ARAÇ -->
-
-            <div
-                class="service-card"
-                onclick="
-                    openService(
-                        'Araç Yıkama'
-                    )
-                "
-            >
-
-                <div class="service-icon car">
-                    🚗
-                </div>
-
-                <h3>
-                    Araç Yıkama
-                </h3>
-
-                <p>
-                    Aracınızı otoparkınızda
-                    temizletin.
-                </p>
-
-            </div>
-
-
-            <!-- KOLTUK -->
-
-            <div
-                class="service-card"
-                onclick="
-                    openService(
-                        'Koltuk Yıkama'
-                    )
-                "
-            >
-
-                <div class="service-icon sofa">
-                    🛋️
-                </div>
-
-                <h3>
-                    Koltuk Yıkama
-                </h3>
-
-                <p>
-                    Koltuk ve yataklarınız
-                    için temizlik.
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- PROMO -->
-
-        <div class="promo">
-
-            <h3>
-                Daha konforlu
-                bir site yaşamı.
-            </h3>
-
-            <p>
-                İhtiyacınız olan hizmetlere
-                birkaç dokunuşla ulaşın.
-            </p>
-
-        </div>
-
-
-    </main>
-
-
-    <!-- ALT MENÜ -->
-
-    <nav class="bottom-nav">
-
-
-        <button
-            class="nav-item active"
-            onclick="showHome()"
-        >
-
-            <span class="nav-icon">
-                ⌂
-            </span>
-
-            Ana Sayfa
-
-        </button>
-
-
-        <button
-            class="nav-item"
-            onclick="showOrders()"
-        >
-
-            <span class="nav-icon">
-                ▤
-            </span>
-
-            Siparişlerim
-
-        </button>
-
-
-        <button
-            class="nav-item"
-            onclick="showAccount()"
-        >
-
-            <span class="nav-icon">
-                ♙
-            </span>
-
-            Hesabım
-
-        </button>
-
-
-    </nav>
+</nav>
 
 </section>
 
@@ -1788,196 +1470,177 @@ body{
 ===================================================== -->
 
 <div
-    class="modal"
-    id="serviceModal"
+class="modal"
+id="serviceModal"
 >
 
-    <div class="sheet">
+<div class="sheet">
 
+<div class="sheet-head">
 
-        <div class="sheet-head">
+<h2 id="serviceTitle">
+Hizmet
+</h2>
 
-            <h2 id="serviceTitle">
-                Hizmet
-            </h2>
-
-            <button
-                class="close"
-                onclick="closeService()"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <!-- SEÇENEK -->
-
-        <div class="form-group">
-
-            <label>
-                Hizmet seçeneği
-            </label>
-
-            <div
-                class="option-grid"
-                id="options"
-            >
-            </div>
-
-        </div>
-
-
-        <!-- TARİH -->
-
-        <div class="form-group">
-
-            <label>
-                Tarih
-            </label>
-
-            <input
-                type="date"
-                id="serviceDate"
-            >
-
-        </div>
-
-
-        <!-- SAAT -->
-
-        <div class="form-group">
-
-            <label>
-                Saat
-            </label>
-
-            <select
-                id="serviceTime"
-            >
-
-                <option value="">
-                    Saat seçin
-                </option>
-
-                <option>
-                    09:00
-                </option>
-
-                <option>
-                    11:00
-                </option>
-
-                <option>
-                    13:00
-                </option>
-
-                <option>
-                    15:00
-                </option>
-
-                <option>
-                    17:00
-                </option>
-
-                <option>
-                    19:00
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <!-- BLOK -->
-
-        <div class="form-group">
-
-            <label>
-                Blok
-            </label>
-
-            <input
-                id="block"
-                placeholder="Örn. B Blok"
-            >
-
-        </div>
-
-
-        <!-- DAİRE -->
-
-        <div class="form-group">
-
-            <label>
-                Daire
-            </label>
-
-            <input
-                id="apartment"
-                placeholder="Örn. 24"
-            >
-
-        </div>
-
-
-        <!-- TELEFON -->
-
-        <div class="form-group">
-
-            <label>
-                Telefon
-            </label>
-
-            <input
-                id="phone"
-                type="tel"
-                placeholder="05XX XXX XX XX"
-            >
-
-        </div>
-
-
-        <!-- NOT -->
-
-        <div class="form-group">
-
-            <label>
-                Not
-            </label>
-
-            <textarea
-                id="note"
-                placeholder="Eklemek istediğiniz bir şey var mı?"
-            ></textarea>
-
-        </div>
-
-
-        <!-- SİPARİŞ -->
-
-        <button
-            class="primary"
-            onclick="createOrder()"
-        >
-
-            Talep Oluştur →
-
-        </button>
-
-
-    </div>
+<button
+class="close"
+onclick="closeService()"
+>
+×
+</button>
 
 </div>
 
 
-<!-- TOAST -->
+<div class="form-group">
+
+<label>
+Hizmet seçeneği
+</label>
 
 <div
-    class="toast"
-    id="toast"
+class="option-grid"
+id="options"
 >
 </div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Tarih
+</label>
+
+<input
+type="date"
+id="serviceDate"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Saat
+</label>
+
+<select id="serviceTime">
+
+<option value="">
+Saat seçin
+</option>
+
+<option>
+09:00
+</option>
+
+<option>
+11:00
+</option>
+
+<option>
+13:00
+</option>
+
+<option>
+15:00
+</option>
+
+<option>
+17:00
+</option>
+
+<option>
+19:00
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Blok
+</label>
+
+<input
+id="block"
+placeholder="Örn. B Blok"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Daire
+</label>
+
+<input
+id="apartment"
+placeholder="Örn. 24"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Telefon
+</label>
+
+<input
+id="phone"
+type="tel"
+placeholder="05XX XXX XX XX"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Not
+</label>
+
+<textarea
+id="note"
+placeholder="Eklemek istediğiniz bir şey var mı?"
+></textarea>
+
+</div>
+
+
+<button
+class="primary"
+onclick="createOrder()"
+>
+
+Talep Oluştur →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+class="toast"
+id="toast"
+></div>
 
 
 <script>
@@ -2003,11 +1666,20 @@ window.supabase.createClient(
    SITE
 ===================================================== */
 
-const SITE_ID =
-"nova";
+const SITE_ID = "nova";
 
-const SITE_NAME =
-"NOVA RESIDENCE";
+const SITE_NAME = "NOVA RESIDENCE";
+
+
+/* =====================================================
+   SAYFA
+===================================================== */
+
+let currentPage = "home";
+
+let currentService = "";
+
+let selectedOption = "";
 
 
 /* =====================================================
@@ -2021,196 +1693,633 @@ function startApp(){
         "true"
     );
 
-
     document.getElementById(
         "onboarding"
-    ).style.display =
-        "none";
-
+    ).style.display = "none";
 
     document.getElementById(
         "app"
-    ).style.display =
-        "block";
+    ).style.display = "block";
+
+    showHome();
+}
+
+
+/* =====================================================
+   AÇILIŞ
+===================================================== */
+
+window.addEventListener(
+"load",
+()=>{
+
+    const seen =
+        localStorage.getItem(
+            "baksana_onboarding_seen"
+        );
+
+    if(seen === "true"){
+
+        document.getElementById(
+            "onboarding"
+        ).style.display = "none";
+
+        document.getElementById(
+            "app"
+        ).style.display = "block";
+
+        showHome();
+
+    }
+
+    setMinDate();
+
+});
+
+
+/* =====================================================
+   HİZMETLER
+===================================================== */
+
+const serviceOptions = {
+
+"Ev Temizliği":[
+    ["1+1 Ev","Standart temizlik"],
+    ["2+1 Ev","Standart temizlik"],
+    ["3+1 Ev","Standart temizlik"],
+    ["4+1 Ev","Standart temizlik"]
+],
+
+"Teknik Servis":[
+    ["Elektrik","Elektrik işleri"],
+    ["Tesisat","Su ve tesisat"],
+    ["Montaj","Montaj desteği"],
+    ["Diğer","Diğer teknik işler"]
+],
+
+"Araç Yıkama":[
+    ["Otomobil","Dış yıkama"],
+    ["SUV","Dış yıkama"],
+    ["Ticari","Dış yıkama"],
+    ["İç + Dış","Detaylı temizlik"]
+],
+
+"Koltuk Yıkama":[
+    ["Koltuk","Koltuk temizliği"],
+    ["Kanepe","Kanepe temizliği"],
+    ["Sandalye","Sandalye temizliği"],
+    ["Yatak","Yatak temizliği"]
+]
+
+};
+
+
+/* =====================================================
+   ANA SAYFA
+===================================================== */
+
+function showHome(){
+
+    currentPage = "home";
+
+    setActiveNav(0);
+
+    document.getElementById(
+        "mainContent"
+    ).innerHTML = `
+
+        <div class="hello">
+
+            <h1>
+                Merhaba 👋
+            </h1>
+
+            <p>
+                Bugün sizin için ne yapabiliriz?
+            </p>
+
+        </div>
+
+
+        <div class="search">
+
+            🔍
+
+            <span>
+                Hizmet ara...
+            </span>
+
+        </div>
+
+
+        <div class="services-title">
+
+            <h2>
+                Hizmetler
+            </h2>
+
+            <button
+                onclick="showToast('Tüm hizmetler yakında burada.')"
+            >
+                Tümü →
+            </button>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div
+                class="service-card"
+                onclick="openService('Ev Temizliği')"
+            >
+
+                <div class="service-icon cleaning">
+                    🧹
+                </div>
+
+                <h3>
+                    Ev Temizliği
+                </h3>
+
+                <p>
+                    Profesyonel ekiplerle
+                    evinizi temizletin.
+                </p>
+
+            </div>
+
+
+            <div
+                class="service-card"
+                onclick="openService('Teknik Servis')"
+            >
+
+                <div class="service-icon technical">
+                    🔧
+                </div>
+
+                <h3>
+                    Teknik Servis
+                </h3>
+
+                <p>
+                    Elektrik, tesisat ve
+                    montaj desteği.
+                </p>
+
+            </div>
+
+
+            <div
+                class="service-card"
+                onclick="openService('Araç Yıkama')"
+            >
+
+                <div class="service-icon car">
+                    🚗
+                </div>
+
+                <h3>
+                    Araç Yıkama
+                </h3>
+
+                <p>
+                    Aracınızı otoparkınızda
+                    temizletin.
+                </p>
+
+            </div>
+
+
+            <div
+                class="service-card"
+                onclick="openService('Koltuk Yıkama')"
+            >
+
+                <div class="service-icon sofa">
+                    🛋️
+                </div>
+
+                <h3>
+                    Koltuk Yıkama
+                </h3>
+
+                <p>
+                    Koltuk ve yataklarınız
+                    için temizlik.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="promo">
+
+            <h3>
+                Daha konforlu
+                bir site yaşamı.
+            </h3>
+
+            <p>
+                İhtiyacınız olan hizmetlere
+                birkaç dokunuşla ulaşın.
+            </p>
+
+        </div>
+
+    `;
 
 }
 
 
 /* =====================================================
-   SAYFA AÇILIŞI
+   SİPARİŞLERİM
 ===================================================== */
 
-window.addEventListener(
-    "load",
-    ()=>{
+function showOrders(){
 
-        const seen =
+    currentPage = "orders";
+
+    setActiveNav(1);
+
+
+    const orders =
+        JSON.parse(
             localStorage.getItem(
-                "baksana_onboarding_seen"
-            );
+                "baksana_orders"
+            ) || "[]"
+        );
 
 
-        if(seen === "true"){
+    if(!orders.length){
 
-            document.getElementById(
-                "onboarding"
-            ).style.display =
-                "none";
+        document.getElementById(
+            "mainContent"
+        ).innerHTML = `
+
+            <div class="page-header">
+
+                <h1>
+                    Siparişlerim
+                </h1>
+
+                <p>
+                    Hizmet taleplerinizi
+                    buradan takip edebilirsiniz.
+                </p>
+
+            </div>
 
 
-            document.getElementById(
-                "app"
-            ).style.display =
-                "block";
+            <div class="empty-orders">
 
+                <div class="empty-icon">
+                    📦
+                </div>
+
+                <h2>
+                    Henüz siparişiniz yok
+                </h2>
+
+                <p>
+                    İhtiyacınız olan hizmeti seçerek
+                    ilk siparişinizi oluşturabilirsiniz.
+                </p>
+
+                <button
+                    class="page-button"
+                    onclick="showHome()"
+                >
+                    Hizmetlere Git →
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let html = "";
+
+
+    orders.forEach(
+    order=>{
+
+        const status =
+            order.status ||
+            "Beklemede";
+
+
+        let statusClass =
+            "status-waiting";
+
+
+        if(status === "Kabul Edildi"){
+            statusClass = "status-accepted";
+        }
+
+        if(status === "Devam Ediyor"){
+            statusClass = "status-progress";
+        }
+
+        if(status === "Tamamlandı"){
+            statusClass = "status-completed";
+        }
+
+        if(status === "Reddedildi"){
+            statusClass = "status-rejected";
         }
 
 
-        setMinDate();
+        const code =
+            order.order_code ||
+            (
+                order.details &&
+                order.details.order_code
+            ) ||
+            "BK------";
 
-    }
-);
+
+        const option =
+            (
+                order.details &&
+                order.details.option
+            ) ||
+            "";
+
+
+        html += `
+
+            <div class="order-card">
+
+                <div class="order-top">
+
+                    <div>
+
+                        <div class="order-code">
+                            ${code}
+                        </div>
+
+                        <h3>
+                            ${order.service}
+                        </h3>
+
+                    </div>
+
+                    <span
+                        class="order-status ${statusClass}"
+                    >
+                        ${status}
+                    </span>
+
+                </div>
+
+
+                <div class="order-info">
+
+                    <div>
+                        📅
+                        ${formatDate(
+                            order.service_date
+                        )}
+                    </div>
+
+                    <div>
+                        🕐
+                        ${order.service_time}
+                    </div>
+
+                </div>
+
+
+                <div class="order-location">
+
+                    📍
+                    ${order.block}
+                    •
+                    ${order.apartment}
+
+                </div>
+
+
+                ${
+                    option
+                    ?
+                    `
+                    <div class="order-option">
+                        ${option}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.getElementById(
+        "mainContent"
+    ).innerHTML = `
+
+        <div class="page-header">
+
+            <h1>
+                Siparişlerim
+            </h1>
+
+            <p>
+                Siparişlerinizi buradan takip edin.
+            </p>
+
+        </div>
+
+
+        <div class="orders-list">
+
+            ${html}
+
+        </div>
+
+    `;
+
+}
 
 
 /* =====================================================
-   HİZMET DEĞİŞKENLERİ
+   HESABIM
 ===================================================== */
 
-let currentService =
-    "";
+function showAccount(){
 
-let selectedOption =
-    "";
+    currentPage = "account";
 
-
-/* =====================================================
-   HİZMET SEÇENEKLERİ
-===================================================== */
-
-const serviceOptions = {
+    setActiveNav(2);
 
 
-    "Ev Temizliği":[
-
-        [
-            "1+1 Ev",
-            "Standart temizlik"
-        ],
-
-        [
-            "2+1 Ev",
-            "Standart temizlik"
-        ],
-
-        [
-            "3+1 Ev",
-            "Standart temizlik"
-        ],
-
-        [
-            "4+1 Ev",
-            "Standart temizlik"
-        ]
-
-    ],
+    const orders =
+        JSON.parse(
+            localStorage.getItem(
+                "baksana_orders"
+            ) || "[]"
+        );
 
 
-    "Teknik Servis":[
+    document.getElementById(
+        "mainContent"
+    ).innerHTML = `
 
-        [
-            "Elektrik",
-            "Elektrik işleri"
-        ],
+        <div class="page-header">
 
-        [
-            "Tesisat",
-            "Su ve tesisat"
-        ],
+            <h1>
+                Hesabım
+            </h1>
 
-        [
-            "Montaj",
-            "Montaj desteği"
-        ],
+            <p>
+                BAKSANA hesabınızı yönetin.
+            </p>
 
-        [
-            "Diğer",
-            "Diğer teknik işler"
-        ]
-
-    ],
+        </div>
 
 
-    "Araç Yıkama":[
+        <div class="profile-card">
 
-        [
-            "Otomobil",
-            "Dış yıkama"
-        ],
+            <div class="profile-avatar">
+                👤
+            </div>
 
-        [
-            "SUV",
-            "Dış yıkama"
-        ],
+            <div>
 
-        [
-            "Ticari",
-            "Dış yıkama"
-        ],
+                <h2>
+                    Site Sakini
+                </h2>
 
-        [
-            "İç + Dış",
-            "Detaylı temizlik"
-        ]
+                <p>
+                    ${SITE_NAME}
+                </p>
 
-    ],
+            </div>
+
+        </div>
 
 
-    "Koltuk Yıkama":[
+        <div class="account-section">
 
-        [
-            "Koltuk",
-            "Koltuk temizliği"
-        ],
 
-        [
-            "Kanepe",
-            "Kanepe temizliği"
-        ],
+            <div class="account-item">
 
-        [
-            "Sandalye",
-            "Sandalye temizliği"
-        ],
+                <div class="account-item-icon">
+                    🏢
+                </div>
 
-        [
-            "Yatak",
-            "Yatak temizliği"
-        ]
+                <div>
 
-    ]
+                    <strong>
+                        Sitem
+                    </strong>
 
-};
+                    <span>
+                        ${SITE_NAME}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-item-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <strong>
+                        Siparişlerim
+                    </strong>
+
+                    <span>
+                        ${orders.length} sipariş
+                    </span>
+
+                </div>
+
+                <button
+                    onclick="showOrders()"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-item-icon">
+                    ℹ️
+                </div>
+
+                <div>
+
+                    <strong>
+                        BAKSANA
+                    </strong>
+
+                    <span>
+                        Site hayatını kolaylaştırır.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="account-help">
+
+            <strong>
+                Yardım mı gerekiyor?
+            </strong>
+
+            <p>
+                Hizmet siparişlerinizle ilgili
+                destek için BAKSANA üzerinden
+                bize ulaşabilirsiniz.
+            </p>
+
+        </div>
+
+    `;
+
+}
 
 
 /* =====================================================
    HİZMET AÇ
 ===================================================== */
 
-function openService(
-    service
-){
+function openService(service){
 
-    currentService =
-        service;
+    currentService = service;
 
-    selectedOption =
-        "";
+    selectedOption = "";
 
 
     document.getElementById(
         "serviceTitle"
-    ).innerText =
-        service;
+    ).innerText = service;
 
 
     const options =
@@ -2219,70 +2328,62 @@ function openService(
         );
 
 
-    options.innerHTML =
-        "";
+    options.innerHTML = "";
 
 
-    serviceOptions[
-        service
-    ].forEach(
-        item=>{
+    serviceOptions[service].forEach(
+    item=>{
+
+        const div =
+            document.createElement(
+                "div"
+            );
 
 
-            const div =
-                document.createElement(
-                    "div"
+        div.className = "option";
+
+
+        div.innerHTML = `
+
+            <strong>
+                ${item[0]}
+            </strong>
+
+            <small>
+                ${item[1]}
+            </small>
+
+        `;
+
+
+        div.onclick = ()=>{
+
+            document
+                .querySelectorAll(
+                    ".option"
+                )
+                .forEach(
+                    x=>
+                    x.classList.remove(
+                        "selected"
+                    )
                 );
 
 
-            div.className =
-                "option";
-
-
-            div.innerHTML = `
-                <strong>
-                    ${item[0]}
-                </strong>
-
-                <small>
-                    ${item[1]}
-                </small>
-            `;
-
-
-            div.onclick =
-                ()=>{
-
-
-                    document
-                        .querySelectorAll(
-                            ".option"
-                        )
-                        .forEach(
-                            x =>
-                                x.classList.remove(
-                                    "selected"
-                                )
-                        );
-
-
-                    div.classList.add(
-                        "selected"
-                    );
-
-
-                    selectedOption =
-                        item[0];
-
-                };
-
-
-            options.appendChild(
-                div
+            div.classList.add(
+                "selected"
             );
 
-        }
-    );
+
+            selectedOption =
+                item[0];
+
+        };
+
+
+        options.appendChild(div);
+
+    });
 
 
     document
@@ -2321,14 +2422,13 @@ function setMinDate(){
 
     const today =
         new Date()
-            .toISOString()
-            .split("T")[0];
+        .toISOString()
+        .split("T")[0];
 
 
     document.getElementById(
         "serviceDate"
-    ).min =
-        today;
+    ).min = today;
 
 }
 
@@ -2338,7 +2438,6 @@ function setMinDate(){
 ===================================================== */
 
 async function createOrder(){
-
 
     const date =
         document.getElementById(
@@ -2376,8 +2475,6 @@ async function createOrder(){
         ).value.trim();
 
 
-    /* SEÇENEK KONTROL */
-
     if(!selectedOption){
 
         showToast(
@@ -2388,8 +2485,6 @@ async function createOrder(){
 
     }
 
-
-    /* ZORUNLU ALANLAR */
 
     if(
         !date ||
@@ -2408,99 +2503,69 @@ async function createOrder(){
     }
 
 
-    /* SİPARİŞ KODU */
-
     const orderCode =
         "BK-" +
         Math.random()
-            .toString(36)
-            .substring(
-                2,
-                7
-            )
-            .toUpperCase();
+        .toString(36)
+        .substring(2,7)
+        .toUpperCase();
 
-
-    /* SİPARİŞ */
 
     const order = {
 
-        service:
-            currentService,
+        service:currentService,
 
-        customer_name:
-            "Site Sakini",
+        customer_name:"Site Sakini",
 
-        phone:
-            phone,
+        phone:phone,
 
-        block:
-            block,
+        block:block,
 
-        apartment:
-            apartment,
+        apartment:apartment,
 
-        service_date:
-            date,
+        service_date:date,
 
-        service_time:
-            time,
+        service_time:time,
 
-        note:
-            note,
+        note:note,
 
-        status:
-            "Beklemede",
+        status:"Beklemede",
 
         details:{
 
-            site_id:
-                SITE_ID,
+            site_id:SITE_ID,
 
-            site_name:
-                SITE_NAME,
+            site_name:SITE_NAME,
 
-            option:
-                selectedOption,
+            option:selectedOption,
 
-            order_code:
-                orderCode
+            order_code:orderCode
 
         }
 
     };
 
 
-    /* SUPABASE */
-
     const {
         error
     } =
         await supabaseClient
-            .from("orders")
-            .insert([
-                order
-            ]);
+        .from("orders")
+        .insert([order]);
 
 
     if(error){
 
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         showToast(
             "Sipariş oluşturulurken bir hata oluştu."
         );
 
-
         return;
 
     }
 
-
-    /* LOCAL YEDEK */
 
     const localOrders =
         JSON.parse(
@@ -2514,8 +2579,7 @@ async function createOrder(){
 
         ...order,
 
-        order_code:
-            orderCode
+        order_code:orderCode
 
     });
 
@@ -2528,12 +2592,8 @@ async function createOrder(){
     );
 
 
-    /* KAPAT */
-
     closeService();
 
-
-    /* BİLDİRİM */
 
     showToast(
         "Talebiniz oluşturuldu • " +
@@ -2541,120 +2601,42 @@ async function createOrder(){
     );
 
 
-    /* FORM TEMİZLE */
-
     document.getElementById(
         "serviceDate"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "serviceTime"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "block"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "apartment"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "phone"
-    ).value =
-        "";
+    ).value = "";
 
 
     document.getElementById(
         "note"
-    ).value =
-        "";
+    ).value = "";
 
 
-    selectedOption =
-        "";
-
-}
+    selectedOption = "";
 
 
-/* =====================================================
-   ANA SAYFA
-===================================================== */
+    /* SİPARİŞLERİM EKRANINI GÜNCELLE */
 
-function showHome(){
-
-    setActiveNav(
-        0
-    );
-
-
-    showToast(
-        "Ana sayfa"
-    );
-
-}
-
-
-/* =====================================================
-   SİPARİŞLER
-===================================================== */
-
-function showOrders(){
-
-    setActiveNav(
-        1
-    );
-
-
-    const orders =
-        JSON.parse(
-            localStorage.getItem(
-                "baksana_orders"
-            ) || "[]"
-        );
-
-
-    if(!orders.length){
-
-        showToast(
-            "Henüz siparişiniz bulunmuyor."
-        );
-
-        return;
-
-    }
-
-
-    showToast(
-        orders.length +
-        " siparişiniz bulunuyor."
-    );
-
-}
-
-
-/* =====================================================
-   HESABIM
-===================================================== */
-
-function showAccount(){
-
-    setActiveNav(
-        2
-    );
-
-
-    showToast(
-        "Hesabım"
-    );
+    showOrders();
 
 }
 
@@ -2663,27 +2645,50 @@ function showAccount(){
    ALT MENÜ
 ===================================================== */
 
-function setActiveNav(
-    index
-){
+function setActiveNav(index){
 
     document
         .querySelectorAll(
             ".nav-item"
         )
         .forEach(
-            (
-                item,
-                i
-            )=>{
+        (item,i)=>{
 
-                item.classList.toggle(
-                    "active",
-                    i === index
-                );
+            item.classList.toggle(
+                "active",
+                i === index
+            );
 
-            }
+        });
+
+}
+
+
+/* =====================================================
+   TARİH FORMAT
+===================================================== */
+
+function formatDate(date){
+
+    if(!date){
+        return "";
+    }
+
+
+    const d =
+        new Date(
+            date + "T00:00:00"
         );
+
+
+    return d.toLocaleDateString(
+        "tr-TR",
+        {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
 
 }
 
@@ -2695,9 +2700,7 @@ function setActiveNav(
 let toastTimer;
 
 
-function showToast(
-    message
-){
+function showToast(message){
 
     const toast =
         document.getElementById(
@@ -2705,8 +2708,7 @@ function showToast(
         );
 
 
-    toast.innerText =
-        message;
+    toast.innerText = message;
 
 
     toast.classList.add(
@@ -2721,14 +2723,14 @@ function showToast(
 
     toastTimer =
         setTimeout(
-            ()=>{
+        ()=>{
 
-                toast.classList.remove(
-                    "show"
-                );
+            toast.classList.remove(
+                "show"
+            );
 
-            },
-            3000
+        },
+        3000
         );
 
 }
