@@ -21,7 +21,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     display:flex;
     align-items:center;
     justify-content:center;
-    overflow:hidden;
+    overflow:hidden
 }
 
 .ob{
@@ -35,22 +35,16 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     position:relative;
     text-align:center;
     overflow:hidden;
-    isolation:isolate;
+    isolation:isolate
 }
 
 .ob::before{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.84) 0%,
-        rgba(255,255,255,.58) 28%,
-        rgba(255,255,255,.08) 58%,
-        rgba(255,255,255,.42) 100%
-    );
+    background:linear-gradient(180deg,rgba(255,255,255,.84) 0%,rgba(255,255,255,.58) 28%,rgba(255,255,255,.08) 58%,rgba(255,255,255,.42) 100%);
     z-index:1;
-    pointer-events:none;
+    pointer-events:none
 }
 
 .brand-logo{
@@ -59,7 +53,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     object-fit:contain;
     margin:0 auto 8px;
     position:relative;
-    z-index:4;
+    z-index:4
 }
 
 .brand{
@@ -67,7 +61,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     font-weight:850;
     letter-spacing:-2.5px;
     position:relative;
-    z-index:4;
+    z-index:4
 }
 
 .tag{
@@ -76,7 +70,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     letter-spacing:3.5px;
     color:#555765;
     position:relative;
-    z-index:4;
+    z-index:4
 }
 
 .intro{
@@ -86,7 +80,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     max-width:350px;
     position:relative;
     z-index:4;
-    text-shadow:0 1px 8px rgba(255,255,255,.65);
+    text-shadow:0 1px 8px rgba(255,255,255,.65)
 }
 
 .ob-art{
@@ -97,7 +91,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     opacity:.48;
     pointer-events:none;
     z-index:0;
-    overflow:hidden;
+    overflow:hidden
 }
 
 .ob-art img{
@@ -107,7 +101,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     object-position:center center;
     display:block;
     filter:grayscale(1) contrast(.92);
-    mix-blend-mode:multiply;
+    mix-blend-mode:multiply
 }
 
 .next{
@@ -123,13 +117,13 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     font-size:18px;
     font-weight:750;
     box-shadow:0 12px 28px rgba(103,53,232,.24);
-    z-index:5;
+    z-index:5
 }
 
 .next span{
     font-size:26px;
     margin-left:9px;
-    vertical-align:-1px;
+    vertical-align:-1px
 }
 
 .feats{
@@ -147,7 +141,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     border:1px solid rgba(103,53,232,.14);
     border-radius:20px;
     box-shadow:0 10px 28px rgba(17,18,26,.10);
-    overflow:hidden;
+    overflow:hidden
 }
 
 .feat{
@@ -158,12 +152,10 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     font-size:11px;
     line-height:1.25;
     color:#4f5060;
-    padding:0 5px;
+    padding:0 5px
 }
 
-.feat:not(:last-child){
-    border-right:1px solid rgba(103,53,232,.12);
-}
+.feat:not(:last-child){border-right:1px solid rgba(103,53,232,.12)}
 
 .feat b{
     width:30px;
@@ -176,7 +168,103 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     font-size:18px;
     margin-bottom:5px;
     line-height:1;
-    font-weight:800;
+    font-weight:800
+}
+
+.home-hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    padding:22px 20px;
+    margin-bottom:18px;
+    background:linear-gradient(135deg,#3f1fa8,#7441ed 65%,#8b68f7);
+    color:#fff;
+    box-shadow:0 14px 30px rgba(80,42,190,.18)
+}
+
+.home-hero:before,
+.home-hero:after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.10)
+}
+
+.home-hero:before{width:180px;height:180px;right:-65px;top:-80px}
+.home-hero:after{width:120px;height:120px;right:55px;bottom:-80px}
+.home-hero>*{position:relative;z-index:1}
+.home-hero small{display:block;font-size:11px;letter-spacing:1.8px;opacity:.78;margin-bottom:7px}
+.home-hero h1{font-size:27px;letter-spacing:-1px;margin-bottom:7px}
+.home-hero p{font-size:13px;line-height:1.5;max-width:275px;color:#fff;opacity:.90}
+
+.home-active{
+    display:none;
+    background:#fff;
+    border:1px solid #ddd7fb;
+    border-radius:20px;
+    padding:16px;
+    margin-bottom:18px;
+    box-shadow:0 8px 24px rgba(103,53,232,.07)
+}
+
+.home-active.show{display:block}
+.home-active-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.home-active .code{margin-bottom:3px}
+.home-active h3{font-size:16px}
+.home-active .mini-status{font-size:10px;font-weight:800;padding:7px 9px;border-radius:20px;background:#eee9ff;color:var(--p);white-space:nowrap}
+.home-active p{font-size:12px;color:var(--muted);line-height:1.5}
+.home-active-btn{margin-top:12px;width:100%;height:42px;border:0;border-radius:12px;background:#f1edff;color:var(--p);font-size:13px;font-weight:750}
+
+.card{position:relative;overflow:hidden}
+.card .go{position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f3efff;color:var(--p);font-size:16px;font-weight:800}
+.card .meta{display:inline-flex;margin-top:12px;font-size:10px;font-weight:750;color:var(--p);background:#f4f1ff;border-radius:20px;padding:6px 8px}
+
+.confirm-sheet{padding-bottom:24px}
+.confirm-summary{background:#f7f5ff;border:1px solid #e5defe;border-radius:18px;padding:15px;margin-bottom:18px}
+.confirm-title{font-size:13px;font-weight:800;color:var(--p);margin-bottom:10px}
+.confirm-row{display:flex;justify-content:space-between;gap:14px;font-size:12px;line-height:1.5;padding:7px 0;border-bottom:1px solid #e9e4fa}
+.confirm-row:last-child{border-bottom:0}
+.confirm-row span:first-child{color:#777986}
+.confirm-row span:last-child{text-align:right;font-weight:700;color:#252632}
+.confirm-actions{display:grid;grid-template-columns:1fr 1.35fr;gap:10px}
+.secondary{width:100%;height:52px;border:1px solid #dedee6;border-radius:26px;background:#fff;color:#555765;font-size:15px;font-weight:700}
+
+.success-modal{position:fixed;inset:0;background:rgba(15,15,22,.58);display:none;align-items:center;justify-content:center;z-index:220;padding:22px}
+.success-modal.show{display:flex}
+.success-box{width:100%;max-width:420px;background:#fff;border-radius:28px;padding:28px 22px 22px;text-align:center;box-shadow:0 24px 60px rgba(15,15,22,.22)}
+.success-icon{width:72px;height:72px;border-radius:24px;background:#eee9ff;color:var(--p);display:grid;place-items:center;font-size:34px;font-weight:900;margin:0 auto 16px}
+.success-box h2{font-size:23px;letter-spacing:-.5px;margin-bottom:7px}
+.success-box p{color:var(--muted);font-size:13px;line-height:1.5}
+.success-code{display:inline-flex;margin:16px 0 18px;background:#f4f1ff;color:var(--p);padding:10px 14px;border-radius:12px;font-size:15px;font-weight:850;letter-spacing:.5px}
+.success-actions{display:grid;gap:10px}
+
+.status-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:15px 0 16px}
+.status-step{text-align:center;position:relative}
+.status-step:before{content:"";position:absolute;top:9px;left:50%;width:100%;height:2px;background:#e8e8ef;z-index:0}
+.status-step:last-child:before{display:none}
+.status-dot{position:relative;z-index:1;margin:0 auto 7px;width:20px;height:20px;border-radius:50%;background:#e6e6ed;color:#fff;display:grid;place-items:center;font-size:10px;font-weight:900}
+.status-step.active .status-dot,.status-step.done .status-dot{background:var(--p)}
+.status-step.active:before,.status-step.done:before{background:var(--p)}
+.status-step span{display:block;font-size:8px;line-height:1.2;color:#888994}
+.status-step.active span,.status-step.done span{color:#4a4b59;font-weight:750}
+.rejected-box{margin-top:12px;background:#fff0f0;border:1px solid #ffd5d5;color:#b72e2e;border-radius:12px;padding:10px 12px;font-size:12px;line-height:1.5}
+
+.support{margin-top:14px;background:linear-gradient(135deg,#f1edff,#faf9ff);border:1px solid #e5defd;border-radius:22px;padding:18px}
+.support-top{display:flex;align-items:flex-start;gap:12px}
+.support-icon{width:44px;height:44px;border-radius:14px;background:#e8e1ff;color:var(--p);display:grid;place-items:center;font-size:22px;flex:none}
+.support h3{font-size:16px;margin-bottom:4px}
+.support p{font-size:12px;color:#6f7080;line-height:1.45}
+.support-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
+.support-btn{min-height:58px;border:1px solid #ddd6fb;border-radius:12px;background:#fff;color:var(--p);font-size:11px;font-weight:750;display:grid;place-items:center;text-align:center;text-decoration:none;line-height:1.25;padding:7px 5px;transition:.15s}
+.support-btn:active{transform:scale(.98);background:#f8f5ff}
+.support-btn small{display:block;color:#777986;font-size:9px;font-weight:600;margin-top:2px}
+
+@media(max-width:360px){
+  .brand{font-size:34px}
+  .brand-logo{width:88px;height:88px}
+  .intro{font-size:17px}
+  .ob{padding-top:30px}
+  .support-actions{grid-template-columns:1fr}
 }
 
 #app{display:none;min-height:100vh;background:var(--bg);padding-bottom:78px}
@@ -299,15 +387,8 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 
 <section id="onboarding">
   <div class="ob">
-
-    <div class="ob-art">
-      <img src="baksana-site-sketch.png" alt="">
-    </div>
-
     <img class="brand-logo" src="baksana-logo-cropped.png" alt="BAKSANA">
-
     <div class="brand">BAKSANA</div>
-
     <div class="tag">SİTE HAYATINI KOLAYLAŞTIRIR.</div>
 
     <div class="intro">
@@ -316,29 +397,22 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
       ulaşın.
     </div>
 
+    <div class="ob-art">
+      <img src="baksana-site-sketch.png" alt="">
+    </div>
+
     <button class="next" onclick="startApp()">
       İLERİ <span>→</span>
     </button>
 
     <div class="feats">
-      <div class="feat">
-        <b>✓</b>
-        Güvenilir<br>hizmet
-      </div>
-
-      <div class="feat">
-        <b>⚡</b>
-        Kolay<br>sipariş
-      </div>
-
-      <div class="feat">
-        <b>♙</b>
-        Site sakinlerine<br>özel
-      </div>
+      <div class="feat"><b>✓</b>Güvenilir<br>hizmet</div>
+      <div class="feat"><b>⚡</b>Kolay<br>sipariş</div>
+      <div class="feat"><b>♙</b>Site sakinlerine<br>özel</div>
     </div>
-
   </div>
 </section>
+
 
 <section id="app">
 
@@ -348,11 +422,11 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
       <img class="mini" src="baksana-logo-cropped.png" alt="BAKSANA">
       <div>
         <small>BAKSANA</small>
-        <strong id="siteName">NOVA RESIDENCE</strong>
+        <strong>Site Hizmet Platformu</strong>
       </div>
     </div>
 
-    <button class="bell">🔔</button>
+    <button class="bell" onclick="toast('Bildirimler yakında burada.')">🔔</button>
   </div>
 </header>
 
@@ -392,10 +466,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 </section>
 
 
-<div
-  class="modal"
-  id="serviceModal"
->
+<div class="modal" id="serviceModal">
 
   <div class="sheet">
 
@@ -527,10 +598,139 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     <button
       id="createBtn"
       class="primary"
-      onclick="createOrder()"
+      onclick="reviewOrder()"
     >
-      Talep Oluştur →
+      Sipariş Özeti →
     </button>
+
+  </div>
+
+</div>
+
+
+<div class="modal" id="confirmModal">
+
+  <div class="sheet confirm-sheet">
+
+    <div class="sheethead">
+
+      <h2>
+        Siparişi Onayla
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeConfirm()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="confirm-summary">
+
+      <div class="confirm-title">
+        Sipariş Özeti
+      </div>
+
+      <div class="confirm-row">
+        <span>Hizmet</span>
+        <span id="confirmService">-</span>
+      </div>
+
+      <div class="confirm-row">
+        <span>Seçenek</span>
+        <span id="confirmOption">-</span>
+      </div>
+
+      <div class="confirm-row">
+        <span>Tarih</span>
+        <span id="confirmDate">-</span>
+      </div>
+
+      <div class="confirm-row">
+        <span>Saat</span>
+        <span id="confirmTime">-</span>
+      </div>
+
+      <div class="confirm-row">
+        <span>Konum</span>
+        <span id="confirmLocation">-</span>
+      </div>
+
+      <div class="confirm-row">
+        <span>Telefon</span>
+        <span id="confirmPhone">-</span>
+      </div>
+
+    </div>
+
+
+    <div class="confirm-actions">
+
+      <button
+        class="secondary"
+        onclick="closeConfirm();document.getElementById('serviceModal').classList.add('show')"
+      >
+        Geri Dön
+      </button>
+
+      <button
+        class="primary"
+        onclick="createOrder()"
+      >
+        Siparişi Onayla →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="success-modal" id="successModal">
+
+  <div class="success-box">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h2>
+      Siparişiniz alındı
+    </h2>
+
+    <p>
+      Talebiniz BAKSANA üzerinden işletmeye iletildi.
+      Sipariş kodunuzu saklayın.
+    </p>
+
+    <div
+      class="success-code"
+      id="successCode"
+    >
+      BK-XXXXXXXX
+    </div>
+
+    <div class="success-actions">
+
+      <button
+        class="primary"
+        onclick="closeSuccess();showOrders()"
+      >
+        Siparişlerimi Gör →
+      </button>
+
+      <button
+        class="secondary"
+        onclick="closeSuccess()"
+      >
+        Ana Sayfaya Dön
+      </button>
+
+    </div>
 
   </div>
 
@@ -829,14 +1029,6 @@ async function loadSite(){
   site =
     data;
 
-
-  document
-    .getElementById(
-      "siteName"
-    )
-    .textContent =
-    site.name;
-
 }
 
 
@@ -962,39 +1154,36 @@ function showHome(){
     0
   );
 
-
   document
     .getElementById(
       "main"
     )
     .innerHTML = `
 
-      <div class="hello">
+      <div class="home-hero">
+
+        <small>
+          BAKSANA
+        </small>
 
         <h1>
-          Merhaba 👋
+          İhtiyacın olan hizmet,<br>
+          kapında.
         </h1>
 
         <p>
-          ${esc(
-            site.name
-          )}
-          bugün sizin için
-          ne yapabilir?
+          Site yaşamını kolaylaştırmak için
+          güvenilir hizmetleri birkaç dokunuşla
+          talep et.
         </p>
 
       </div>
 
 
-      <div class="search">
-
-        🔍
-
-        <span>
-          Hizmet ara...
-        </span>
-
-      </div>
+      <div
+        class="home-active"
+        id="homeActiveOrder"
+      ></div>
 
 
       <div class="sec-head">
@@ -1005,7 +1194,7 @@ function showHome(){
 
         <button
           class="link"
-          onclick="toast('Tüm hizmetler yakında burada.')"
+          onclick="toast('Daha fazla hizmet yakında burada.')"
         >
           Tümü →
         </button>
@@ -1014,7 +1203,6 @@ function showHome(){
 
 
       <div class="grid">
-
 
         <div
           class="card"
@@ -1033,6 +1221,14 @@ function showHome(){
             Profesyonel ekiplerle
             evinizi temizletin.
           </p>
+
+          <span class="meta">
+            Hemen başla
+          </span>
+
+          <div class="go">
+            →
+          </div>
 
         </div>
 
@@ -1055,6 +1251,14 @@ function showHome(){
             montaj desteği.
           </p>
 
+          <span class="meta">
+            Talep oluştur
+          </span>
+
+          <div class="go">
+            →
+          </div>
+
         </div>
 
 
@@ -1075,6 +1279,14 @@ function showHome(){
             Aracınızı otoparkınızda
             temizletin.
           </p>
+
+          <span class="meta">
+            Hemen başla
+          </span>
+
+          <div class="go">
+            →
+          </div>
 
         </div>
 
@@ -1097,8 +1309,15 @@ function showHome(){
             için temizlik.
           </p>
 
-        </div>
+          <span class="meta">
+            Talep oluştur
+          </span>
 
+          <div class="go">
+            →
+          </div>
+
+        </div>
 
       </div>
 
@@ -1106,19 +1325,119 @@ function showHome(){
       <div class="promo">
 
         <h3>
-          Daha konforlu
+          Daha konforlu<br>
           bir site yaşamı.
         </h3>
 
         <p>
-          İhtiyacınız olan
-          hizmetlere birkaç
-          dokunuşla ulaşın.
+          İhtiyacınız olan hizmetlere
+          birkaç dokunuşla ulaşın.
         </p>
 
       </div>
 
   `;
+
+  loadHomeActiveOrder();
+
+}
+
+
+async function loadHomeActiveOrder(){
+
+  const box =
+    document.getElementById(
+      "homeActiveOrder"
+    );
+
+  if(!box)
+    return;
+
+
+  const list =
+    await refreshTracked();
+
+
+  const active =
+    list.find(
+      x =>
+        x.status !==
+        "Tamamlandı" &&
+        x.status !==
+        "Reddedildi"
+    );
+
+
+  if(!active){
+
+    box.classList.remove(
+      "show"
+    );
+
+    box.innerHTML =
+      "";
+
+    return;
+
+  }
+
+
+  box.innerHTML = `
+
+    <div class="home-active-top">
+
+      <div>
+
+        <div class="code">
+          ${esc(
+            active.order_code
+          )}
+        </div>
+
+        <h3>
+          ${esc(
+            active.service
+          )}
+        </h3>
+
+      </div>
+
+      <span class="mini-status">
+        ${esc(
+          active.status
+        )}
+      </span>
+
+    </div>
+
+
+    <p>
+      📅
+      ${esc(
+        formatDate(
+          active.service_date
+        )
+      )}
+      •
+      🕐
+      ${esc(
+        active.service_time
+      )}
+    </p>
+
+
+    <button
+      class="home-active-btn"
+      onclick="showOrders()"
+    >
+      Sipariş detayını gör →
+    </button>
+
+  `;
+
+  box.classList.add(
+    "show"
+  );
 
 }
 
@@ -1164,9 +1483,9 @@ async function showOrders(){
       </h3>
 
       <p>
-        Başka bir cihazdan takip etmek
-        için sipariş kodunu ve sipariş
-        sırasında kullandığın telefonu gir.
+        Başka bir cihazdan da siparişini
+        görmek için sipariş kodunu ve
+        telefonunu gir.
       </p>
 
 
@@ -1471,43 +1790,84 @@ function orderCard(
   }
 
 
+  const stepStatuses = [
+    "Talep Alındı",
+    "Kabul Edildi",
+    "Devam Ediyor",
+    "Tamamlandı"
+  ];
+
+
+  const statusIndex = {
+
+    "Beklemede":0,
+    "Kabul Edildi":1,
+    "Devam Ediyor":2,
+    "Tamamlandı":3
+
+  };
+
+
+  const current =
+    statusIndex[
+      order.status
+    ] ?? 0;
+
+
   return `
 
     <div class="ord">
-
 
       <div class="ordtop">
 
         <div>
 
           <div class="code">
-
             ${esc(
               order.order_code
             )}
-
           </div>
 
           <h3>
-
             ${esc(
               order.service
             )}
-
           </h3>
 
         </div>
 
-
         <span
           class="status ${cls}"
         >
-
           ${esc(
             order.status
           )}
-
         </span>
+
+      </div>
+
+
+      <div class="status-steps">
+
+        ${stepStatuses.map(
+          (label,index)=>`
+
+            <div
+              class="status-step ${index < current ? "done" : ""} ${index === current ? "active" : ""}"
+            >
+
+              <div class="status-dot">
+                ${index <= current ? "✓" : ""}
+              </div>
+
+              <span>
+                ${label}
+              </span>
+
+            </div>
+
+          `
+        ).join("")}
 
       </div>
 
@@ -1534,15 +1894,6 @@ function orderCard(
 
 
       <div class="loc">
-
-        🏢
-        ${esc(
-          order.site_name ||
-          site.name
-        )}
-
-        <br>
-
         📍
         ${esc(
           order.block
@@ -1551,7 +1902,7 @@ function orderCard(
         ${esc(
           order.apartment
         )}
-
+        numara
       </div>
 
 
@@ -1570,29 +1921,33 @@ function orderCard(
       }
 
 
-      <div class="biz">
-
-        İşletme:
-
-        <b>
-
-          ${esc(
-            order.business_name ||
-            "BAKSANA"
-          )}
-
-        </b>
-
-      </div>
+      ${
+        order.business_name
+        ?
+        `
+        <div class="biz">
+          İşletme:
+          <b>
+            ${esc(
+              order.business_name
+            )}
+          </b>
+        </div>
+        `
+        :
+        ""
+      }
 
 
       ${
         order.rejection_reason
         ?
         `
-        <div class="opt">
+        <div class="rejected-box">
 
-          Red nedeni:
+          <b>
+            Red nedeni:
+          </b>
 
           ${esc(
             order.rejection_reason
@@ -1603,7 +1958,6 @@ function orderCard(
         :
         ""
       }
-
 
     </div>
 
@@ -1698,9 +2052,8 @@ function showAccount(){
           </h2>
 
           <p>
-            ${esc(
-              site.name
-            )}
+            Siparişlerinizi kodunuzla
+            güvenle takip edin.
           </p>
 
         </div>
@@ -1709,30 +2062,6 @@ function showAccount(){
 
 
       <div class="account">
-
-
-        <div class="aitem">
-
-          <div class="ai">
-            🏢
-          </div>
-
-          <main>
-
-            <strong>
-              Sitem
-            </strong>
-
-            <span>
-              ${esc(
-                site.name
-              )}
-            </span>
-
-          </main>
-
-        </div>
-
 
         <div class="aitem">
 
@@ -1758,6 +2087,28 @@ function showAccount(){
           >
             →
           </button>
+
+        </div>
+
+
+        <div class="aitem">
+
+          <div class="ai">
+            🔐
+          </div>
+
+          <main>
+
+            <strong>
+              Güvenli takip
+            </strong>
+
+            <span>
+              Sipariş kodu + telefon
+              numarası yeterli.
+            </span>
+
+          </main>
 
         </div>
 
@@ -1811,6 +2162,73 @@ function showAccount(){
 
         </div>
 
+      </div>
+
+
+      <div class="support">
+
+        <div class="support-top">
+
+          <div class="support-icon">
+            💬
+          </div>
+
+          <div>
+
+            <h3>
+              Sorun mu yaşadın?
+            </h3>
+
+            <p>
+              Bir problem olduğunda
+              BAKSANA ekibine kolayca
+              ulaşabileceğin destek alanı.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="support-actions">
+
+          <a
+            class="support-btn"
+            href="https://wa.me/905317369574"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp<br>
+            <small>
+              +90 531 736 9574
+            </small>
+          </a>
+
+
+          <a
+            class="support-btn"
+            href="https://instagram.com/bii.baksanaa"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram<br>
+            <small>
+              @bii.baksanaa
+            </small>
+          </a>
+
+
+          <a
+            class="support-btn"
+            href="mailto:bi.baksanacomtr@gmail.com"
+          >
+            E-posta<br>
+            <small>
+              bi.baksanacomtr@gmail.com
+            </small>
+          </a>
+
+        </div>
 
       </div>
 
@@ -1944,6 +2362,229 @@ function openService(
 }
 
 
+/* SİPARİŞ ÖZETİ */
+
+function reviewOrder(){
+
+  const date =
+    document
+      .getElementById(
+        "serviceDate"
+      )
+      .value;
+
+  const time =
+    document
+      .getElementById(
+        "serviceTime"
+      )
+      .value;
+
+  const block =
+    document
+      .getElementById(
+        "block"
+      )
+      .value
+      .trim();
+
+  const apartment =
+    document
+      .getElementById(
+        "apartment"
+      )
+      .value
+      .trim();
+
+  const p =
+    document
+      .getElementById(
+        "phone"
+      )
+      .value
+      .trim();
+
+
+  if(!option){
+
+    toast(
+      "Lütfen hizmet seçeneğini seçin."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !date ||
+    !time ||
+    !block ||
+    !apartment ||
+    !p
+  ){
+
+    toast(
+      "Lütfen gerekli alanları doldurun."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    phone(p).length <
+    10
+  ){
+
+    toast(
+      "Geçerli bir telefon numarası girin."
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById(
+      "confirmService"
+    )
+    .textContent =
+    service;
+
+
+  document
+    .getElementById(
+      "confirmOption"
+    )
+    .textContent =
+    option;
+
+
+  document
+    .getElementById(
+      "confirmDate"
+    )
+    .textContent =
+    formatDate(
+      date
+    );
+
+
+  document
+    .getElementById(
+      "confirmTime"
+    )
+    .textContent =
+    time;
+
+
+  document
+    .getElementById(
+      "confirmLocation"
+    )
+    .textContent =
+    block +
+    " • " +
+    apartment;
+
+
+  document
+    .getElementById(
+      "confirmPhone"
+    )
+    .textContent =
+    p;
+
+
+  document
+    .getElementById(
+      "serviceModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+
+  document
+    .getElementById(
+      "confirmModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+/* CONFIRM KAPAT */
+
+function closeConfirm(){
+
+  document
+    .getElementById(
+      "confirmModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* SUCCESS KAPAT */
+
+function closeSuccess(){
+
+  document
+    .getElementById(
+      "successModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* FORM TEMİZLE */
+
+function resetOrderForm(){
+
+  const ids = [
+    "serviceDate",
+    "serviceTime",
+    "block",
+    "apartment",
+    "phone",
+    "note"
+  ];
+
+
+  ids.forEach(
+    id=>{
+
+      const el =
+        document.getElementById(
+          id
+        );
+
+      if(el)
+        el.value =
+          "";
+
+    }
+  );
+
+
+  option =
+    "";
+
+}
+
+
 /* MODAL KAPAT */
 
 function closeService(){
@@ -1973,6 +2614,48 @@ document
       ){
 
         closeService();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "confirmModal"
+  )
+  .addEventListener(
+    "click",
+    e=>{
+
+      if(
+        e.target.id ===
+        "confirmModal"
+      ){
+
+        closeConfirm();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "successModal"
+  )
+  .addEventListener(
+    "click",
+    e=>{
+
+      if(
+        e.target.id ===
+        "successModal"
+      ){
+
+        closeSuccess();
 
       }
 
@@ -2161,65 +2844,27 @@ async function createOrder(){
     );
 
 
-    closeService();
-
-
-    toast(
-      "Talebiniz oluşturuldu • " +
-      data.order_code
-    );
+    closeConfirm();
 
 
     document
       .getElementById(
-        "serviceDate"
+        "successCode"
       )
-      .value =
-      "";
+      .textContent =
+      data.order_code;
+
 
     document
       .getElementById(
-        "serviceTime"
+        "successModal"
       )
-      .value =
-      "";
-
-    document
-      .getElementById(
-        "block"
-      )
-      .value =
-      "";
-
-    document
-      .getElementById(
-        "apartment"
-      )
-      .value =
-      "";
-
-    document
-      .getElementById(
-        "phone"
-      )
-      .value =
-      "";
-
-    document
-      .getElementById(
-        "note"
-      )
-      .value =
-      "";
-
-    option =
-      "";
+      .classList.add(
+        "show"
+      );
 
 
-    setTimeout(
-      showOrders,
-      400
-    );
+    resetOrderForm();
 
 
   }catch(error){
@@ -2243,7 +2888,7 @@ async function createOrder(){
       false;
 
     button.textContent =
-      "Talep Oluştur →";
+      "Sipariş Özeti →";
 
   }
 
