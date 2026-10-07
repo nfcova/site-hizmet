@@ -219,6 +219,28 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 .card .go{position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f3efff;color:var(--p);font-size:16px;font-weight:800}
 .card .meta{display:inline-flex;margin-top:12px;font-size:10px;font-weight:750;color:var(--p);background:#f4f1ff;border-radius:20px;padding:6px 8px}
 
+.service-list-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.service-back{width:42px;height:42px;border:0;border-radius:13px;background:#fff;color:var(--p);font-size:21px;box-shadow:0 4px 14px rgba(17,18,26,.06)}
+.service-list-head h1{font-size:24px;letter-spacing:-.7px}
+.service-group{margin-top:22px}
+.service-group-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.service-group-title h2{font-size:17px}
+.service-group-title span{font-size:11px;color:var(--muted)}
+.service-full-grid{display:grid;gap:10px}
+.service-full-card{width:100%;background:#fff;border:1px solid var(--bd);border-radius:18px;padding:14px;display:flex;align-items:center;gap:13px;text-align:left;transition:.15s}
+.service-full-card:active{transform:scale(.985)}
+.service-full-icon{width:46px;height:46px;border-radius:14px;background:#f0ecff;color:var(--p);display:grid;place-items:center;font-size:23px;flex:none}
+.service-full-card main{flex:1}
+.service-full-card strong{display:block;font-size:15px;margin-bottom:3px}
+.service-full-card small{display:block;color:var(--muted);font-size:11px;line-height:1.35}
+.service-full-card .arrow{color:var(--p);font-size:18px;font-weight:800}
+.time-help{margin-top:-8px;margin-bottom:16px;color:var(--muted);font-size:11px;line-height:1.4}
+.cancel-btn{width:100%;height:42px;margin-top:14px;border:1px solid #ffd5d5;border-radius:12px;background:#fff5f5;color:#c73737;font-size:13px;font-weight:750}
+.cancelled{background:#ffe8e8;color:#c73737}
+.cancel-sheet{padding-bottom:24px}
+.cancel-intro{background:#fff5f5;border:1px solid #ffdada;border-radius:16px;padding:13px;margin-bottom:17px;font-size:12px;color:#6f6060;line-height:1.5}
+.cancel-option{width:100%;text-align:left;border:1px solid #e3e3ea;background:#fff;border-radius:13px;padding:12px 13px;margin-bottom:8px;font-size:13px;color:#41424e}
+.cancel-option.selected{border-color:#ffbcbc;background:#fff4f4;color:#c73737;font-weight:700}
 .confirm-sheet{padding-bottom:24px}
 .confirm-summary{background:#f7f5ff;border:1px solid #e5defe;border-radius:18px;padding:15px;margin-bottom:18px}
 .confirm-title{font-size:13px;font-weight:800;color:var(--p);margin-bottom:10px}
@@ -466,7 +488,10 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 </section>
 
 
-<div class="modal" id="serviceModal">
+<div
+  class="modal"
+  id="serviceModal"
+>
 
   <div class="sheet">
 
@@ -520,20 +545,14 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
         Saat
       </label>
 
-      <select id="serviceTime">
+      <input
+        id="serviceTime"
+        type="time"
+      >
 
-        <option value="">
-          Saat seçin
-        </option>
-
-        <option>09:00</option>
-        <option>11:00</option>
-        <option>13:00</option>
-        <option>15:00</option>
-        <option>17:00</option>
-        <option>19:00</option>
-
-      </select>
+      <div class="time-help">
+        Size uygun bir saat yazabilirsiniz. Seçtiğiniz saat işletmenin onayına sunulur.
+      </div>
 
     </div>
 
@@ -609,133 +628,69 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
 
 
 <div class="modal" id="confirmModal">
-
   <div class="sheet confirm-sheet">
-
     <div class="sheethead">
-
-      <h2>
-        Siparişi Onayla
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeConfirm()"
-      >
-        ×
-      </button>
-
+      <h2>Siparişi Onayla</h2>
+      <button class="close" onclick="closeConfirm()">×</button>
     </div>
-
 
     <div class="confirm-summary">
-
-      <div class="confirm-title">
-        Sipariş Özeti
-      </div>
-
-      <div class="confirm-row">
-        <span>Hizmet</span>
-        <span id="confirmService">-</span>
-      </div>
-
-      <div class="confirm-row">
-        <span>Seçenek</span>
-        <span id="confirmOption">-</span>
-      </div>
-
-      <div class="confirm-row">
-        <span>Tarih</span>
-        <span id="confirmDate">-</span>
-      </div>
-
-      <div class="confirm-row">
-        <span>Saat</span>
-        <span id="confirmTime">-</span>
-      </div>
-
-      <div class="confirm-row">
-        <span>Konum</span>
-        <span id="confirmLocation">-</span>
-      </div>
-
-      <div class="confirm-row">
-        <span>Telefon</span>
-        <span id="confirmPhone">-</span>
-      </div>
-
+      <div class="confirm-title">Sipariş Özeti</div>
+      <div class="confirm-row"><span>Hizmet</span><span id="confirmService">-</span></div>
+      <div class="confirm-row"><span>Seçenek</span><span id="confirmOption">-</span></div>
+      <div class="confirm-row"><span>Tarih</span><span id="confirmDate">-</span></div>
+      <div class="confirm-row"><span>Saat</span><span id="confirmTime">-</span></div>
+      <div class="confirm-row"><span>Konum</span><span id="confirmLocation">-</span></div>
+      <div class="confirm-row"><span>Telefon</span><span id="confirmPhone">-</span></div>
     </div>
-
 
     <div class="confirm-actions">
-
-      <button
-        class="secondary"
-        onclick="closeConfirm();document.getElementById('serviceModal').classList.add('show')"
-      >
-        Geri Dön
-      </button>
-
-      <button
-        class="primary"
-        onclick="createOrder()"
-      >
-        Siparişi Onayla →
-      </button>
-
+      <button class="secondary" onclick="closeConfirm();document.getElementById('serviceModal').classList.add('show')">Geri Dön</button>
+      <button class="primary" onclick="createOrder()">Siparişi Onayla →</button>
     </div>
-
   </div>
-
 </div>
-
 
 <div class="success-modal" id="successModal">
-
   <div class="success-box">
-
-    <div class="success-icon">
-      ✓
-    </div>
-
-    <h2>
-      Siparişiniz alındı
-    </h2>
-
-    <p>
-      Talebiniz BAKSANA üzerinden işletmeye iletildi.
-      Sipariş kodunuzu saklayın.
-    </p>
-
-    <div
-      class="success-code"
-      id="successCode"
-    >
-      BK-XXXXXXXX
-    </div>
-
+    <div class="success-icon">✓</div>
+    <h2>Siparişiniz alındı</h2>
+    <p>Talebiniz BAKSANA üzerinden işletmeye iletildi. Sipariş kodunuzu saklayın.</p>
+    <div class="success-code" id="successCode">BK-XXXXXXXX</div>
     <div class="success-actions">
-
-      <button
-        class="primary"
-        onclick="closeSuccess();showOrders()"
-      >
-        Siparişlerimi Gör →
-      </button>
-
-      <button
-        class="secondary"
-        onclick="closeSuccess()"
-      >
-        Ana Sayfaya Dön
-      </button>
-
+      <button class="primary" onclick="closeSuccess();showOrders()">Siparişlerimi Gör →</button>
+      <button class="secondary" onclick="closeSuccess()">Ana Sayfaya Dön</button>
     </div>
+  </div>
+</div>
+
+<div class="modal" id="cancelModal">
+
+  <div class="sheet cancel-sheet">
+
+    <div class="sheethead">
+      <h2>Siparişi İptal Et</h2>
+      <button class="close" onclick="closeCancel()">×</button>
+    </div>
+
+    <div class="cancel-intro">
+      Bu siparişi iptal etmek istediğinizden emin misiniz?
+      İptal edilen sipariş yeniden aktif hale getirilemez.
+    </div>
+
+    <div id="cancelOptions">
+      <button class="cancel-option" data-reason="Planım değişti" onclick="selectCancelReason(this)">Planım değişti</button>
+      <button class="cancel-option" data-reason="Başka yerden hizmet aldım" onclick="selectCancelReason(this)">Başka yerden hizmet aldım</button>
+      <button class="cancel-option" data-reason="Saat uygun değil" onclick="selectCancelReason(this)">Saat uygun değil</button>
+      <button class="cancel-option" data-reason="Yanlış sipariş verdim" onclick="selectCancelReason(this)">Yanlış sipariş verdim</button>
+      <button class="cancel-option" data-reason="Diğer" onclick="selectCancelReason(this)">Diğer</button>
+    </div>
+
+    <button class="primary" id="cancelConfirmBtn" onclick="confirmCancel()">Siparişi İptal Et</button>
 
   </div>
 
 </div>
-
 
 <div
   class="toast"
@@ -818,6 +773,13 @@ const serviceOptions = {
     ["Kanepe","Kanepe temizliği"],
     ["Sandalye","Sandalye temizliği"],
     ["Yatak","Yatak temizliği"]
+  ],
+
+  "Halı Yıkama":[
+    ["Halı","Halı yıkama"],
+    ["Yolluk","Yolluk temizliği"],
+    ["Kilim","Kilim temizliği"],
+    ["Halı + Yolluk","Birlikte yıkama"]
   ]
 
 };
@@ -1029,6 +991,9 @@ async function loadSite(){
   site =
     data;
 
+
+
+
 }
 
 
@@ -1161,179 +1126,65 @@ function showHome(){
     .innerHTML = `
 
       <div class="home-hero">
-
-        <small>
-          BAKSANA
-        </small>
-
-        <h1>
-          İhtiyacın olan hizmet,<br>
-          kapında.
-        </h1>
-
-        <p>
-          Site yaşamını kolaylaştırmak için
-          güvenilir hizmetleri birkaç dokunuşla
-          talep et.
-        </p>
-
+        <small>BAKSANA</small>
+        <h1>İhtiyacın olan hizmet,<br>kapında.</h1>
+        <p>Site yaşamını kolaylaştırmak için güvenilir hizmetleri birkaç dokunuşla talep et.</p>
       </div>
 
-
-      <div
-        class="home-active"
-        id="homeActiveOrder"
-      ></div>
-
+      <div class="home-active" id="homeActiveOrder"></div>
 
       <div class="sec-head">
-
-        <h2>
-          Hizmetler
-        </h2>
-
-        <button
-          class="link"
-          onclick="toast('Daha fazla hizmet yakında burada.')"
-        >
-          Tümü →
-        </button>
-
+        <h2>Hizmetler</h2>
+        <button class="link" onclick="showAllServices()">Tümü →</button>
       </div>
-
 
       <div class="grid">
 
-        <div
-          class="card"
-          onclick="openService('Ev Temizliği')"
-        >
-
-          <div class="icon clean">
-            🧹
-          </div>
-
-          <h3>
-            Ev Temizliği
-          </h3>
-
-          <p>
-            Profesyonel ekiplerle
-            evinizi temizletin.
-          </p>
-
-          <span class="meta">
-            Hemen başla
-          </span>
-
-          <div class="go">
-            →
-          </div>
-
+        <div class="card" onclick="openService('Ev Temizliği')">
+          <div class="icon clean">🧹</div>
+          <h3>Ev Temizliği</h3>
+          <p>Profesyonel ekiplerle evinizi temizletin.</p>
+          <span class="meta">Hemen başla</span>
+          <div class="go">→</div>
         </div>
 
-
-        <div
-          class="card"
-          onclick="openService('Teknik Servis')"
-        >
-
-          <div class="icon tech">
-            🔧
-          </div>
-
-          <h3>
-            Teknik Servis
-          </h3>
-
-          <p>
-            Elektrik, tesisat ve
-            montaj desteği.
-          </p>
-
-          <span class="meta">
-            Talep oluştur
-          </span>
-
-          <div class="go">
-            →
-          </div>
-
+        <div class="card" onclick="openService('Teknik Servis')">
+          <div class="icon tech">🔧</div>
+          <h3>Teknik Servis</h3>
+          <p>Elektrik, tesisat ve montaj desteği.</p>
+          <span class="meta">Talep oluştur</span>
+          <div class="go">→</div>
         </div>
 
-
-        <div
-          class="card"
-          onclick="openService('Araç Yıkama')"
-        >
-
-          <div class="icon car">
-            🚗
-          </div>
-
-          <h3>
-            Araç Yıkama
-          </h3>
-
-          <p>
-            Aracınızı otoparkınızda
-            temizletin.
-          </p>
-
-          <span class="meta">
-            Hemen başla
-          </span>
-
-          <div class="go">
-            →
-          </div>
-
+        <div class="card" onclick="openService('Araç Yıkama')">
+          <div class="icon car">🚗</div>
+          <h3>Araç Yıkama</h3>
+          <p>Aracınızı otoparkınızda temizletin.</p>
+          <span class="meta">Hemen başla</span>
+          <div class="go">→</div>
         </div>
 
+        <div class="card" onclick="openService('Koltuk Yıkama')">
+          <div class="icon sofa">🛋️</div>
+          <h3>Koltuk Yıkama</h3>
+          <p>Koltuk ve yataklarınız için temizlik.</p>
+          <span class="meta">Talep oluştur</span>
+          <div class="go">→</div>
+        </div>
 
-        <div
-          class="card"
-          onclick="openService('Koltuk Yıkama')"
-        >
-
-          <div class="icon sofa">
-            🛋️
-          </div>
-
-          <h3>
-            Koltuk Yıkama
-          </h3>
-
-          <p>
-            Koltuk ve yataklarınız
-            için temizlik.
-          </p>
-
-          <span class="meta">
-            Talep oluştur
-          </span>
-
-          <div class="go">
-            →
-          </div>
-
+        <div class="card" onclick="openService('Halı Yıkama')">
+          <div class="icon clean">🧺</div>
+          <h3>Halı Yıkama</h3>
+          <p>Halı, yolluk ve kilimlerinizi temizletin.</p>
+          <span class="meta">Talep oluştur</span>
+          <div class="go">→</div>
         </div>
 
       </div>
 
-
       <div class="promo">
-
-        <h3>
-          Daha konforlu<br>
-          bir site yaşamı.
-        </h3>
-
-        <p>
-          İhtiyacınız olan hizmetlere
-          birkaç dokunuşla ulaşın.
-        </p>
-
+        <h3>Daha konforlu<br>bir site yaşamı.</h3>
+        <p>İhtiyacınız olan hizmetlere birkaç dokunuşla ulaşın.</p>
       </div>
 
   `;
@@ -1342,104 +1193,94 @@ function showHome(){
 
 }
 
+function showAllServices(){
+
+  page = "home";
+  setNav(0);
+
+  const groups = {
+    "Temizlik":["Ev Temizliği","Koltuk Yıkama","Halı Yıkama"],
+    "Araç":["Araç Yıkama"],
+    "Teknik":["Teknik Servis"]
+  };
+
+  const icons = {
+    "Ev Temizliği":"🧹",
+    "Koltuk Yıkama":"🛋️",
+    "Halı Yıkama":"🧺",
+    "Araç Yıkama":"🚗",
+    "Teknik Servis":"🔧"
+  };
+
+  document.getElementById("main").innerHTML = `
+
+    <div class="service-list-head">
+      <button class="service-back" onclick="showHome()">←</button>
+      <h1>Tüm Hizmetler</h1>
+    </div>
+
+    <p style="color:var(--muted);font-size:13px;line-height:1.5;margin-bottom:10px">
+      İhtiyacınıza uygun hizmeti seçin.
+    </p>
+
+    ${Object.entries(groups).map(([groupName, services]) => `
+      <div class="service-group">
+        <div class="service-group-title">
+          <h2>${groupName}</h2>
+          <span>${services.length} hizmet</span>
+        </div>
+
+        <div class="service-full-grid">
+          ${services.map(name => `
+            <button class="service-full-card" onclick="openService('${name}')">
+              <div class="service-full-icon">${icons[name]}</div>
+              <main>
+                <strong>${name}</strong>
+                <small>${serviceOptions[name][0][1]}</small>
+              </main>
+              <span class="arrow">→</span>
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    `).join("")}
+
+  `;
+
+}
+
 
 async function loadHomeActiveOrder(){
 
   const box =
-    document.getElementById(
-      "homeActiveOrder"
-    );
+    document.getElementById("homeActiveOrder");
 
-  if(!box)
-    return;
+  if(!box) return;
 
-
-  const list =
-    await refreshTracked();
-
-
-  const active =
-    list.find(
-      x =>
-        x.status !==
-        "Tamamlandı" &&
-        x.status !==
-        "Reddedildi"
-    );
-
+  const list = await refreshTracked();
+  const active = list.find(x => x.status !== "Tamamlandı" && x.status !== "Reddedildi");
 
   if(!active){
-
-    box.classList.remove(
-      "show"
-    );
-
-    box.innerHTML =
-      "";
-
+    box.classList.remove("show");
+    box.innerHTML = "";
     return;
-
   }
 
-
   box.innerHTML = `
-
     <div class="home-active-top">
-
       <div>
-
-        <div class="code">
-          ${esc(
-            active.order_code
-          )}
-        </div>
-
-        <h3>
-          ${esc(
-            active.service
-          )}
-        </h3>
-
+        <div class="code">${esc(active.order_code)}</div>
+        <h3>${esc(active.service)}</h3>
       </div>
-
-      <span class="mini-status">
-        ${esc(
-          active.status
-        )}
-      </span>
-
+      <span class="mini-status">${esc(active.status)}</span>
     </div>
-
-
-    <p>
-      📅
-      ${esc(
-        formatDate(
-          active.service_date
-        )
-      )}
-      •
-      🕐
-      ${esc(
-        active.service_time
-      )}
-    </p>
-
-
-    <button
-      class="home-active-btn"
-      onclick="showOrders()"
-    >
-      Sipariş detayını gör →
-    </button>
-
+    <p>📅 ${esc(formatDate(active.service_date))} • 🕐 ${esc(active.service_time)}</p>
+    <button class="home-active-btn" onclick="showOrders()">Sipariş detayını gör →</button>
   `;
 
-  box.classList.add(
-    "show"
-  );
-
+  box.classList.add("show");
 }
+
 
 
 /* SİPARİŞLERİM */
@@ -1484,8 +1325,7 @@ async function showOrders(){
 
       <p>
         Başka bir cihazdan da siparişini
-        görmek için sipariş kodunu ve
-        telefonunu gir.
+        görmek için sipariş kodunu ve telefonunu gir.
       </p>
 
 
@@ -1742,228 +1582,70 @@ function orderCard(
   order
 ){
 
-  let cls =
-    "waiting";
+  let cls = "waiting";
 
+  if(order.status === "Kabul Edildi") cls = "accepted";
+  if(order.status === "Devam Ediyor") cls = "progress";
+  if(order.status === "Tamamlandı") cls = "done";
+  if(order.status === "Reddedildi") cls = "rejected";
+  if(order.status === "İptal Edildi") cls = "cancelled";
 
-  if(
-    order.status ===
-    "Kabul Edildi"
-  ){
-
-    cls =
-      "accepted";
-
-  }
-
-
-  if(
-    order.status ===
-    "Devam Ediyor"
-  ){
-
-    cls =
-      "progress";
-
-  }
-
-
-  if(
-    order.status ===
-    "Tamamlandı"
-  ){
-
-    cls =
-      "done";
-
-  }
-
-
-  if(
-    order.status ===
-    "Reddedildi"
-  ){
-
-    cls =
-      "rejected";
-
-  }
-
-
-  const stepStatuses = [
-    "Talep Alındı",
-    "Kabul Edildi",
-    "Devam Ediyor",
-    "Tamamlandı"
-  ];
-
-
+  const stepStatuses = ["Talep Alındı","Kabul Edildi","Devam Ediyor","Tamamlandı"];
   const statusIndex = {
-
     "Beklemede":0,
     "Kabul Edildi":1,
     "Devam Ediyor":2,
     "Tamamlandı":3
-
   };
-
-
-  const current =
-    statusIndex[
-      order.status
-    ] ?? 0;
-
+  const current = statusIndex[order.status] ?? 0;
+  const canCancel = order.status === "Beklemede" || order.status === "Kabul Edildi";
 
   return `
-
     <div class="ord">
-
       <div class="ordtop">
-
         <div>
-
-          <div class="code">
-            ${esc(
-              order.order_code
-            )}
-          </div>
-
-          <h3>
-            ${esc(
-              order.service
-            )}
-          </h3>
-
+          <div class="code">${esc(order.order_code)}</div>
+          <h3>${esc(order.service)}</h3>
         </div>
-
-        <span
-          class="status ${cls}"
-        >
-          ${esc(
-            order.status
-          )}
-        </span>
-
+        <span class="status ${cls}">${esc(order.status)}</span>
       </div>
 
-
-      <div class="status-steps">
-
-        ${stepStatuses.map(
-          (label,index)=>`
-
-            <div
-              class="status-step ${index < current ? "done" : ""} ${index === current ? "active" : ""}"
-            >
-
-              <div class="status-dot">
-                ${index <= current ? "✓" : ""}
-              </div>
-
-              <span>
-                ${label}
-              </span>
-
+      ${order.status === "İptal Edildi" ? `
+        <div class="rejected-box">Bu sipariş müşteri tarafından iptal edildi.</div>
+      ` : `
+        <div class="status-steps">
+          ${stepStatuses.map((label,index)=>`
+            <div class="status-step ${index < current ? "done" : ""} ${index === current ? "active" : ""}">
+              <div class="status-dot">${index <= current ? "✓" : ""}</div>
+              <span>${label}</span>
             </div>
-
-          `
-        ).join("")}
-
-      </div>
-
+          `).join("")}
+        </div>
+      `}
 
       <div class="oinfo">
-
-        <div>
-          📅
-          ${esc(
-            formatDate(
-              order.service_date
-            )
-          )}
-        </div>
-
-        <div>
-          🕐
-          ${esc(
-            order.service_time
-          )}
-        </div>
-
+        <div>📅 ${esc(formatDate(order.service_date))}</div>
+        <div>🕐 ${esc(order.service_time)}</div>
       </div>
-
 
       <div class="loc">
-        📍
-        ${esc(
-          order.block
-        )}
-        •
-        ${esc(
-          order.apartment
-        )}
-        numara
+        📍 ${esc(order.block)} • ${esc(order.apartment)} numara
       </div>
 
+      ${order.option ? `<div class="opt">${esc(order.option)}</div>` : ""}
 
-      ${
-        order.option
-        ?
-        `
-        <div class="opt">
-          ${esc(
-            order.option
-          )}
-        </div>
-        `
-        :
-        ""
-      }
+      ${order.business_name ? `<div class="biz">İşletme: <b>${esc(order.business_name)}</b></div>` : ""}
 
+      ${order.rejection_reason ? `<div class="rejected-box"><b>Red nedeni:</b> ${esc(order.rejection_reason)}</div>` : ""}
 
-      ${
-        order.business_name
-        ?
-        `
-        <div class="biz">
-          İşletme:
-          <b>
-            ${esc(
-              order.business_name
-            )}
-          </b>
-        </div>
-        `
-        :
-        ""
-      }
+      ${order.cancellation_reason ? `<div class="rejected-box"><b>İptal nedeni:</b> ${esc(order.cancellation_reason)}</div>` : ""}
 
-
-      ${
-        order.rejection_reason
-        ?
-        `
-        <div class="rejected-box">
-
-          <b>
-            Red nedeni:
-          </b>
-
-          ${esc(
-            order.rejection_reason
-          )}
-
-        </div>
-        `
-        :
-        ""
-      }
-
+      ${canCancel ? `<button class="cancel-btn" onclick="openCancel('${esc(order.order_code)}')">Siparişi İptal Et</button>` : ""}
     </div>
-
   `;
 
 }
+
 
 
 /* EMPTY */
@@ -2015,10 +1697,8 @@ function showAccount(){
     2
   );
 
-
   const count =
     tracked().length;
-
 
   document
     .getElementById(
@@ -2027,228 +1707,175 @@ function showAccount(){
     .innerHTML = `
 
       <div class="page">
-
-        <h1>
-          Hesabım
-        </h1>
-
-        <p>
-          BAKSANA deneyiminizi yönetin.
-        </p>
-
+        <h1>Hesabım</h1>
+        <p>BAKSANA deneyiminizi yönetin.</p>
       </div>
-
 
       <div class="profile">
-
-        <div class="avatar">
-          👤
-        </div>
-
+        <div class="avatar">👤</div>
         <div>
-
-          <h2>
-            Site Sakini
-          </h2>
-
-          <p>
-            Siparişlerinizi kodunuzla
-            güvenle takip edin.
-          </p>
-
+          <h2>Site Sakini</h2>
+          <p>Siparişlerinizi kodunuzla güvenle takip edin.</p>
         </div>
-
       </div>
-
 
       <div class="account">
 
         <div class="aitem">
-
-          <div class="ai">
-            📦
-          </div>
-
+          <div class="ai">📦</div>
           <main>
-
-            <strong>
-              Siparişlerim
-            </strong>
-
-            <span>
-              ${count}
-              takip edilen sipariş
-            </span>
-
+            <strong>Siparişlerim</strong>
+            <span>${count} takip edilen sipariş</span>
           </main>
-
-          <button
-            onclick="showOrders()"
-          >
-            →
-          </button>
-
+          <button onclick="showOrders()">→</button>
         </div>
-
 
         <div class="aitem">
-
-          <div class="ai">
-            🔐
-          </div>
-
+          <div class="ai">🔐</div>
           <main>
-
-            <strong>
-              Güvenli takip
-            </strong>
-
-            <span>
-              Sipariş kodu + telefon
-              numarası yeterli.
-            </span>
-
+            <strong>Güvenli takip</strong>
+            <span>Sipariş kodu + telefon numarası yeterli.</span>
           </main>
-
         </div>
-
 
         <div class="aitem">
-
-          <div class="ai">
-            ℹ️
-          </div>
-
+          <div class="ai">ℹ️</div>
           <main>
-
-            <strong>
-              BAKSANA
-            </strong>
-
-            <span>
-              Site hayatını kolaylaştırır.
-            </span>
-
+            <strong>BAKSANA</strong>
+            <span>Site hayatını kolaylaştırır.</span>
           </main>
-
         </div>
-
 
         <div
           class="aitem"
           onclick="resetIntro()"
           style="cursor:pointer"
         >
-
-          <div class="ai">
-            ✨
-          </div>
-
+          <div class="ai">✨</div>
           <main>
-
-            <strong>
-              Tanıtımı Tekrar Göster
-            </strong>
-
-            <span>
-              BAKSANA tanıtım ekranını aç.
-            </span>
-
+            <strong>Tanıtımı Tekrar Göster</strong>
+            <span>BAKSANA tanıtım ekranını aç.</span>
           </main>
-
-          <button>
-            →
-          </button>
-
+          <button>→</button>
         </div>
 
       </div>
-
 
       <div class="support">
-
         <div class="support-top">
-
-          <div class="support-icon">
-            💬
-          </div>
-
+          <div class="support-icon">💬</div>
           <div>
-
-            <h3>
-              Sorun mu yaşadın?
-            </h3>
-
-            <p>
-              Bir problem olduğunda
-              BAKSANA ekibine kolayca
-              ulaşabileceğin destek alanı.
-            </p>
-
+            <h3>Sorun mu yaşadın?</h3>
+            <p>Bir problem olduğunda BAKSANA ekibine kolayca ulaşabileceğin destek alanı.</p>
           </div>
-
         </div>
-
-
         <div class="support-actions">
-
-          <a
-            class="support-btn"
-            href="https://wa.me/905317369574"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp<br>
-            <small>
-              +90 531 736 9574
-            </small>
+          <a class="support-btn" href="https://wa.me/905317369574" target="_blank" rel="noopener">
+            WhatsApp<br><small>+90 531 736 9574</small>
           </a>
-
-
-          <a
-            class="support-btn"
-            href="https://instagram.com/bii.baksanaa"
-            target="_blank"
-            rel="noopener"
-          >
-            Instagram<br>
-            <small>
-              @bii.baksanaa
-            </small>
+          <a class="support-btn" href="https://instagram.com/bii.baksanaa" target="_blank" rel="noopener">
+            Instagram<br><small>@bii.baksanaa</small>
           </a>
-
-
-          <a
-            class="support-btn"
-            href="mailto:bi.baksanacomtr@gmail.com"
-          >
-            E-posta<br>
-            <small>
-              bi.baksanacomtr@gmail.com
-            </small>
+          <a class="support-btn" href="mailto:bi.baksanacomtr@gmail.com">
+            E-posta<br><small>bi.baksanacomtr@gmail.com</small>
           </a>
-
         </div>
-
       </div>
 
-
       <div class="help">
-
-        <strong>
-          Sipariş takibi nasıl çalışır?
-        </strong>
-
-        <p>
-          BAKSANA hesap açmayı zorunlu tutmaz.
-          Sipariş kodun ve telefon numaran
-          siparişini güvenli şekilde takip
-          etmek için yeterlidir.
-        </p>
-
+        <strong>Sipariş takibi nasıl çalışır?</strong>
+        <p>BAKSANA hesap açmayı zorunlu tutmaz. Sipariş kodun ve telefon numaran siparişini güvenli şekilde takip etmek için yeterlidir.</p>
       </div>
 
   `;
+
+}
+
+/* SİPARİŞ İPTALİ */
+
+let cancelOrderCode = "";
+let cancelReason = "";
+
+function openCancel(code){
+
+  cancelOrderCode = String(code || "").trim().toUpperCase();
+  cancelReason = "";
+
+  document.querySelectorAll(".cancel-option").forEach(
+    x => x.classList.remove("selected")
+  );
+
+  document.getElementById("cancelModal").classList.add("show");
+
+}
+
+function closeCancel(){
+
+  document.getElementById("cancelModal").classList.remove("show");
+
+}
+
+function selectCancelReason(button){
+
+  document.querySelectorAll(".cancel-option").forEach(
+    x => x.classList.remove("selected")
+  );
+
+  button.classList.add("selected");
+  cancelReason = button.dataset.reason || "";
+
+}
+
+async function confirmCancel(){
+
+  if(!cancelOrderCode){
+    closeCancel();
+    return;
+  }
+
+  const saved = tracked();
+  const item = saved.find(x => x.order_code === cancelOrderCode);
+
+  if(!item){
+    toast("Sipariş bilgileri bulunamadı.");
+    closeCancel();
+    return;
+  }
+
+  const btn = document.getElementById("cancelConfirmBtn");
+  btn.disabled = true;
+  btn.textContent = "İptal ediliyor...";
+
+  try{
+
+    const { data, error } = await db.rpc("cancel_public_order", {
+      p_order_code: cancelOrderCode,
+      p_phone: phone(item.phone),
+      p_reason: cancelReason || null
+    });
+
+    if(error) throw error;
+
+    if(!data || data.ok !== true){
+      throw new Error(data?.message || "Sipariş iptal edilemedi.");
+    }
+
+    closeCancel();
+    toast("Siparişiniz iptal edildi.");
+
+    if(page === "orders") showOrders();
+
+  }catch(error){
+
+    console.error("CANCEL ORDER ERROR:", error);
+    toast(error.message || "Sipariş iptal edilemedi.");
+
+  }finally{
+
+    btn.disabled = false;
+    btn.textContent = "Siparişi İptal Et";
+
+  }
 
 }
 
@@ -2362,229 +1989,6 @@ function openService(
 }
 
 
-/* SİPARİŞ ÖZETİ */
-
-function reviewOrder(){
-
-  const date =
-    document
-      .getElementById(
-        "serviceDate"
-      )
-      .value;
-
-  const time =
-    document
-      .getElementById(
-        "serviceTime"
-      )
-      .value;
-
-  const block =
-    document
-      .getElementById(
-        "block"
-      )
-      .value
-      .trim();
-
-  const apartment =
-    document
-      .getElementById(
-        "apartment"
-      )
-      .value
-      .trim();
-
-  const p =
-    document
-      .getElementById(
-        "phone"
-      )
-      .value
-      .trim();
-
-
-  if(!option){
-
-    toast(
-      "Lütfen hizmet seçeneğini seçin."
-    );
-
-    return;
-
-  }
-
-
-  if(
-    !date ||
-    !time ||
-    !block ||
-    !apartment ||
-    !p
-  ){
-
-    toast(
-      "Lütfen gerekli alanları doldurun."
-    );
-
-    return;
-
-  }
-
-
-  if(
-    phone(p).length <
-    10
-  ){
-
-    toast(
-      "Geçerli bir telefon numarası girin."
-    );
-
-    return;
-
-  }
-
-
-  document
-    .getElementById(
-      "confirmService"
-    )
-    .textContent =
-    service;
-
-
-  document
-    .getElementById(
-      "confirmOption"
-    )
-    .textContent =
-    option;
-
-
-  document
-    .getElementById(
-      "confirmDate"
-    )
-    .textContent =
-    formatDate(
-      date
-    );
-
-
-  document
-    .getElementById(
-      "confirmTime"
-    )
-    .textContent =
-    time;
-
-
-  document
-    .getElementById(
-      "confirmLocation"
-    )
-    .textContent =
-    block +
-    " • " +
-    apartment;
-
-
-  document
-    .getElementById(
-      "confirmPhone"
-    )
-    .textContent =
-    p;
-
-
-  document
-    .getElementById(
-      "serviceModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
-
-  document
-    .getElementById(
-      "confirmModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-
-/* CONFIRM KAPAT */
-
-function closeConfirm(){
-
-  document
-    .getElementById(
-      "confirmModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
-}
-
-
-/* SUCCESS KAPAT */
-
-function closeSuccess(){
-
-  document
-    .getElementById(
-      "successModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
-}
-
-
-/* FORM TEMİZLE */
-
-function resetOrderForm(){
-
-  const ids = [
-    "serviceDate",
-    "serviceTime",
-    "block",
-    "apartment",
-    "phone",
-    "note"
-  ];
-
-
-  ids.forEach(
-    id=>{
-
-      const el =
-        document.getElementById(
-          id
-        );
-
-      if(el)
-        el.value =
-          "";
-
-    }
-  );
-
-
-  option =
-    "";
-
-}
-
-
 /* MODAL KAPAT */
 
 function closeService(){
@@ -2622,45 +2026,10 @@ document
 
 
 document
-  .getElementById(
-    "confirmModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
-
-      if(
-        e.target.id ===
-        "confirmModal"
-      ){
-
-        closeConfirm();
-
-      }
-
-    }
-  );
-
-
-document
-  .getElementById(
-    "successModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
-
-      if(
-        e.target.id ===
-        "successModal"
-      ){
-
-        closeSuccess();
-
-      }
-
-    }
-  );
+  .getElementById("cancelModal")
+  .addEventListener("click", e=>{
+    if(e.target.id === "cancelModal") closeCancel();
+  });
 
 
 /* SİPARİŞ OLUŞTUR */
@@ -2846,23 +2215,8 @@ async function createOrder(){
 
     closeConfirm();
 
-
-    document
-      .getElementById(
-        "successCode"
-      )
-      .textContent =
-      data.order_code;
-
-
-    document
-      .getElementById(
-        "successModal"
-      )
-      .classList.add(
-        "show"
-      );
-
+    document.getElementById("successCode").textContent = data.order_code;
+    document.getElementById("successModal").classList.add("show");
 
     resetOrderForm();
 
