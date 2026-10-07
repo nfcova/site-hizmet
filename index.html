@@ -13,21 +13,149 @@
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#f2f2f5;color:var(--dark);overflow-x:hidden}
 button,input,select,textarea{font:inherit}button{cursor:pointer}
 
-#onboarding{position:fixed;inset:0;z-index:99;background:#fff;display:flex;align-items:center;justify-content:center}
-.ob{width:100%;max-width:500px;min-height:100vh;padding:48px 24px 24px;display:flex;flex-direction:column;position:relative;text-align:center}
-.brand-logo{width:108px;height:108px;object-fit:contain;margin:0 auto 10px}
-.brand{font-size:42px;font-weight:850;letter-spacing:-2.5px}
-.tag{margin-top:12px;font-size:12px;letter-spacing:4px;color:#555765}
-.intro{margin:34px auto 0;font-size:20px;line-height:1.45;max-width:350px}
-.ob-art{position:absolute;left:0;right:0;bottom:170px;opacity:.7;color:#777;pointer-events:none}
-.ob-art svg{width:100%;height:280px}
-.ob-art *{fill:none;stroke:currentColor;stroke-width:1.4}
-.next{position:absolute;left:24px;right:24px;bottom:105px;height:62px;border:0;border-radius:32px;background:linear-gradient(135deg,var(--p2),var(--p));color:#fff;font-size:19px;font-weight:700;box-shadow:0 12px 28px rgba(103,53,232,.24)}
-.next span{font-size:27px;margin-left:10px}
-.feats{position:absolute;left:20px;right:20px;bottom:20px;height:65px;display:grid;grid-template-columns:repeat(3,1fr)}
-.feat{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:1.2}
-.feat:not(:last-child){border-right:1px solid #dddde4}
-.feat b{font-size:24px;color:var(--p);margin-bottom:5px}
+#onboarding{
+    position:fixed;
+    inset:0;
+    z-index:99;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden
+}
+
+.ob{
+    width:100%;
+    max-width:500px;
+    min-height:100vh;
+    padding:42px 24px 24px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    text-align:center;
+    overflow:hidden
+}
+
+.brand-logo{
+    width:96px;
+    height:96px;
+    object-fit:contain;
+    margin:0 auto 8px;
+    position:relative;
+    z-index:3
+}
+
+.brand{
+    font-size:40px;
+    font-weight:850;
+    letter-spacing:-2.5px;
+    position:relative;
+    z-index:3
+}
+
+.tag{
+    margin-top:10px;
+    font-size:11px;
+    letter-spacing:3.5px;
+    color:#555765;
+    position:relative;
+    z-index:3
+}
+
+.intro{
+    margin:28px auto 0;
+    font-size:20px;
+    line-height:1.45;
+    max-width:350px;
+    position:relative;
+    z-index:3
+}
+
+.ob-art{
+    position:absolute;
+    left:-8%;
+    right:-8%;
+    bottom:155px;
+    height:390px;
+    opacity:.42;
+    pointer-events:none;
+    z-index:1;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    overflow:hidden
+}
+
+.ob-art img{
+    width:112%;
+    height:100%;
+    object-fit:cover;
+    object-position:center bottom;
+    display:block;
+    filter:grayscale(1) contrast(.9);
+    mix-blend-mode:multiply
+}
+
+.next{
+    position:absolute;
+    left:24px;
+    right:24px;
+    bottom:108px;
+    height:60px;
+    border:0;
+    border-radius:30px;
+    background:linear-gradient(135deg,var(--p2),var(--p));
+    color:#fff;
+    font-size:18px;
+    font-weight:750;
+    box-shadow:0 12px 28px rgba(103,53,232,.24);
+    z-index:5
+}
+
+.next span{
+    font-size:26px;
+    margin-left:9px;
+    vertical-align:-1px
+}
+
+.feats{
+    position:absolute;
+    left:18px;
+    right:18px;
+    bottom:18px;
+    height:72px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    z-index:5;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(12px);
+    border:1px solid #ececf2;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(17,18,26,.06);
+    overflow:hidden
+}
+
+.feat{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    line-height:1.25;
+    color:#4f5060;
+    padding:0 5px
+}
+
+.feat:not(:last-child){
+    border-right:1px solid #e5e5eb
+}
+
+.feat b{
+    font-size:20px;
+    color:var(--p);
+    margin-bottom:5px;
+    line-height:1
+}
 
 #app{display:none;min-height:100vh;background:var(--bg);padding-bottom:78px}
 .head{background:#fff;border-bottom:1px solid #eeeef2;padding:18px 18px 14px}
@@ -160,9 +288,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}
     </div>
 
     <div class="ob-art">
-      <svg viewBox="0 0 500 280">
-        <path d="M0 230L90 145 145 180V255H0ZM150 255V160L250 105 350 160V255M360 255V135L430 95 500 130V255M190 205h120M215 170h22m26 0h22M215 195h22m26 0h22M60 205h20m25 0h20M390 175h22m20 0h22M390 205h22m20 0h22M0 255h500"/>
-      </svg>
+      <img src="baksana-site-sketch.png" alt="">
     </div>
 
     <button class="next" onclick="startApp()">
