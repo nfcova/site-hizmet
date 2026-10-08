@@ -2031,7 +2031,10 @@ document
     if(e.target.id === "cancelModal") closeCancel();
   });
 
-
+function closeConfirm(){
+  document.getElementById("confirmModal").classList.remove("show");
+  document.getElementById("serviceModal").classList.add("show");
+}
 /* SİPARİŞ OLUŞTUR */
 function reviewOrder(){
 
