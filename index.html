@@ -2033,7 +2033,49 @@ document
 
 
 /* SİPARİŞ OLUŞTUR */
+function reviewOrder(){
 
+  const date =
+    document.getElementById("serviceDate").value;
+
+  const time =
+    document.getElementById("serviceTime").value;
+
+  const block =
+    document.getElementById("block").value.trim();
+
+  const apartment =
+    document.getElementById("apartment").value.trim();
+
+  const p =
+    document.getElementById("phone").value.trim();
+
+  if(!option){
+    toast("Lütfen hizmet seçeneğini seçin.");
+    return;
+  }
+
+  if(!date || !time || !block || !apartment || !p){
+    toast("Lütfen gerekli alanları doldurun.");
+    return;
+  }
+
+  if(phone(p).length < 10){
+    toast("Geçerli bir telefon numarası girin.");
+    return;
+  }
+
+  document.getElementById("confirmService").textContent = service;
+  document.getElementById("confirmOption").textContent = option;
+  document.getElementById("confirmDate").textContent = formatDate(date);
+  document.getElementById("confirmTime").textContent = time;
+  document.getElementById("confirmLocation").textContent =
+    block + " • " + apartment;
+  document.getElementById("confirmPhone").textContent = p;
+
+  document.getElementById("serviceModal").classList.remove("show");
+  document.getElementById("confirmModal").classList.add("show");
+}
 async function createOrder(){
 
   const date =
