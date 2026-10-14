@@ -151,6 +151,21 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .help{margin-top:14px;padding:18px;background:var(--soft2);border-radius:20px}
 .help strong{display:block;margin-bottom:6px}.help p{font-size:13px;color:#656675;line-height:1.5}
 
+/* detail */
+.detail-hero{background:#fff;border:1px solid var(--bd);border-radius:24px;padding:20px;box-shadow:var(--sh);display:flex;gap:16px;align-items:center;margin:16px 0 22px}
+.detail-hero .icon{width:64px;height:64px;font-size:32px;border-radius:20px;margin:0}
+.detail-hero h2{font-size:18px;margin-bottom:4px}.detail-hero p{font-size:13px;color:var(--mut);line-height:1.5}
+.sub-title{font-size:16px;font-weight:700;margin-bottom:10px}
+.opt-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.opt-tile{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:14px;text-align:left;box-shadow:var(--sh)}
+.opt-tile:active{border-color:var(--p);background:var(--soft)}
+.opt-tile strong{display:block;font-size:14px;margin-bottom:3px}.opt-tile small{font-size:12px;color:var(--mut)}
+.how{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:4px 16px;margin-bottom:20px}
+.how div{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #f0f0f3;font-size:14px;line-height:1.45}
+.how div:last-child{border-bottom:0}
+.how b{width:26px;height:26px;border-radius:50%;background:var(--soft2);color:var(--p);display:grid;place-items:center;font-size:12px;flex:none}
+.detail-cta{position:sticky;bottom:calc(78px + env(safe-area-inset-bottom))}
+.copy-btn{display:block;margin:-6px auto 16px}
 /* nav */
 .nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--bd);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom)}
 .nav button{flex:1;height:64px;border:0;background:transparent;color:#8a8b97;font-size:11px;font-weight:650;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
@@ -240,6 +255,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 <div class="modal" id="serviceModal">
   <div class="sheet">
     <div class="sheethead"><h2 id="serviceTitle">Hizmet</h2><button class="close" aria-label="Kapat" onclick="closeService()">×</button></div>
+    <p class="muted" id="serviceDesc" style="margin:-8px 0 18px"></p>
     <div class="group"><label>Hizmet seçeneği</label><div class="opts" id="options"></div></div>
     <div class="group"><label for="serviceDate">Tarih</label><input id="serviceDate" type="date"></div>
     <div class="group"><label for="serviceTime">Saat</label><input id="serviceTime" type="time">
@@ -277,6 +293,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
     <h2>Siparişiniz alındı</h2>
     <p>Talebiniz BAKSANA üzerinden işletmeye iletildi. Sipariş kodunuzu saklayın.</p>
     <div class="success-code" id="successCode">BK-XXXXXXXX</div>
+    <button class="smallbtn copy-btn" onclick="copyCode()">Kodu kopyala</button>
     <div class="success-actions">
       <button class="primary" onclick="closeSuccess();showOrders()">Siparişlerimi Gör →</button>
       <button class="secondary" onclick="closeSuccess();showHome()">Ana Sayfaya Dön</button>
@@ -390,7 +407,7 @@ function showHome(){
     <div class="sec-head"><h2>Hizmetler</h2><button class="link" onclick="showAllServices()">Tümü →</button></div>
     <div class="grid">
       ${Object.keys(serviceMeta).map(n=>`
-        <button class="card" onclick="openService('${n}')">
+        <button class="card" onclick="showServiceDetail('${n}')">
           <div class="icon ${serviceMeta[n].tone}">${serviceMeta[n].icon}</div>
           <div><h3>${n}</h3><p>${serviceMeta[n].desc}</p></div>
           <span class="go">→</span>
@@ -411,7 +428,7 @@ function showAllServices(){
         <div class="service-group-title"><h2>${g}</h2><span>${list.length} hizmet</span></div>
         <div class="service-full-grid">
           ${list.map(n=>`
-            <button class="service-full-card" onclick="openService('${n}')">
+            <button class="service-full-card" onclick="showServiceDetail('${n}')">
               <div class="icon ${serviceMeta[n].tone}">${serviceMeta[n].icon}</div>
               <main><strong>${n}</strong><small>${serviceOptions[n][0][1]}</small></main>
               <span class="arrow">→</span>
@@ -436,6 +453,29 @@ async function loadHomeActiveOrder(){
     <p>📅 ${esc(formatDate(active.service_date))} • 🕐 ${esc(formatTime(active.service_time))}</p>
     <button class="home-active-btn" onclick="showOrders()">Sipariş detayını gör →</button>`;
   box2.classList.add("show");
+}
+
+/* HİZMET DETAYI */
+function showServiceDetail(name){
+  page="home";setNav(0);window.scrollTo(0,0);
+  const m=serviceMeta[name],opts=serviceOptions[name];
+  $("main").innerHTML=`
+    <div class="service-list-head"><button class="service-back" aria-label="Geri" onclick="showHome()">←</button><h1>${name}</h1></div>
+    <div class="detail-hero">
+      <div class="icon ${m.tone}">${m.icon}</div>
+      <div><h2>${name}</h2><p>${m.desc}</p></div>
+    </div>
+    <div class="sub-title">Seçenekler</div>
+    <div class="opt-list">
+      ${opts.map(o=>`<button class="opt-tile" onclick="openService('${name}','${o[0]}')"><strong>${esc(o[0])}</strong><small>${esc(o[1])}</small></button>`).join("")}
+    </div>
+    <div class="sub-title">Nasıl çalışır?</div>
+    <div class="how">
+      <div><b>1</b><span>Seçeneği, tarihi ve size uygun saati belirleyin.</span></div>
+      <div><b>2</b><span>Talebiniz işletmenin onayına gönderilir.</span></div>
+      <div><b>3</b><span>Sipariş kodunuzla durumu Siparişlerim'den takip edin.</span></div>
+    </div>
+    <button class="primary detail-cta" onclick="openService('${name}')">Sipariş Oluştur →</button>`;
 }
 
 /* SİPARİŞLERİM */
@@ -580,9 +620,10 @@ async function confirmCancel(){
 }
 
 /* HİZMET MODALI */
-function openService(name){
+function openService(name,pre){
   service=name;option="";
   $("serviceTitle").textContent=name;
+  $("serviceDesc").textContent=(serviceMeta[name]||{}).desc||"";
   const box=$("options");box.innerHTML="";
   serviceOptions[name].forEach(item=>{
     const div=document.createElement("div");
@@ -592,7 +633,7 @@ function openService(name){
       document.querySelectorAll(".optpick").forEach(x=>x.classList.remove("selected"));
       div.classList.add("selected");option=item[0];
     };
-    box.appendChild(div);
+    box.appendChild(div);if(pre===item[0])div.click();
   });
   $("serviceDate").min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().split("T")[0];
   $("serviceModal").classList.add("show");
@@ -603,6 +644,11 @@ $("cancelModal").addEventListener("click",e=>{if(e.target.id==="cancelModal")clo
 
 function backToForm(){$("confirmModal").classList.remove("show");$("serviceModal").classList.add("show")}
 function closeSuccess(){$("successModal").classList.remove("show")}
+function copyCode(){
+  const c=$("successCode").textContent;
+  if(!navigator.clipboard){toast("Kodu elle kopyalayabilirsiniz.");return}
+  navigator.clipboard.writeText(c).then(()=>toast("Sipariş kodu kopyalandı."),()=>toast("Kodu elle kopyalayabilirsiniz."));
+}
 
 /* SİPARİŞ OLUŞTUR */
 function getForm(){
