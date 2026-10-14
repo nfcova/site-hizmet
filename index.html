@@ -151,6 +151,26 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{
 .help{margin-top:14px;padding:18px;background:var(--soft2);border-radius:20px}
 .help strong{display:block;margin-bottom:6px}.help p{font-size:13px;color:#656675;line-height:1.5}
 
+/* proposal */
+.proposal{margin:2px 0 14px;background:#fffaf0;border:1.5px solid #ffd98a;border-radius:16px;padding:14px}
+.proposal.done{background:var(--soft);border-color:#e0d8fb}
+.proposal-head{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:12px}
+.proposal-head strong{flex:1}
+.proposal-tag{font-size:10px;font-weight:800;background:#ffb020;color:#fff;padding:4px 8px;border-radius:20px}
+.proposal-times{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.proposal-times>div{flex:1;background:#fff;border:1px solid var(--bd);border-radius:12px;padding:10px 12px}
+.proposal-times>div.new{border-color:var(--p);background:#fff}
+.proposal-times small{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
+.proposal-times b{font-size:20px;letter-spacing:-.5px}
+.proposal-times .new b{color:var(--p)}
+.proposal-times>span{color:var(--mut);font-weight:800}
+.proposal p{font-size:13px;line-height:1.5;color:#5a5b6a}
+.proposal-actions{display:grid;grid-template-columns:1.5fr 1fr;gap:8px;margin-top:12px}
+.proposal-actions button{height:46px;border-radius:13px;font-size:14px;font-weight:700;border:0}
+.proposal-actions .accept{background:var(--p);color:#fff}
+.proposal-actions .decline{background:#fff;color:#555765;border:1px solid #dedee6}
+.proposal-actions button:disabled{opacity:.55}
+.prop-note{margin-top:10px;background:#fffaf0;border:1px solid #ffd98a;color:#8a5a00;border-radius:12px;padding:9px 12px;font-size:13px;font-weight:600}
 /* detail */
 .detail-hero{background:#fff;border:1px solid var(--bd);border-radius:24px;padding:20px;box-shadow:var(--sh);display:flex;gap:16px;align-items:center;margin:16px 0 22px}
 .detail-hero .icon{width:64px;height:64px;font-size:32px;border-radius:20px;margin:0}
@@ -332,6 +352,11 @@ let site={id:null,slug:SITE_SLUG,name:"NOVA RESIDENCE"};
 let page="home",service="",option="",refreshTimer=null;
 let cancelOrderCode="",cancelReason="";
 
+/* SAAT ÖNERİSİ: time_proposal_status değerleri. Gerçek değerler farklıysa yalnızca bu iki listeyi güncelleyin.
+   Burada olmayan her değer (ve önerilmiş saat varken boş durum) "yanıt bekliyor" sayılır. */
+const PROPOSAL_ACCEPTED=["accepted","approved","kabul","kabul edildi","kabul_edildi"];
+const PROPOSAL_REJECTED=["rejected","declined","ret","red","reddedildi","reddedilen"];
+
 /* HİZMETLER */
 const serviceOptions={
   "Ev Temizliği":[["1+1 Ev","Standart temizlik"],["2+1 Ev","Standart temizlik"],["3+1 Ev","Standart temizlik"],["4+1 Ev","Standart temizlik"]],
@@ -451,7 +476,8 @@ async function loadHomeActiveOrder(){
       <span class="mini-status">${esc(active.status)}</span>
     </div>
     <p>📅 ${esc(formatDate(active.service_date))} • 🕐 ${esc(formatTime(active.service_time))}</p>
-    <button class="home-active-btn" onclick="showOrders()">Sipariş detayını gör →</button>`;
+    ${proposalState(active)==="pending"?'<div class="prop-note">🕐 İşletme yeni bir saat önerdi. Yanıtınız bekleniyor.</div>':""}
+    <button class="home-active-btn" onclick="showOrders()">${proposalState(active)==="pending"?"Saat önerisini yanıtla →":"Sipariş detayını gör →"}</button>`;
   box2.classList.add("show");
 }
 
@@ -508,6 +534,10 @@ async function getOrder(item){
     p_phone:phone(item.phone)
   });
   if(error){console.error(error);return null}
+  if(data&&!("time_proposal_status" in data)&&!getOrder.warned){
+    getOrder.warned=true;
+    console.warn("get_public_order yanıtında saat önerisi alanları (proposed_service_time, time_proposal_status, time_proposed_at) yok; saat önerileri müşteriye gösterilemez.");
+  }
   return data||null;
 }
 async function refreshTracked(){
@@ -548,7 +578,7 @@ function orderCard(order){
         <div class="status-steps">
           ${steps.map((l,i)=>`<div class="status-step ${i<current?"done":""} ${i===current?"active":""}"><div class="status-dot">${i<=current?"✓":""}</div><span>${l}</span></div>`).join("")}
         </div>`}
-      <div class="oinfo"><div>📅 ${esc(formatDate(order.service_date))}</div><div>🕐 ${esc(formatTime(order.service_time))}</div></div>
+      ${proposalBlock(order)}<div class="oinfo"><div>📅 ${esc(formatDate(order.service_date))}</div><div>🕐 ${esc(formatTime(order.service_time))}</div></div>
       <div class="loc">📍 ${esc(order.block)} • ${esc(order.apartment)} numara</div>
       ${order.option?`<div class="opt">${esc(order.option)}</div>`:""}
       ${order.business_name?`<div class="biz">İşletme: <b>${esc(order.business_name)}</b></div>`:""}
@@ -556,6 +586,63 @@ function orderCard(order){
       ${order.cancellation_reason?`<div class="rejected-box"><b>İptal nedeni:</b> ${esc(order.cancellation_reason)}</div>`:""}
       ${canCancel?`<button class="cancel-btn" onclick="openCancel('${esc(order.order_code)}')">Siparişi İptal Et</button>`:""}
     </div>`;
+}
+
+/* SAAT ÖNERİSİ */
+function proposalState(o){
+  if(!o||!o.proposed_service_time)return null;
+  const st=String(o.time_proposal_status||"").trim().toLowerCase();
+  if(PROPOSAL_ACCEPTED.includes(st))return "accepted";
+  if(PROPOSAL_REJECTED.includes(st))return "rejected";
+  return "pending";
+}
+function proposalBlock(o){
+  const state=proposalState(o);
+  if(!state)return "";
+  const closed=["İptal Edildi","Reddedildi","Tamamlandı"].includes(o.status);
+  const newTime=esc(formatTime(o.proposed_service_time));
+  if(state==="pending"){
+    if(closed)return "";
+    const code=esc(o.order_code);
+    return `<div class="proposal" data-prop="${code}">
+      <div class="proposal-head"><span>🕐</span><strong>İşletme yeni bir saat önerdi</strong><span class="proposal-tag">YANIT BEKLİYOR</span></div>
+      <div class="proposal-times">
+        <div><small>İstediğiniz saat</small><b>${esc(formatTime(o.service_time))}</b></div>
+        <span>→</span>
+        <div class="new"><small>Önerilen saat</small><b>${newTime}</b></div>
+      </div>
+      <p>${esc(formatDate(o.service_date))} tarihi için seçtiğiniz saat işletmeye uygun değil. Önerilen saati kabul edebilir veya reddedebilirsiniz.</p>
+      <div class="proposal-actions">
+        <button class="accept" onclick="respondProposal('${code}',true)">Önerilen Saati Kabul Et</button>
+        <button class="decline" onclick="respondProposal('${code}',false)">Reddet</button>
+      </div>
+    </div>`;
+  }
+  return `<div class="proposal done">
+    <div class="proposal-head"><span>${state==="accepted"?"✅":"✖️"}</span><strong>${state==="accepted"?"Önerilen saati kabul ettiniz":"Önerilen saati reddettiniz"}</strong></div>
+    <p>İşletmenin önerdiği saat: <b>${newTime}</b></p>
+  </div>`;
+}
+async function respondProposal(code,accept){
+  code=String(code||"").trim().toUpperCase();
+  const item=tracked().find(x=>String(x.order_code).toUpperCase()===code);
+  if(!item){toast("Sipariş bilgileri bulunamadı.");return}
+  const btns=Array.from(document.querySelectorAll("[data-prop]")).filter(e=>e.dataset.prop.toUpperCase()===code).flatMap(e=>Array.from(e.querySelectorAll("button")));
+  btns.forEach(b=>b.disabled=true);
+  try{
+    const{data,error}=await db.rpc("respond_time_proposal",{p_order_code:code,p_phone:phone(item.phone),p_accept:accept});
+    if(error)throw error;
+    if(data&&data.ok===false)throw new Error(data.message||"İşlem tamamlanamadı.");
+    toast(accept?"Önerilen saati kabul ettiniz.":"Önerilen saati reddettiniz.");
+    const live=await refreshTracked();
+    const box=$("ordersList");
+    if(page==="orders"&&box)box.innerHTML=live.length?live.map(orderCard).join(""):empty("📦","Bu cihazda takip edilen aktif sipariş bulunamadı.");
+    else if(page==="home")loadHomeActiveOrder();
+  }catch(error){
+    console.error("RESPOND TIME PROPOSAL ERROR:",error);
+    toast(error.message||"İşlem tamamlanamadı.");
+    btns.forEach(b=>{if(b.isConnected)b.disabled=false});
+  }
 }
 
 function empty(icon,title){
